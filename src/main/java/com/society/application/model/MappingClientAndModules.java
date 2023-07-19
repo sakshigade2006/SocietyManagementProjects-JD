@@ -19,7 +19,8 @@ public class MappingClientAndModules {
 	private String loanID;
 	private String loanHolding;
 	private String loanValues;
-	
+	private String createdBy ;
+	private String createdDt;
 	
 	public String getClientid() {
 		return clientid;
@@ -75,7 +76,17 @@ public class MappingClientAndModules {
 	public void setLoanValues(String loanValues) {
 		this.loanValues = loanValues;
 	}
+	public String getCreatedBy() {
+		return createdBy;
+	}
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+	public String getCreatedDt() {
+		return createdDt;
+	}
+	public void setCreatedDt(String createdDt) {
+		this.createdDt = createdDt;
+	}
 	
-	
-
 }
