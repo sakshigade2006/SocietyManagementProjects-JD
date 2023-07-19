@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>   
+<databaseChangeLog
+   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd
+      http://www.liquibase.org/xml/ns/pro 
+      http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">  
+     
+     <include file="db/changelog/db.changelog-1.0.0.sqll"/>
+      
+     <include file="db/changelog/Client_Master.sql"/>
+     
+     <include file="db/changelog/Bank_Master.sql"/>
+     
+     <include file="db/changelog/Branch_Master.sql"/>
+     
+     <include file="db/changelog/Fy_Master.sql"/>
+     
+     <include file="db/changelog/Relative_Relation_Master.sql"/>
+     
+     <include file="db/changelog/Caste_Master.sql"/>
+     
+     <include file="db/changelog/Category_Master.sql"/>
+     
+     <include file="db/changelog/Director_Master.sql"/>
+     
+     <include file="db/changelog/User_Master.sql"/>
+     
+     <include file="db/changelog/User_To_Service_Map.sql"/>
+     
+     <include file="db/changelog/Add_Investment.sql"/>
+     
+     <!-- INSERT data into the bank_master table -->
+     <changeSet id="insertDataIntoBankMaster" author="Jyoti">
+        <sql>
+            INSERT INTO bank_master (id, account_no, address, bank_name, mapped_branch, mobile_no, opening_balance, opening_date)
+            VALUES (1, '123654789', 'Wardha', 'Axis Bank', 'SUMUKHANIDHI', '9874563211', '5000', '26/03/2023');
+        </sql>
+     </changeSet>
+     
+     <!-- INSERT data into the branch_master table -->
+     <changeSet id="insertDataIntoBranchMaster" author="Jyoti">
+        <sql>
+        	<![CDATA[
+            	INSERT INTO branch_master (id, name, address, contact_person, opening_date, pin, state, amount, from_branch, to_branch, transfer_date, branch_code, contact_no, code, contect_no, fdate, tdate)
+            	VALUES ('1', 'BOI', 'Jafar Nagar, Nagpur', 'amit', '2023-07-03', '440013', 'MAHARASHTRA', '10000', '', '', '', '1111', '0000000000', '', '', '', '');  
+          ]]>
+        </sql>
+     </changeSet>
+     
+     <!-- INSERT data into the branch_master table -->
+     <changeSet id="insertDataIntoBranchMaster2" author="Jyoti">
+        <sql>
+        	<![CDATA[
+        		INSERT INTO branch_master (id, name, address, contact_person, opening_date, pin, state, amount, from_branch, to_branch, transfer_date, branch_code, contact_no, code, contect_no, fdate, tdate)
+                VALUES ('2','SBI','Bhagiratha park jagtab layout wanadongri hingna, nagpur','sumit','2023-07-03','442105','MAHARASHTRA','10000', '', '', '','1002','1236547899', '', '', '', '');
+        ]]>
+        </sql>
+     </changeSet>
+     
+     <!-- INSERT data into the branch_master table -->
+     <changeSet id="insertDataIntoBranchMaster3" author="Jyoti">
+        <sql>
+        	<![CDATA[
+        		INSERT INTO branch_master (id, name, address, contact_person, opening_date, pin, state, amount, from_branch, to_branch, transfer_date, branch_code, contact_no, code, contect_no, fdate, tdate)
+            	VALUES ('3','SUMUKHANIDHI','Swamy Vivekananda nagara, Behind Govt Hospital, #617/584, First Floor, Court Road, Madduru Town','Mahesh','2023-07-01','571428','KARNATAKA','10000', '', '', '','001','4204201', '', '', '', '');
+        	 ]]>
+        </sql>
+     </changeSet>
+     
+    <!-- INSERT data into the user_master table -->
+    <changeSet id="insertDataIntoUserMaster" author="Jyoti">
+    	<sql>
+        	<![CDATA[
+            	INSERT INTO user_master (id, back_date, branch_name, del_acc, email, full_name, isactive, mapped_branch,
+            	mobile, password, reprint, user_id, user_type, last_login_date, company_name, short_name)
+            	VALUES (414,'1','Main Office - 001','YES','info@thecodebasket.com','Aditya Malviya','on','Main Office - 002','2222222222','123','YES','admin','Admin','07-18-2023 05:01 PM','EQFI NIDHI LIMITED ','EQFI');
+        	]]>
+    	</sql>
+	</changeSet>
+	
+	<!-- INSERT data into the user_to_service_map table -->
+	<changeSet id="insertDataIntoUserToServiceMap" author="Jyoti">
+    	<insert tableName="user_to_service_map">
+        	<column name="id" value="1"/>
+        	<column name="service" value="Add Member,Add Member KYC,Member Summary,Member Report,Search Member,Share Transfer,Un-allotted Shares,Share Certificate,Share Report,DNO Re-Generate,Add Collector/Advisor,Collector/Advisor Tree,Collector/Advisor Downline"/>
+        	<column name="user_id" value="admin"/>
+    	</insert>
+	</changeSet>
+
+	<!-- INSERT data into the director_master table -->
+	<changeSet id="insertDataIntoDirectorMaster" author="Jyoti">
+  		<insert tableName="director_master">
+    		<column name="id" valueNumeric="1391"/>
+    		<column name="aadharno" value="852"/>
+    		<column name="address" value="Zoo"/>
+    		<column name="appointment_date" value="2023-05-17"/>
+    		<column name="branch_name" value="SBI"/>
+    		<column name="date_of_birth" value="2000-05-03"/>
+    		<column name="din_no_promoter_no" value="101"/>
+    		<column name="director_name" value="Khushi"/>
+    		<column name="district" value="MP"/>
+    		<column name="email_id" value="GFHBDSKM"/>
+    		<column name="mobile_no" value="7410"/>
+    		<column name="no_of_share" value="1000"/>
+    		<column name="pan_no" value="963"/>
+    		<column name="paymode" value="Cash"/>
+    		<column name="pin" value="123"/>
+    		<column name="prefix" value="Ms."/>
+    		<column name="relative_name" value="Sonu"/>
+    		<column name="share_amount" value="10000"/>
+    		<column name="share_nominal_value" value="10"/>
+    		<column name="state" value="UTTARAKHAND"/>
+    		<column name="type" value="Director"/>
+    		<column name="cheque_date" value="2023-01-01"/>
+    		<column name="chequeno" value=""/>
+    		<column name="depositac" value=""/>
+    		<column name="member_code" value="1"/>
+    		<column name="dno_from" value="1000"/>
+    		<column name="dno_to" value="NULL"/>
+    		<column name="deposite_acc" value="NULL"/>
+    		<column name="relative_relation" value="Daughter in Law"/>
+    		<column name="cheque_no" value="122"/>
+    		<column name="ref_number" value="undefined"/>
+  		</insert>
+	</changeSet>
+	
+	<!-- INSERT data into the category_master table -->
+	<changeSet id="insertDataIntoCategoryMaster" author="Jyoti">
+    	<insert tableName="category_master">
+        	<column name="id" valueNumeric="7" />
+        	<column name="category_name" value="SBC" />
+    	</insert>
+	</changeSet>
+	
+	<!-- INSERT data into the caste_master table -->
+	<changeSet id="insertDataIntoCasteMaster" author="Jyoti">
+        <sql>
+            INSERT INTO `caste_master` VALUES (5, 'OTHERS');
+        </sql>
+    </changeSet>
+	
+	<!-- INSERT data into the relative_relation_master table -->
+	<changeSet id="insertDataIntoRelativeRelationMaster" author="Jyoti">
+        <sql>
+            INSERT INTO `relative_relation_master` VALUES ('9','Sister');
+        </sql>
+    </changeSet>
+    
+    <!-- INSERT data into the fymaster table -->
+    <changeSet id="insertDataIntoFYMaster" author="Jyoti">
+        <sql>
+            INSERT INTO `fymaster` VALUES (1327,'2023-01-01','2020-2021','2023-05-31'),(1394,'2021-12-31','2021-2022','2023-05-05');
+        </sql>
+    </changeSet>
+    
+    <!-- INSERT data into the client_master table -->
+    <changeSet id="insertDataIntoClientMaster" author="Jyoti">
+        <sql>
+        	INSERT INTO `client_master` VALUES (1387,'45699','123','Zoo Bombay','23','Itwari','1','','2',NULL,'ST','1','2023-05-22',NULL,'123456789',NULL,NULL,NULL,'9','Loan','123',NULL,'Nagpur','1999-07-29','B.E','demo@gmail.com','11000',NULL,'1',NULL,'Female','123',NULL,'M1','palak',NULL,'user','Married','15000','100','Khushi','Ms.',NULL,NULL,'Brother','Natural','1100','Nandabb','12','45698','Ration Card','789654','Amit','456987','Student','78966','45669','456','Online','456987','45522','123','2023-05-22','Sonal','Daughter in Law',NULL,'SAVE...','A',NULL,'Khushi','110','MADYA PRADESH','ONN',NULL,'1000','2023-05-09',NULL,'With Aadhar','45699', '','ST','100','110','','','undefined');
+       	</sql>
+    </changeSet>
+    
+    <!-- INSERT data into the add_investment table -->
+    <changeSet id="insertDataIntoAddInvestment" author="Jyoti">
+        <sql>
+			INSERT INTO `add_investment` VALUES (194,'ABC','Vaishali Nagar','SXZ','Palak','20','ONN','West','1990-02-19','Single','ABC','2023-01-12','132','8900','Niraj','Off','Cash','Mly.','24','JYOTI','Daughter','Cash','0987678765','675432','10200','2023-03-11','XCV','yess','A+','A1','01/NGP/ 000008','Bihar','12','900','001','BOI','2023-03-23','5670','L101','P1','KJOO','Deposite','1','logout.png','edit.png','1000','jknhdksjv','2023-02-09','2023-02-09','120','2023-03-10','100','66666','M1','100000','John',NULL,'DRD',NULL,NULL,'','ABCD','1','',NULL,'SUMUKHANIDHI','2023-07-08',NULL,NULL,NULL,'','10','1');
+        </sql>
+    </changeSet>
+		
+</databaseChangeLog> 

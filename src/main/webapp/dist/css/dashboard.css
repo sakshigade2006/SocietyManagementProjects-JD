@@ -1,0 +1,290 @@
+﻿.row {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+.profile-user-img {
+    margin: 0px !important;
+    width: 180px;
+    padding: 3px;
+    border: 3px solid #d2d6de;
+}
+.margin-20{
+    margin-top:25px !important;
+}
+
+.box-header {
+    color: #444;
+    display: block;
+    padding:8px 10px;
+    position: relative;
+}
+.box-head{
+    padding:10px;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    height:28px;
+    padding: 2px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #8A8A8A;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+    -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+}
+.form-group {
+    margin-bottom: 2px;
+}
+.input-group-addon {
+    padding: 3px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    color: #555;
+    text-align: center;
+    background-color: #eee;
+    border: 1px solid #8A8A8A !important;
+    border-radius: 4px;
+}
+
+.skin-blue .sidebar-form .btn {
+    color: #333;
+    border-top-left-radius: 0;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 0;
+}
+.skin-blue .sidebar-form input[type="text"], .skin-blue .sidebar-form .btn {
+    box-shadow: none;
+    background-color: #E8C30C;
+    border: 1px solid transparent;
+    height: 35px;
+}
+
+.select2-container .select2-selection--single {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    height:28px;
+    user-select: none;
+    -webkit-user-select: none;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #444;
+    line-height:30px;
+}
+.select2-container--default .select2-selection--single, .select2-selection .select2-selection--single {
+    border: 1px solid #8A8A8A !important;
+    border-radius: 0;
+    padding: 3px 12px;
+}
+.ft-14 {
+    font-size: 14px;
+}
+.info-box-text {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.txt{
+  font-size: 28px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+}
+
+.skin-blue .wrapper, .skin-blue .main-sidebar, .skin-blue .left-side {
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#0783ec+0,0757ae+100 */
+background: rgb(0,0,0);
+background: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(32,108,170,1) 68%, rgba(32,108,170,1) 100%);
+background: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%,rgba(32,108,170,1) 68%,rgba(32,108,170,1) 100%);
+background: linear-gradient(to bottom, rgba(0,0,0,1) 0%,rgba(32,108,170,1) 68%,rgba(32,108,170,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#206caa',GradientType=0 );
+}
+.skin-blue .sidebar-menu > li:hover > a, .skin-blue .sidebar-menu > li.active > a, .skin-blue .sidebar-menu > li.menu-open > a {
+    color: #000;
+	background: #E8C30C;
+	border-bottom-right-radius: 5rem;
+	border-top-right-radius: 0.9rem;
+	border-left: 8px solid #0D5DAD;
+}
+.skin-blue .sidebar-menu > li > .treeview-menu {
+    margin: 0;
+    background:#0D5DAD;
+}
+.skin-blue .sidebar-menu > li > a {
+    border-bottom: 1px solid #27A0FF;
+}
+.skin-blue .sidebar-form {
+  border-radius: 3px;
+  border: 1px solid #6BE4FF;
+  margin: 10px 10px;
+}
+.skin-blue .sidebar a {
+    color:#0656AD;
+	font-size:16px;
+}
+.skin-blue .sidebar-menu .treeview-menu > li > a {
+    color: #fff;
+	border-bottom: 1px solid #004A9A;
+}
+.skin-blue .sidebar-menu .treeview-menu > li > a:hover {
+    color: #000;
+}
+.skin-blue .sidebar a {
+    color: #FFFFFF;
+    font-size: 15px;
+}
+.navbar-toggle {
+    color: #fff;
+    border: 0;
+    margin: 0;
+	font-size:20px;
+    padding: 23px 15px;
+}
+.navbar-toggle {
+    position: relative;
+    float: right;
+    padding:18px 15px;
+    background: #0D5DAD;
+    border: 1px solid transparent;
+    border-radius: 0;
+    border-top-right-radius: 30px;
+	box-shadow: -1px 0px 3px 0px #494949;
+}
+.sidebar-menu li > a > .fa-caret-right, .sidebar-menu li > a > .pull-right-container > .fa-caret-right {
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin-right: 10px;
+    -webkit-transition: transform .5s ease;
+    -o-transition: transform .5s ease;
+    transition: transform .5s ease;
+}
+.sidebar-menu .menu-open > a > .fa-caret-right, .sidebar-menu .menu-open > a > .pull-right-container > .fa-caret-right {
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+.sidebar-menu li > a > .fa-caret-right, .sidebar-menu li > a > .pull-right-container > .fa-caret-right {
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin-right: 10px;
+    -webkit-transition: transform .5s ease;
+    -o-transition: transform .5s ease;
+    transition: transform .5s ease;
+}
+.sidebar-menu li > a > .pull-right-container {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -7px;
+}
+.skin-blue .main-header .navbar {
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#0783ec+0,0757ae+100 */
+background: rgb(0,0,0);
+background: -moz-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(41,137,216,1) 43%, rgba(125,185,232,1) 100%);
+background: -webkit-linear-gradient(left, rgba(0,0,0,1) 0%,rgba(41,137,216,1) 43%,rgba(125,185,232,1) 100%);
+background: linear-gradient(to right, rgba(0,0,0,1) 0%,rgba(41,137,216,1) 43%,rgba(125,185,232,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#7db9e8',GradientType=1 );
+}
+.main-header .navbar {
+    -webkit-transition: margin-left .3s ease-in-out;
+    -o-transition: margin-left .3s ease-in-out;
+    transition: margin-left .3s ease-in-out;
+    margin-bottom: 0;
+    /*margin-left: 230px;*/
+    border: none;
+    min-height: 50px;
+    /*border-top-right-radius: 30px;*/
+	/*border-top-left-radius: 30px;*/
+}
+.skin-blue .main-header .navbar .sidebar-toggle {
+    color:#fff;
+	background:0;
+    font-size: 20px;
+}
+.main-header .sidebar-toggle {
+    float: left;
+    background-color: #E8C30C;
+    background-image: none;
+    padding: 15px 15px;
+    font-family: fontAwesome;
+	border-top-left-radius: 30px;
+}
+.skin-blue .main-header .navbar .sidebar-toggle:hover {
+	background:0;
+    color:#E8C30C;
+    font-size: 20px;
+}
+.skin-blue .main-header .navbar .nav > li > a:hover, .skin-blue .main-header .navbar .nav > li > a:active, .skin-blue .main-header .navbar .nav > li > a:focus, .skin-blue .main-header .navbar .nav .open > a, .skin-blue .main-header .navbar .nav .open > a:hover, .skin-blue .main-header .navbar .nav .open > a:focus, .skin-blue .main-header .navbar .nav > .active > a {
+    background:#0782ea;
+    color: #fff;
+    /*border-top-left-radius:15px;
+    border-top-right-radius:15px;*/
+}
+.skin-blue .sidebar-form input[type="text"] {
+    color: #000 !important;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 2px;
+    background: 0;
+}
+.form-control::placeholder {
+    color: #333;
+    opacity: 1;
+}
+.skin-blue .main-header .navbar .nav > li > a {
+    color:#fff;
+}
+
+.main-sidebar {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    min-height: 100%;
+    width: 230px;
+    z-index: 810;
+    -webkit-transition: -webkit-transform .3s ease-in-out,width .3s ease-in-out;
+    -moz-transition: -moz-transform .3s ease-in-out,width .3s ease-in-out;
+    -o-transition: -o-transform .3s ease-in-out,width .3s ease-in-out;
+    transition: transform .3s ease-in-out,width .3s ease-in-out;
+    border-top-left-radius: 30px;
+	/*border-top-right-radius: 30px;*/
+}
+.navbar-nav > li > a {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.box {
+    position: relative;
+    border-radius:10px;
+    background:0;
+    border-top: 3px solid #d2d6de;
+    margin-bottom: 20px;
+    width: 100%;
+    box-shadow: 0px 0px 7px rgba(0,0,0,0.3);
+}
+.blink_me {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}

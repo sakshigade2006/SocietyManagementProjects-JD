@@ -1,0 +1,138 @@
+.user-item {
+    max-width: 360px;
+    margin: auto;
+    background-color: #fff;
+    border:1px solid #0070a2;
+}
+.user-item h2 {
+    text-align: center;
+    margin:0;
+	color:#1c1c1c;
+    padding:10px 30px;
+    font-size:16px;
+    position: relative;
+	padding-bottom:5px;
+	letter-spacing:0.9px;
+	font-family:Arial, Helvetica, sans-serif;
+}
+.user-item P {
+    text-align: center;
+    margin:0;
+	color:#1c1c1c;
+    padding:0px 30px;
+	font-weight:600;
+    font-size:12px;
+    position: relative;
+	padding-bottom:5px;
+	font-family:Arial, Helvetica, sans-serif;
+}
+.user-bor {
+	width:100%;
+	margin-top:5px;
+	height:1px;
+	background:#595959;
+	}
+.user-dow {
+	width: 165px;
+	margin: 10px 0 0 100px;
+	position: absolute;
+	}
+.user-item h4 {
+    text-align: center;
+    margin:0;
+	color:#4b4b4b;
+    padding:0 30px;
+    font-size: 13px;
+    position: relative;
+	padding-top: 0px;
+	line-height: 35px;
+	font-family:Arial, Helvetica, sans-serif;
+}
+.qr-sec {
+	width: 100%;
+	margin-top: 22px;
+	padding:25px 0;
+	background: #0070a2;
+	}
+.qr-box {
+    padding:0 30px;
+	max-width: 180px;
+	padding: 10px;
+	position: relative;
+	margin: auto;
+	background:#fff;
+	border: 2px solid #ddd;
+	}
+.qr-box p {
+	text-align: center;
+    margin:0;
+	color:#333;
+    font-size: 11px;
+	padding:5px 0px;
+	font-family:Arial, Helvetica, sans-serif;
+	}
+.qr-box-tb-2 {
+	width:145px;
+	padding-top:20px;
+	margin: auto;
+	}
+.qr-box-tb {
+	width: 60%;
+	margin: auto;
+	}
+.qr-box-tbl {
+	font-size:13px;
+	color:#333;
+	text-align:left;
+	font-family:Verdana, Geneva, sans-serif;
+	}
+.accepted-sec{
+	padding:0 0 10px;
+	width:100%;
+	 }
+.accepted-sec img{
+	 width:auto;
+	 margin:0;
+	 padding:0;
+	 }
+.accepted-sec-2{
+	padding:0 30px;
+	background:#232d46;
+	width:auto;
+	margin-top:20px;
+	 }
+.accepted-sec-2 p{
+	padding:8px;
+	font-size:14px;
+	color:#fff;
+	text-align:center;
+	font-family:Verdana, Geneva, sans-serif;
+	 }
+.qr-name{
+	width:auto;
+	margin-top:5px;
+	 }
+.qr-name h2{
+	padding-bottom:5px;
+	font-size:15px;
+	letter-spacing:0px;
+	color:#333;
+	text-align:center;
+	font-family:Arial, Helvetica, sans-serif;
+	 }
+.qr-name P {
+    text-align: center;
+    margin: 0;
+    color: #1c1c1c;
+    padding: 0px 30px;
+    padding-bottom: 0px;
+    font-weight: 600;
+    font-size: 13px;
+    position: relative;
+    padding-bottom: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.res {
+  max-width: 100%;
+  height: auto;
+}
