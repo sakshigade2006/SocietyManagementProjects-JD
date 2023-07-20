@@ -19,10 +19,10 @@ public interface ClientMasterRepo extends JpaRepository<ClientMaster, Integer> {
 
 	@Modifying
 	@Transactional
-	@Query("UPDATE ClientMaster SET memberName=:memberName, registrationDate=:registrationDate, previousBalance=:previousBalance, previousNoOfShared=:previousNoOfShared, branchName=:branchName, transferDate=:transferDate, shareAllotedfrm=:shareAllotedfrm, sharebalance=:sharebalance, transferAmount=:transferAmount, noOfShared=:noOfShared, paymode=:paymode, remarks=:remarks WHERE id=:id")	
+	@Query("UPDATE ClientMaster SET memberName=:memberName, registrationDate=:registrationDate, previousBalance=:previousBalance, previousNoOfShared=:previousNoOfShared, branchName=:branchName, transferDate=:transferDate, shareAllotedfrm=:shareAllotedfrm, sharebalance=:sharebalance, transferAmount=:transferAmount, noOfShared=:noOfShared, paymode=:paymode, remarks=:remarks WHERE id=:id AND createdBy=:userId")	
 	int updateThroughID1(@Param("memberName") String memberName, @Param("registrationDate") String registrationDate, @Param("previousBalance") String previousBalance, @Param("previousNoOfShared") String previousNoOfShared,
 			@Param("branchName") String branchName, @Param("transferDate") String transferDate, @Param("shareAllotedfrm") String shareAllotedfrm, @Param("sharebalance") String sharebalance, @Param("transferAmount") String transferAmount,
-			@Param("noOfShared") String noOfShared, @Param("paymode") String paymode, @Param("remarks") String remarks, @Param("id") int id);
+			@Param("noOfShared") String noOfShared, @Param("paymode") String paymode, @Param("remarks") String remarks, @Param("id") int id, @Param("userId") String userId);
 
 	@Modifying
 	@Transactional

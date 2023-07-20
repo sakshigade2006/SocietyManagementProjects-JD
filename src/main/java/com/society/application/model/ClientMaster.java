@@ -96,6 +96,8 @@ public class ClientMaster {
 	private String previousBalance;
 	@Transient
 	private String frontEndPhoto;
+	private String createdBy;
+	private String createdDt;
 	
 	public String getCaste() {
 		return caste;
@@ -595,6 +597,18 @@ public class ClientMaster {
 	}
 	public void setIntroMName(String introMName) {
 		this.introMName = introMName;
+	}
+	public String getCreatedBy() {
+		return createdBy;
+	}
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+	public String getCreatedDt() {
+		return createdDt;
+	}
+	public void setCreatedDt(String createdDt) {
+		this.createdDt = createdDt;
 	}
 	
 	@Override

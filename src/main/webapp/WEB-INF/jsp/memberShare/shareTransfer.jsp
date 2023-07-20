@@ -315,10 +315,8 @@
 	<!-- AdminLTE for demo purposes -->
 	<script src="dist/js/demo.js"></script>
 	<script src="dist/js/memberShare.js"></script>
-
 	<!-- Select2 -->
 	<script src="bower_components/select2/dist/js/select2.full.min.js"></script>
-	
 </body>
 <!-- Dk/Admin/ShareIssue.aspx?ismodify=false EDB D 09:26:56 GMT -->
 </html>

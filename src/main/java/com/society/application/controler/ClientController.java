@@ -112,12 +112,14 @@ public class ClientController {
 			@RequestParam(name = "chknetBanking", required = false) String chknetBanking,
 			@RequestParam(name = "chkisSms", required = false) String chkisSms,
 			@RequestParam(name = "chkMinor", required = false) String chkMinor,
-			@RequestParam(name = "filetag", required = false) MultipartFile file) {
+			@RequestParam(name = "filetag", required = false) MultipartFile file,
+			HttpSession session) {
 		try {
 			ClientMaster client = new ClientMaster();
-
+			String createdBy = session.getAttribute("ID").toString();
+			client.setCreatedBy(createdBy);
+			//System.out.println(createdBy);
 			byte[] image = file.getBytes();
-
 			client.setClientNo(clientNo);
 			client.setRegistrationDate(registrationDate);
 			client.setMemberNamePrefix(memberberNamePrefix);
@@ -172,6 +174,7 @@ public class ClientController {
 			client.setFlag("1");
 			client.setImage(image);
 			clientMasterRepo.save(client);
+			session.setAttribute("createdBy", createdBy);
 			return new ResponseEntity<>("Data uploaded successfully", HttpStatus.OK);
 		} catch (Exception ex) {
 			System.out.println(ex);
@@ -261,7 +264,8 @@ public class ClientController {
 			@RequestParam(name = "chkisSms", required = false) String chkisSms,
 			@RequestParam(name = "chkMinor", required = false) String chkMinor,
 			@RequestParam(name = "filetag", required = false) MultipartFile file,
-			@RequestParam(name = "clientIDNo", required = false) Integer id) {
+			@RequestParam(name = "clientIDNo", required = false) Integer id,
+			HttpSession session) {
 		try {
 			List<ClientMaster> client = clientMasterRepo.findByid(id);
 			client.forEach(s -> {
@@ -274,6 +278,9 @@ public class ClientController {
 						e.printStackTrace();
 					}
 				}
+				String createdBy = session.getAttribute("ID").toString();
+				s.setCreatedBy(createdBy);
+				//System.out.println(createdBy);
 				s.setRegistrationDate(registrationDate);
 				s.setMemberNamePrefix(memberberNamePrefix);
 				s.setMemberName(memberberName);
@@ -325,6 +332,7 @@ public class ClientController {
 				s.setChkMinor(chkMinor);
 				s.setFlag("1");
 				clientMasterRepo.save(s);
+				session.setAttribute("createdBy", createdBy);
 			});
 			return new ResponseEntity<>("Data Updated  successfully!!!!", HttpStatus.OK);
 		} catch (Exception ex) {
@@ -345,11 +353,9 @@ public class ClientController {
 		List<ShareTransferDto> data = shareTransferDtoRepo.findBymemberData(id);
 		List<Loan> data2 = loanRepo.findBymemberData(id);
 		List<ClientMaster> options = clientMasterRepo.findAll();
-
 		model.addAttribute("options", options);
 		model.addAttribute("data", data);
 		model.addAttribute("data2", data2);
-
 		return "member/clientduplicate";
 	}
 
@@ -361,10 +367,13 @@ public class ClientController {
 			@RequestParam(name = "table2input3", required = false) String shareValues,
 			@RequestParam(name = "table2input11", required = false) String loanID,
 			@RequestParam(name = "table2input12", required = false) String loanHolding,
-			@RequestParam(name = "table2input13", required = false) String loanValues) {
+			@RequestParam(name = "table2input13", required = false) String loanValues,
+			HttpSession session) {
 		try {
 			MappingClientAndModules mcam = new MappingClientAndModules();
-
+			String createdBy = session.getAttribute("ID").toString();
+			mcam.setCreatedBy(createdBy);
+			System.out.println(createdBy);
 			mcam.setClientid(id2);
 			mcam.setClientName(memberName2);
 			mcam.setShareID(shareID);
@@ -374,6 +383,7 @@ public class ClientController {
 			mcam.setLoanHolding(loanHolding);
 			mcam.setLoanValues(loanValues);
 			mappingClientAndModulesRepo.save(mcam);
+			session.setAttribute("createdBy", createdBy);
 			return new ResponseEntity<>("Data Saved  successfully!!!!", HttpStatus.OK);
 		} catch (Exception ex) {
 			System.out.println(ex);
@@ -434,7 +444,6 @@ public class ClientController {
 		List<ClientMaster> data5 = clientMasterRepo.findByphoneno(clientMaster.getPhoneno());
 		List<ClientMaster> data6 = clientMasterRepo.findByaadharNo(clientMaster.getAadharNo());
 		List<ClientMaster> data7 = clientMasterRepo.findBypan(clientMaster.getPan());
-
 		if (!data1.isEmpty()) {
 			return data1;
 		} else if (!data2.isEmpty()) {

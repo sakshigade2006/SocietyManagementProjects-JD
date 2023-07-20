@@ -5,11 +5,9 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
 <body class="skin-blue sidebar-mini"
 	style="height: auto; min-height: 100%; background-color: rgba(36, 105, 92, 0.15);"
 	onload="fetchTheData()" cz-shortcut-listen="true">
-
 	<!--        onload="getAllBranchMaster();" -->
 
 	<!--    <form  action="saveBranchMaster" modelAttribute="" name="addBranch" id="form1"> -->
@@ -23,7 +21,6 @@
 		<jsp:include page="../asideMenu.jsp" />
 		<!-- Aside Menu end -->
 		<!-- Content Wrapper. Contains page content -->
-
 		<div class="content-wrapper" style="min-height: 1105.75px;">
 			<section class="content-header">
 				<h1 id="ContentPlaceHolder1_IdHeader">Client De-Duplication</h1>
@@ -353,14 +350,12 @@ checkbox2.addEventListener("change", function() {
 
 	<script type="text/javascript">
      function fetchTheData() {
-    	
     	 $.ajax({
              type:"get",
              contentType: "application/json",
              url: 'getAllClient',
              asynch: false,
              success: function(data) {
-
              var appenddata1 = "";
                      //var jsonData1 = JSON.parse(data1.d);
                      for (var i = 0; i < data.length; i++) {
@@ -374,7 +369,7 @@ checkbox2.addEventListener("change", function() {
          });
  		}
      
-           function FetchDetailByMemberIdforcleintDeduplication2() {
+        function FetchDetailByMemberIdforcleintDeduplication2() {
     	    var id2 = document.getElementById("id2");
     		var input = {
     			"id": id2.value
@@ -426,6 +421,5 @@ checkbox2.addEventListener("change", function() {
 			});
 		});
      </script>
-
 </body>
 </html>

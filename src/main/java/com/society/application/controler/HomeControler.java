@@ -732,7 +732,6 @@ public class HomeControler {
 						|| p.getPhoneno().equals(data.getMobile()) || p.getAadharNo().equals(data.getAadharno())
 						|| p.getPan().equals(data.getPan()))
 				.collect(Collectors.toList());
-
 		for (Member member : allMember) {
 			Optional<BranchMaster> branchMaster2 = branchMasterRepo.findById(Integer.parseInt(member.getBranchName()));
 			member.setBranchName(branchMaster2.get().getName());
@@ -741,9 +740,12 @@ public class HomeControler {
 	}
 
 	@GetMapping("updateMember")
-	public String updateMember(@ModelAttribute("user") ClientMaster member, Model model) {
+	public String updateMember(@ModelAttribute("user") ClientMaster member, Model model, HttpSession session) {
 		//Optional<Member> memberObj = memberRepo.findById(member.getId());
 		Optional<ClientMaster> memberObj = clientMasterRepo.findById(member.getId());
+		String createdBy = session.getAttribute("ID").toString();
+		memberObj.get().setCreatedBy(createdBy);
+		//System.out.println(createdBy);
 		memberObj.get().setVoterNo(member.getVoterNo());
 		memberObj.get().setRationNo(member.getRationNo());
 		memberObj.get().setdLNo(member.getdLNo());
@@ -752,6 +754,7 @@ public class HomeControler {
 		memberObj.get().setAccountNo(member.getAccountNo());
 		memberObj.get().setiFSC(member.getiFSC());
 		clientMasterRepo.save(memberObj.get());
+		session.setAttribute("createdBy", createdBy);
 		model.addAttribute("status", "success");
 		//List<Member> allMember = memberRepo.findAll();
 		List<ClientMaster> allMember = clientMasterRepo.findAll();
@@ -954,7 +957,6 @@ public class HomeControler {
 	@PostMapping("/searchInTheEmployeeSection")
 	@ResponseBody
 	public List<Employee> searchInTheEmployeeSection(@RequestBody Employee emp) {
-
 		List<Employee> data1 = employeeRepo.findBydojBetween(emp.getfDate(), emp.gettDate());
 		List<Employee> data2 = employeeRepo.findByempName(emp.getEmpName());
 		List<Employee> data3 = employeeRepo.findByempCode(emp.getEmpCode());
@@ -962,7 +964,6 @@ public class HomeControler {
 		List<Employee> data5 = employeeRepo.findBydesignation(emp.getDesignation());
 		List<Employee> data6 = employeeRepo.findBydepartment(emp.getDepartment());
 		List<Employee> data7 = employeeRepo.findBybranch(emp.getBranch());
-
 		if (!data1.isEmpty()) {
 			return data1;
 		} else if (!data2.isEmpty()) {
@@ -1096,19 +1097,15 @@ public class HomeControler {
 	@PostMapping("updateShareTransfer")
 	@ResponseBody
 	public ResponseEntity<String> updateShareTransfer(@RequestBody ShareTransferDto shareTransferDto, Model model) {
-
 		Random rnd = new Random();
 		int number = rnd.nextInt(999999);
-
 		// System.out.println(String.format("%06d", number));
-
 		int i = shareTransferDtoRepo.updateThroughID(shareTransferDto.getMemberName(), shareTransferDto.getDoj(),
 				shareTransferDto.getPreviousShare(), shareTransferDto.getPreviousShareNo(),
 				shareTransferDto.getFaceValue(), shareTransferDto.getBranchName(), shareTransferDto.getTransferDate(),
 				shareTransferDto.getShareAllotedfrm2(), shareTransferDto.getSharebalance(),
 				shareTransferDto.getTransferAmount(), shareTransferDto.getNoOfShare(), shareTransferDto.getPaymode(),
 				shareTransferDto.getRemarks(), shareTransferDto.getId());
-
 		return ResponseEntity.ok("Updated SucessFully");
 	}
 
@@ -1132,13 +1129,14 @@ public class HomeControler {
 
 	@PostMapping("/updateShareTranfer")
 	@ResponseBody
-	public ResponseEntity<String> updateShareTranfer(@RequestBody ClientMaster member, Model model) {
-
+	public ResponseEntity<String> updateShareTranfer(@RequestBody ClientMaster member, Model model, HttpSession session) {
+		String userId = session.getAttribute("ID").toString();
+		member.setCreatedBy(userId);
 		int i = clientMasterRepo.updateThroughID1(member.getMemberName(), member.getRegistrationDate(),
 				member.getSharebalance(), member.getPreviousNoOfShared(), member.getBranchName(),
 				member.getTransferDate(), member.getShareAllotedfrm(), member.getSharebalance(),
 				member.getTransferAmount(), member.getNoOfShared(), member.getPaymode(), member.getRemarks(),
-				member.getId());
+				member.getId(), userId);
 		return ResponseEntity.ok("Updated SucessFully");
 	}
 
