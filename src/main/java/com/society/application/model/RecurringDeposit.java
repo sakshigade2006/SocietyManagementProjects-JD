@@ -30,7 +30,8 @@ public class RecurringDeposit {
 	private String rinstfrom;
 	private String rinstto;
 	private String rdeduction;
-	
+	private String createdBy;
+	private String createdDt;
 	public String getRroi() {
 		return rroi;
 	}
@@ -150,6 +151,18 @@ public class RecurringDeposit {
 	}
 	public void setRdeduction(String rdeduction) {
 		this.rdeduction = rdeduction;
+	}
+	public String getCreatedBy() {
+		return createdBy;
+	}
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+	public String getCreatedDt() {
+		return createdDt;
+	}
+	public void setCreatedDt(String createdDt) {
+		this.createdDt = createdDt;
 	}
 	
 }

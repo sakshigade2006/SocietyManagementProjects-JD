@@ -98,7 +98,126 @@ public class ClientMaster {
 	private String frontEndPhoto;
 	private String createdBy;
 	private String createdDt;
+	private String jointCode;
+	private String jointName;
+	private String mDate;
+	private String schemeType;
+	private String term;
+	private String schemeMode;
+	private String misMode;
+	private String policyAmount;
+	private String totalDeposit;
+	private String maturityAmount;
+	private String mISInterest;
+	private String advisorCode;
+	private String advisorName;
+	private String modeOfOp;
+	private String schemeName;
+	private byte[] photo;
+	private byte[] signature;
 	
+	public byte[] getPhoto() {
+		return photo;
+	}
+	public void setPhoto(byte[] photo) {
+		this.photo = photo;
+	}
+	public byte[] getSignature() {
+		return signature;
+	}
+	public void setSignature(byte[] signature) {
+		this.signature = signature;
+	}
+	public String getSchemeName() {
+		return schemeName;
+	}
+	public void setSchemeName(String schemeName) {
+		this.schemeName = schemeName;
+	}
+	public String getModeOfOp() {
+		return modeOfOp;
+	}
+	public void setModeOfOp(String modeOfOp) {
+		this.modeOfOp = modeOfOp;
+	}
+	public String getJointCode() {
+		return jointCode;
+	}
+	public void setJointCode(String jointCode) {
+		this.jointCode = jointCode;
+	}
+	public String getJointName() {
+		return jointName;
+	}
+	public void setJointName(String jointName) {
+		this.jointName = jointName;
+	}
+	public String getmDate() {
+		return mDate;
+	}
+	public void setmDate(String mDate) {
+		this.mDate = mDate;
+	}
+	public String getSchemeType() {
+		return schemeType;
+	}
+	public void setSchemeType(String schemeType) {
+		this.schemeType = schemeType;
+	}
+	public String getTerm() {
+		return term;
+	}
+	public void setTerm(String term) {
+		this.term = term;
+	}
+	public String getSchemeMode() {
+		return schemeMode;
+	}
+	public void setSchemeMode(String schemeMode) {
+		this.schemeMode = schemeMode;
+	}
+	public String getMisMode() {
+		return misMode;
+	}
+	public void setMisMode(String misMode) {
+		this.misMode = misMode;
+	}
+	public String getPolicyAmount() {
+		return policyAmount;
+	}
+	public void setPolicyAmount(String policyAmount) {
+		this.policyAmount = policyAmount;
+	}
+	public String getTotalDeposit() {
+		return totalDeposit;
+	}
+	public void setTotalDeposit(String totalDeposit) {
+		this.totalDeposit = totalDeposit;
+	}
+	public String getMaturityAmount() {
+		return maturityAmount;
+	}
+	public void setMaturityAmount(String maturityAmount) {
+		this.maturityAmount = maturityAmount;
+	}
+	public String getmISInterest() {
+		return mISInterest;
+	}
+	public void setmISInterest(String mISInterest) {
+		this.mISInterest = mISInterest;
+	}
+	public String getAdvisorCode() {
+		return advisorCode;
+	}
+	public void setAdvisorCode(String advisorCode) {
+		this.advisorCode = advisorCode;
+	}
+	public String getAdvisorName() {
+		return advisorName;
+	}
+	public void setAdvisorName(String advisorName) {
+		this.advisorName = advisorName;
+	}
 	public String getCaste() {
 		return caste;
 	}

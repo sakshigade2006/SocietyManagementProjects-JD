@@ -870,8 +870,11 @@ public class HomeControler {
 	}
 
 	@PostMapping("/saveEmployee")
-	public String addEmployeee(@ModelAttribute("emp") Employee employee, Model model) {
+	public String addEmployeee(@ModelAttribute("emp") Employee employee, Model model,HttpSession session) {
+		String createdBy = session.getAttribute("ID").toString();
+		employee.setCreatedBy(createdBy);
 		employeeRepo.save(employee);
+		session.setAttribute("createdBy", createdBy);
 		return "employee/AddEmployee";
 	}
 
@@ -886,10 +889,13 @@ public class HomeControler {
 
 	@PostMapping("DesignationMasterSave")
 	public String DesignationMaster(@ModelAttribute("designationMaster") DesignationMaster designationMaster,
-	        Model model) {
+	        Model model ,HttpSession session) {
+		String createdBy = session.getAttribute("ID").toString();
+		designationMaster.setCreatedBy(createdBy);
 	    if (designationMaster.getDesignation() != null && !designationMaster.getDesignation().isEmpty()) {
 	        designationMasterRepo.save(designationMaster);
 	    }
+	    session.setAttribute("createdBy", createdBy);
 	    return "employee/DesignationMaster";
 	}
 
@@ -911,11 +917,14 @@ public class HomeControler {
 
 	@PostMapping("/DepartmentMaster")
 	public String departmentMaster(@ModelAttribute("departmentMaster") DepartmentMaster departmentMaster,
-	                               BindingResult bindingResult, Model model) {
+	                               BindingResult bindingResult, Model model,HttpSession session) {
+		String createdBy = session.getAttribute("ID").toString();
+		departmentMaster.setCreatedBy(createdBy);
 	    if (departmentMaster.getDepartment() == null || departmentMaster.getDepartment().isEmpty()) {
 	        model.addAttribute("error", "Please enter a department name");
 	        return "employee/DepartmentMaster";
 	    }
+	    session.setAttribute("createdBy", createdBy);
 	    departmentMasterRepo.save(departmentMaster);
 	    return "employee/DepartmentMaster";
 	}
