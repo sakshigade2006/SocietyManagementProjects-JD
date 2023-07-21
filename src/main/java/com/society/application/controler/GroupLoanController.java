@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -180,8 +182,10 @@ public class GroupLoanController {
 	}
 
 	@PostMapping("/saveGroupMaster")
-	public String saveGroupMaster(@ModelAttribute("saveGroupMaster") GroupMaster groupMaster, Model model) {
-		groupMaster.setCreatedBy("");
+	public String saveGroupMaster(@ModelAttribute("saveGroupMaster") GroupMaster groupMaster, Model model,HttpSession session) {
+		
+		String createdBy= (session.getAttribute("ID").toString());
+		groupMaster.setCreatedBy(createdBy);
 		groupMaster.setCreatedDate(new Date().toString());
 		groupMaster.setUpdatedBy("");
 		groupMaster.setUpdatedDate(new Date().toString());
@@ -201,8 +205,9 @@ public class GroupLoanController {
 
 	@PostMapping("/getGroupMasterById")
 	@ResponseBody
-	public List<GroupMaster> getGroupMasterById(@RequestBody GroupMaster id) {
-		List<GroupMaster> groupMaster = groupMasterRepo.findByid(id.getId());
+	public List<GroupMaster> getGroupMasterById(@RequestBody GroupMaster id,HttpSession session) {
+		String createdBy= (session.getAttribute("ID").toString());
+		List<GroupMaster> groupMaster = groupMasterRepo.findByidAndcreatedBy(id.getId(),createdBy);
 		return groupMaster;
 	}
 
@@ -215,8 +220,9 @@ public class GroupLoanController {
 
 	@PostMapping("/saveGroupMasterApplication")
 	public String saveGroupMasterApplication(
-			@ModelAttribute("saveGroupMasterApplication") GroupMasterApplication groupMasterApplication, Model model) {
-		groupMasterApplication.setCreatedBy("");
+			@ModelAttribute("saveGroupMasterApplication") GroupMasterApplication groupMasterApplication, Model model,HttpSession session) {
+		String createdBy= (session.getAttribute("ID").toString());
+		groupMasterApplication.setCreatedBy(createdBy);
 		groupMasterApplication.setCreatedDate(new Date().toString());
 		groupMasterApplication.setUpdatedBy("");
 		groupMasterApplication.setUpdatedDate(new Date().toString());
@@ -234,8 +240,9 @@ public class GroupLoanController {
 
 	@PostMapping("/approveGroupMasterApplication")
 	public String approveGroupMasterApplication(
-			@ModelAttribute("saveGroupMasterApplication") GroupMasterApplication groupMasterApplication, Model model) {
-		groupMasterApplication.setCreatedBy("");
+			@ModelAttribute("saveGroupMasterApplication") GroupMasterApplication groupMasterApplication, Model model,HttpSession session) {
+		String createdBy= (session.getAttribute("ID").toString());
+		groupMasterApplication.setCreatedBy(createdBy);
 		groupMasterApplication.setCreatedDate(new Date().toString());
 		groupMasterApplication.setUpdatedBy("");
 		groupMasterApplication.setUpdatedDate(new Date().toString());

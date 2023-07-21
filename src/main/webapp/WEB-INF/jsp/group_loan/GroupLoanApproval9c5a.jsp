@@ -196,7 +196,7 @@
 												<label class="col-sm-5 control-label">Loan Purpose <strong
 													style="color: Red">*</strong></label>
 												<div class="col-sm-7">
-													<input name="purpose" type="text" id="purpose"
+													<input name="loanPurpose" type="text" id="loanPurpose"
 														class="form-control" /> <span id="purposeMsg"
 														style="color: Red; font-size: X-Small; font-weight: bold; display: none;"></span>
 												</div>
