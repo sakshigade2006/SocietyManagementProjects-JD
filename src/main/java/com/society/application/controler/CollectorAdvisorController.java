@@ -102,21 +102,21 @@ public class CollectorAdvisorController {
 			@RequestParam(name = "remarks", required = false) String remarks,
 			@RequestParam(name = "advisorStatus", required = false) String advisorStatus,
 			@RequestParam(name = "smsSend", required = false) String smsSend,
-			@RequestParam(name = "filetag", required = false) MultipartFile file,
-			@RequestParam(name = "secondfiletag", required = false) MultipartFile file1,
+			@RequestParam(name = "filetag", required = false) MultipartFile photoFile,
+	        @RequestParam(name = "secondfiletag", required = false) MultipartFile signatureFile,
 			AdvisorCollectorDetails advisor,
 			HttpSession session) {
 		try {
 			// AdvisorCollectorDetails advisor = new AdvisorCollectorDetails();
 			String createdBy = session.getAttribute("ID").toString();
 			advisor.setCreatedBy(createdBy);
-			if (!file.isEmpty() && !file1.isEmpty()) {
-				byte[] image = file.getBytes();
-				byte[] signature = file1.getBytes();
+			if (photoFile != null && signatureFile != null) {
+	            byte[] photo = photoFile.getBytes();
+	            byte[] signature = signatureFile.getBytes();
 
-				advisor.setPhoto(image);
-				advisor.setSigniture(signature);
-			}
+	            advisor.setPhoto(photo);
+	            advisor.setSigniture(signature);
+	        }
 			advisor.setJoiningDate(joiningDate);
 			advisor.setSelectMember(selectMember);
 			advisor.setMemberName(memberName);
@@ -146,8 +146,8 @@ public class CollectorAdvisorController {
 			advisor.setSmsSend(smsSend);
 			advisor.setFlag("1");
 			advisorCollectorDetailsRepo.save(advisor);
-			session.setAttribute("createdBy", createdBy);
-			return new ResponseEntity<>("Data saved successfully...!!!", HttpStatus.OK);
+	        session.setAttribute("createdBy", createdBy);
+	        return new ResponseEntity<>("Data saved successfully...!!!", HttpStatus.OK);
 		} catch (Exception e) {
 			System.out.println(e);
 			return new ResponseEntity<>("Data save failed...!!!", HttpStatus.INTERNAL_SERVER_ERROR);

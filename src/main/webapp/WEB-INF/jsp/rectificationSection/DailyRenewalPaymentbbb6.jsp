@@ -1,12 +1,10 @@
 <jsp:include page="../header.jsp" />
-<body onload="getAllPolicyNumber1InTheDailyRenewalRectification(); BranchNameFromAddInvestment()"
+<body onload="getAllPolicyNumber1InTheDailyRenewalRectification(); BranchNameForAddInvestmentModule();"
 	class="skin-blue sidebar-mini"
 	style="height: auto; min-height: 100%; background-color: rgba(36, 105, 92, 0.15);"
 	cz-shortcut-listen="true">
-
 	<div
 		style="height: auto; min-height: 100%; border-radius: 30px; margin: 15px; background: url(dist/img/back.jpg);">
-
 		<!-- Header Start-->
 		<jsp:include page="../menu.jsp" />
 		<!-- Header End -->
@@ -14,13 +12,11 @@
 		<!-- Aside Menu Start-->
 		<jsp:include page="../asideMenu.jsp" />
 		<!-- Aside Menu end -->
-
 		<script type="text/javascript">
 //<![CDATA[
 Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', ['tctl00$ContentPlaceHolder1$UpPopup','ContentPlaceHolder1_UpPopup','tctl00$ContentPlaceHolder1$uppnl','ContentPlaceHolder1_uppnl'], [], [], 90, 'ctl00');
 //]]>
 </script>
-
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper" style="min-height: 1105.75px;">
 			<section class="content-header">
@@ -434,7 +430,6 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', ['t
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<!-- Bootstrap 3.3.7 -->
 	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
 	<!-- InputMask -->
 	<script src="plugins/input-mask/jquery.inputmask.js"></script>
 	<script src="plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
@@ -465,7 +460,6 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', ['t
 	<!-- Select2 -->
 	<script src="bower_components/select2/dist/js/select2.full.min.js"></script>
 	<script src="dist/js/Rectification.js"></script>
-
 	<script>
         var fileTag = document.getElementById("filetag"),
           preview = document.getElementById("preview"),
@@ -479,7 +473,6 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', ['t
       secondfiletag.addEventListener("change", function() {
           changeImage2(this);
         });
-      
       
       function changeImage(input) {
         var reader;
@@ -508,8 +501,6 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', ['t
             reader.readAsDataURL(input.files[0]);
           }
         }
-      
    </script>
-
 </body>
 </html>

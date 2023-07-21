@@ -21,7 +21,6 @@
 Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', ['tctl00$ContentPlaceHolder1$UpPopup','ContentPlaceHolder1_UpPopup','tctl00$ContentPlaceHolder1$uppnl','ContentPlaceHolder1_uppnl'], [], [], 90, 'ctl00');
 //]]>
 </script>
-
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper" style="min-height: 1105.75px;">
 			<section class="content-header">
@@ -385,6 +384,7 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', ['t
 									<div class="form-group">
 										<div class="text-center">
 											<img name="preview" id="preview" class="profile-user-img"
+												src="data:image/png;base64,${aadharPhoto}"
 												style="height: 70px; width: 115px;" /> <input type="file"
 												name="filetag" id="filetag" />
 										</div>
@@ -401,6 +401,7 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', ['t
 									<div class="form-group">
 										<div class="text-center">
 											<img name="secondpreview" id="secondpreview"
+												src="data:image/png;base64,${aadharPhoto}"
 												class="profile-user-img" style="height: 70px; width: 115px;" />
 											<input type="file" name="secondfiletag" id="secondfiletag" />
 										</div>
@@ -446,7 +447,6 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', ['t
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<!-- Bootstrap 3.3.7 -->
 	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
 	<!-- InputMask -->
 	<script src="plugins/input-mask/jquery.inputmask.js"></script>
 	<script src="plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
@@ -478,7 +478,6 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', ['t
 	<script src="dist/js/investmentSection .js"></script>
 	<!-- Select2 -->
 	<script src="bower_components/select2/dist/js/select2.full.min.js"></script>
-	
 	<!-- </form> -->
 </body>
 <!-- Dk/Admin/RDRenewal.aspx?IsModification=true EDB D 09:27:15 GMT -->

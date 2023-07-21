@@ -4,7 +4,6 @@
 	style="height: auto; min-height: 100%; background-color: rgba(36, 105, 92, 0.15);"
 	cz-shortcut-listen="true">
 	<!--  onload="getAllBranchName() -->
-
 	<div
 		style="height: auto; min-height: 100%; border-radius: 30px; margin: 15px; background: url(dist/img/back.jpg);">
 		<!-- Header Start-->
@@ -530,9 +529,7 @@
 	<script src="bower_components/select2/dist/js/select2.full.min.js"></script>
 
 	<script type="text/javascript">
-      
       function getAllBranchName(){
-    	
     	  			$.ajax({
     	            type:"get",
     	            contentType: "application/json",
@@ -682,7 +679,6 @@ $("#myForm").submit(function(e) {
        return;
    }
    
-   
    $.ajax({
        url: "updateAddInvestment",
        type: "POST",
@@ -819,6 +815,5 @@ $("#myForm").submit(function(e) {
          }
          //]]>
       </script>
-
 </body>
 </html>

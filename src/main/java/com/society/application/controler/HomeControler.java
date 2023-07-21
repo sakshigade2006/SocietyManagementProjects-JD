@@ -230,7 +230,8 @@ public class HomeControler {
 
 	@GetMapping("/addAdvisor")
 	public String addAdvisor(Model model) {
-		List<Member> allMember = memberRepo.findAll();
+		//List<Member> allMember = memberRepo.findAll();
+		List<ClientMaster> allMember = clientMasterRepo.findAll();
 		model.addAttribute("allMember", allMember);
 		return "advisor/addAdvisor";
 	}
@@ -582,7 +583,8 @@ public class HomeControler {
 
 	@GetMapping("/shareIssue")
 	public String shareIssue(Model model) {
-		List<Member> allMember = memberRepo.findAll();
+		//List<Member> allMember = memberRepo.findAll();
+		List<ClientMaster> allMember = clientMasterRepo.findAll();
 		model.addAttribute("allMember", allMember);
 		return "memberShare/shareTransfer";
 	}

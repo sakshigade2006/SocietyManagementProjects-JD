@@ -4,10 +4,8 @@
 <body class="skin-blue sidebar-mini"
 	style="height: auto; min-height: 100%; background-color: rgba(36, 105, 92, 0.15);"
 	cz-shortcut-listen="true" onload="retrieveCodeAfterSoftDelete(); ShareAllotedFromInDropdown(); BranchNameInDropdown(); DepositAccNoInDropdown()">
-
 	<div
 		style="height: auto; min-height: 100%; border-radius: 30px; margin: 15px; background: url(dist/img/back.jpg);">
-
 		<!-- Header Start-->
 		<jsp:include page="../menu.jsp" />
 		<!-- Header End -->
@@ -15,13 +13,11 @@
 		<!-- Aside Menu Start-->
 		<jsp:include page="../asideMenu.jsp" />
 		<!-- Aside Menu end -->
-
 		<script type="text/javascript">
 //<![CDATA[
 Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', [], [], [], 90, 'ctl00');
 //]]>
 </script>
-
 		<div class="content-wrapper" style="min-height: 1105.75px;">
 			<section class="content-header">
 				<h1 id="ContentPlaceHolder1_IdHeader">Edit Member</h1>
@@ -31,9 +27,7 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', [],
 					<li class="active">Member</li>
 				</ol>
 			</section>
-
 			<form id="myForm" name="myForm" enctype="multipart/form-data">
-
 				<section class="content">
 					<input type="hidden" id="id123" name="id123">
 					<div id="" class="row">
@@ -62,7 +56,6 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', [],
 							</div>
 						</div>
 					</div>
-
 					<div class="row">
 						<div class="col-md-12">
 							<div class="box box-success">
@@ -690,14 +683,12 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', [],
 												class="btn btn-success pull-right margin-r-5" />
 										
 			</form>
-
 			<input type="button" name="btndelete" value="Delete"
 				onclick="softDeleteIntegrations();" id="btndelete"
 				class="btn btn-danger pull-right" /> 
 			<input type="submit"
 				name="btnprint" value="Print" id="btnprint"
 				class="btn btn-info pull-right margin-r-5" onclick="printTable1()" />
-				
 		</div>
 	</div>
 	</div>
@@ -724,23 +715,21 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', [],
         }
  </script>
 
-<!--       Update Operation -->
+<!--  Update Operation -->
 <script>
 	//alert("hi")
 	$(document).ready(function() {
 	$("#myForm").submit(function(e) {
    	e.preventDefault(); // prevent default form submit action
-   
    	var formData = new FormData($(this)[0]); // create new FormData object from form data
-
+   	
    //console.log(formData);
    //alert("hi")
    
    if ($("#filetag").val() == "") {
 		             alert("Select THe Photo !!!");
 		             return;
-	}
-   
+   }
    $.ajax({
        url: "updateMemberRectification",
        type: "POST",
@@ -762,7 +751,6 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', [],
 </script>
 
 <script>
-
       var fileTag = document.getElementById("filetag"),
           preview = document.getElementById("preview")
       
@@ -788,7 +776,6 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', [],
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<!-- Bootstrap 3.3.7 -->
 	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
 	<!-- InputMask -->
 	<script src="plugins/input-mask/jquery.inputmask.js"></script>
 	<script src="plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
@@ -816,10 +803,8 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', [],
 	<script src="dist/js/adminlte.min.js"></script>
 	<!-- AdminLTE for demo purposes -->
 	<script src="dist/js/demo.js"></script>
-
 	<!-- Member Rectification JS -->
 	<script src="dist/js/MemberRectificationJs.js"></script>
-
 	<!-- Select2 -->
 	<script src="bower_components/select2/dist/js/select2.full.min.js"></script>
 </form>

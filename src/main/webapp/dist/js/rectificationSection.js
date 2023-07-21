@@ -23,64 +23,64 @@ function GetIdInTheDropDown(){
 }
 
 //Data retrival from Id
-function searchById(){
-	let id = document.getElementById("id").value;
-	var input = {
-		"id":id
-	};
-	const myJson = JSON.stringify(input);
-	//alert(id)
-	$.ajax({
-		type:"POST",
-		contentType: "application/json",
-		data: myJson,
-		url: 'searchById',
-		async: false,
-		success: function(data){
-			if(data.length){
-				var advisor = data[0];
-				
-				document.getElementById("id133").value = advisor.id;
-				document.getElementById("joiningDate").value = advisor.joiningDate;
-				//document.getElementById("selectMember").value = advisor.selectMember;
-				document.getElementById("memberName").value = advisor.memberName;
-				document.getElementById("dob").value = advisor.dob;
-				document.getElementById("age").value = advisor.age;
-				document.getElementById("relativeName").value = advisor.relativeName;
-				document.getElementById("relativeRelation").value = advisor.relativeRelation;
-				document.getElementById("mobileNo").value = advisor.mobileNo;
-				document.getElementById("nomineeName").value = advisor.nomineeName;
-				document.getElementById("relation").value = advisor.relation;
-				document.getElementById("branchName").value = advisor.branchName;
-				document.getElementById("nomineeAge").value = advisor.nomineeAge;
-				document.getElementById("address").value = advisor.address;
-				document.getElementById("district").value = advisor.district;
-				document.getElementById("state").value = advisor.state;
-				document.getElementById("pinCode").value = advisor.pinCode;
-				document.getElementById("occupation").value = advisor.occupation;
-				document.getElementById("education").value = advisor.education;
-				document.getElementById("selectPosition").value = advisor.selectPosition;
-				document.getElementById("introducerCode").value = advisor.introducerCode;
-				document.getElementById("introducerName").value = advisor.introducerName;
-				document.getElementById("position").value = advisor.position;
-				document.getElementById("feesIfAny").value = advisor.feesIfAny;
-				document.getElementById("paymentBy").value = advisor.paymentBy;
-				document.getElementById("remarks").value = advisor.remarks;
-				
-				var imgElement = document.getElementById("preview");
+function searchById() {
+    let id = document.getElementById("id").value;
+    var input = {
+        "id": id
+    };
+    const myJson = JSON.stringify(input);
+
+    $.ajax({
+        type: "POST",
+        contentType: "application/json",
+        data: myJson,
+        url: 'searchById',
+        async: false,
+        success: function (response) {
+            if (response) {
+                var advisor = response;
+                document.getElementById("id133").value = advisor.id;
+                document.getElementById("joiningDate").value = advisor.joiningDate;
+                document.getElementById("memberName").value = advisor.memberName;
+                document.getElementById("dob").value = advisor.dob;
+                document.getElementById("age").value = advisor.age;
+                document.getElementById("relativeName").value = advisor.relativeName;
+                document.getElementById("relativeRelation").value = advisor.relativeRelation;
+                document.getElementById("mobileNo").value = advisor.mobileNo;
+                document.getElementById("nomineeName").value = advisor.nomineeName;
+                document.getElementById("relation").value = advisor.relation;
+                document.getElementById("branchName").value = advisor.branchName;
+                document.getElementById("nomineeAge").value = advisor.nomineeAge;
+                document.getElementById("address").value = advisor.address;
+                document.getElementById("district").value = advisor.district;
+                document.getElementById("state").value = advisor.state;
+                document.getElementById("pinCode").value = advisor.pinCode;
+                document.getElementById("occupation").value = advisor.occupation;
+                document.getElementById("education").value = advisor.education;
+                document.getElementById("selectPosition").value = advisor.selectPosition;
+                document.getElementById("introducerCode").value = advisor.introducerCode;
+                document.getElementById("introducerName").value = advisor.introducerName;
+                document.getElementById("position").value = advisor.position;
+                document.getElementById("feesIfAny").value = advisor.feesIfAny;
+                document.getElementById("paymentBy").value = advisor.paymentBy;
+
+                // Update remarks
+                document.getElementById("remarks").value = advisor.remarks;
+
+                // Update photo and signature
+                var imgElement = document.getElementById("preview");
                 imgElement.src = "data:image/png;base64," + advisor.frontEndPhoto;
 
                 var img2 = document.getElementById('secondpreview');
                 img2.src = "data:image/png;base64," + advisor.frontEndSignature;
-		
-			}else{
-				alert("No data found");
-			}
-		}, 
-		error: function(){
-			alert("Device control failed");
-		}
-	});
+            } else {
+                alert("No data found");
+            }
+        },
+        error: function () {
+            alert("Device control failed");
+        }
+    });
 }
 
 //Making disabled field unable & text field empty
@@ -240,6 +240,7 @@ function getAllIDAfterSoftDeleteOperation(){
 		url: 'retrieveDataOfSoftDeleteApi',
 		asynch: false,
 		success: function(data){
+			
 			var appenddata1 = "";
 				for(var i=0; i<data.length; i++){
 					appenddata1 += "<option value ='"+data[i].id +"'>" +data[i].id +"-"+ data[i].memberName + "</option>";
@@ -473,8 +474,8 @@ function DataretrivalfromSearchMember(){
 		
 //Doing Save Operation & also validation
 $(document).ready(function() {
-				$('#newbutton').click(function() {
-				//alert("Save is working ")
+	$('#newbutton').click(function() {
+	//alert("Save is working ")
 				
 	//Validation Code
    	if($("#joiningDate").val() == ""){

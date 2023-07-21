@@ -3,7 +3,10 @@ package com.society.application.controler;
 import java.io.IOException;
 import java.util.Base64;
 import java.util.List;
+import java.util.Map;
+
 import javax.net.ssl.HttpsURLConnection;
+import javax.servlet.http.HttpSession;
 
 import org.apache.taglibs.standard.lang.jstl.test.beans.PublicBean1;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -215,18 +218,18 @@ public class RectificationSectionController {
 	// Retrieve data from Id
 	@PostMapping("/searchById")
 	@ResponseBody
-	public List<AdvisorCollectorDetails> getsearchById(@RequestBody AdvisorCollectorDetails model) {
-		List<AdvisorCollectorDetails> advisors = advisorcollectordetailsrepo.findByid(model.getId());
-		advisors.forEach(s -> {
-			if (advisors != null) {
-				String encodedPhoto = Base64.getEncoder().encodeToString(s.getPhoto());
-				String encodedSignature = Base64.getEncoder().encodeToString(s.getSigniture());
-				s.setFrontEndPhoto(encodedPhoto);
-				s.setFrontEndSignature(encodedSignature);
-
-			}
-		});
-		return advisors;
+	public ResponseEntity<AdvisorCollectorDetails> getsearchById(@RequestBody AdvisorCollectorDetails model) {
+	    List<AdvisorCollectorDetails> advisors = advisorcollectordetailsrepo.findByid(model.getId());
+	    if (!advisors.isEmpty()) {
+	        AdvisorCollectorDetails advisor = advisors.get(0);
+	        String encodedPhoto = Base64.getEncoder().encodeToString(advisor.getPhoto());
+	        String encodedSignature = Base64.getEncoder().encodeToString(advisor.getSigniture());
+	        advisor.setFrontEndPhoto(encodedPhoto);
+	        advisor.setFrontEndSignature(encodedSignature);
+	        return new ResponseEntity<>(advisor, HttpStatus.OK);
+	    } else {
+	        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	    }
 	}
 	
 	//Update operation for LOanMaster Table
@@ -272,11 +275,8 @@ public class RectificationSectionController {
 			@RequestParam(name = "filetag",required = false) MultipartFile file1,
 			@RequestParam(name = "secondfiletag",required = false) MultipartFile file2,
 			@RequestParam(name = "id123",required = false) Integer id)  {
-		
 		try {
-			
 		List<LoanMaster> client = loanmasterrepo.findByid(id);
-			
 			 client.forEach(s->{
 				 if(!(file1==null) && !(file2==null)) {
 					 try {
@@ -327,10 +327,8 @@ public class RectificationSectionController {
 				    s.setInsuranceAmt(insuranceAmt);
 				    s.setAdvisorName(advisorName);
 					s.setFlag("1");
-					
 					loanmasterrepo.save(s);
 				});
-			
 	        return new ResponseEntity<>("Data Updated  successfully!!!!", HttpStatus.OK);
 		}catch(Exception ex) {;
 			System.out.println(ex);
@@ -487,11 +485,15 @@ public class RectificationSectionController {
 			@RequestParam(name = "feesIfAny", required = false) String feesIfAny,
 			@RequestParam(name = "position", required = false) String position,
 			@RequestParam(name = "paymentBy", required = false) String paymentBy,
-			@RequestParam(name = "remarks", required = false) String remarks, @RequestParam(name = "id133") int id,
+			@RequestParam(name = "remarks", required = false) String remarks, 
+			@RequestParam(name = "id133") int id,
 			@RequestParam(name = "advisorStatus", required = false) String advisorStatus,
-			@RequestParam(name = "smsSend", required = false) String smsSend) {
+			@RequestParam(name = "smsSend", required = false) String smsSend,
+			HttpSession session) {
 		try {
 			List<AdvisorCollectorDetails> advisor = advisorcollectordetailsrepo.findByid(id);
+			String createdBy = session.getAttribute("ID").toString();
+			session.setAttribute("createdBy", createdBy);
 			advisor.forEach(s -> {
 				if (file1 != null && file2 != null) {
 					try {
@@ -531,7 +533,7 @@ public class RectificationSectionController {
 				s.setAdvisorStatus(advisorStatus);
 				s.setSmsSend(smsSend);
 				s.setFlag("1");
-
+				s.setCreatedBy(createdBy);
 				advisorcollectordetailsrepo.save(s);
 			});
 			// System.out.println(photo);
@@ -578,7 +580,6 @@ public class RectificationSectionController {
 				String encodedSignature = Base64.getEncoder().encodeToString(s.getSignature());
 				s.setFrontEndPhoto(encodedPhoto);
 				s.setFrontEndSignature(encodedSignature);
-
 			}
 		});
 		return datAddInvestments;
@@ -623,9 +624,12 @@ public class RectificationSectionController {
 			@RequestParam(name = "advisorCode", required = false) String advisorCode,
 			@RequestParam(name = "advisorName", required = false) String advisorName,
 			@RequestParam(name = "chkisSms", required = false) String chkisSms,
-			@RequestParam(name = "id123", required = false) String id) {
+			@RequestParam(name = "id123", required = false) String id,
+			HttpSession session) {
 		try {
 			List<AddInvestment> add = addInvestmentRepo.findBypolicyno(id);
+			String createdBy = session.getAttribute("ID").toString();
+			session.setAttribute("createdBy", createdBy);
 			add.forEach(s -> {
 				if (!(file1 == null) && !(file23 == null)) {
 					try {
@@ -671,6 +675,7 @@ public class RectificationSectionController {
 				s.setAdvisorName(advisorName);
 				s.setChkisSms(chkisSms);
 				s.setFlag("1");
+				s.setCreatedBy(createdBy);
 				addInvestmentRepo.save(s);
 			});
 			return new ResponseEntity<>("Data Updated Successfully!!!", HttpStatus.OK);
@@ -695,7 +700,6 @@ public class RectificationSectionController {
 	public ResponseEntity<String> DeleteSavingsTransactionDelete(@RequestBody SavingsDepositWith model) {
 		String flag = "0";
 		int i = savingsDepositWithdrawalRepo.updateThroughIDInDeleteSavingsTransaction(flag, model.getAccountNo());
-
 		return ResponseEntity.ok("Soft Deleted Successfully...");
 	}
 
@@ -807,9 +811,11 @@ public class RectificationSectionController {
 			@RequestParam(name = "chkDate", required = false) String chkDate,
 			@RequestParam(name = "depositAcc", required = false) String depositAcc,
 			@RequestParam(name = "remarks", required = false) String remarks,
-			@RequestParam(name = "id123", required = false) Integer id) {
+			@RequestParam(name = "id123", required = false) Integer id,
+			HttpSession session) {
 		try {
 			List<ClientMaster> client = clientMasterRepo.findByid(id);
+			String createdBy = session.getAttribute("ID").toString();
 			client.forEach(s -> {
 				if (!(file1 == null)) {
 					try {
@@ -860,8 +866,9 @@ public class RectificationSectionController {
 				s.setDepositAcc(depositAcc);
 				s.setRemarks(remarks);
 				s.setFlag("1");
-
+				s.setCreatedBy(createdBy);
 				clientMasterRepo.save(s);
+				session.setAttribute("createdBy", createdBy);
 			});
 			return new ResponseEntity<>("Data Updated Successfully...", HttpStatus.OK);
 		} catch (Exception e) {
@@ -958,7 +965,6 @@ public class RectificationSectionController {
 	@PostMapping("/RetrieveDatathroughAccountNumber")
 	@ResponseBody
 	public List<AddSavingAccount> RetrieveDatathroughAccountNumber(@RequestBody AddSavingAccount asm) {
-
 		List<AddSavingAccount> data = addSavingAccountRepo.findByaccountNo(asm.getAccountNo());
 		return data;
 	}
@@ -1037,7 +1043,6 @@ public class RectificationSectionController {
 	public ResponseEntity<String> softDeleterectificationofsavingrectification(@RequestBody AddSavingAccount asm) {
 		String flag = "0";
 		int i = addSavingAccountRepo.softDeleterectificationofsavingrectification(flag, asm.getAccountNo());
-
 		return ResponseEntity.ok("Deleted Successfully..!!");
 	}
 	
@@ -1395,7 +1400,6 @@ public class RectificationSectionController {
 							s.setInsuranceAmt(insuranceAmt);
 							s.setAdvisorName(advisorName);
 							s.setFlag("1");
-							
 							groupMasterApplicationRepo.save(s);
 						});
 						return new ResponseEntity<>("Data Updated  successfully!!!!", HttpStatus.OK);

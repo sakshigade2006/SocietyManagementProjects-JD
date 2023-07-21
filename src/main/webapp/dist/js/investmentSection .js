@@ -50,6 +50,7 @@ function getRetrieveDataInPolicyNoAfterSoftDeletee(){
 			var appenddata1 = "";
 				for(var i=0; i<data.length; i++){
 					appenddata1 += "<option value='"+data[i].id+"'>"+data[i].id+"</option> ";
+					//appenddata1 += "<option value='" + data[i].policyno + "'> Policy No. = " + data[i].policyno + "  &   Member Name = " + data[i].memberName + "</option>";
 				}
 				$("#searchbyPolicyNo").append(appenddata1);
 				
@@ -928,55 +929,52 @@ function softDeleteForThreeThings() {
 /*Retrieval Investment Section Daily Renewal Payment Module */
 /*Retrieval Investment Section Daily Renewal Payment Module & Also Rectification Section Of Renewal Rectification Module */
 //1.Get Data By Policy No.
-function getByAddInvesmentCode(){
-	
-	//alert("Hello")
-	var searchbyPolicyNo = document.getElementById("searchbyPolicyNo");
-		var input = {
-                     "id": searchbyPolicyNo.value }
-             
-        $.ajax({
-                 type:"post",
-                 contentType: "application/json",
-                 data: JSON.stringify(input),
-                 url: 'getByAddInvesmentCode',
-                 asynch: false,
-                 success: function(data) {
-                 	 
-                     var imgElement = document.getElementById("preview");
-             	     imgElement.src = "data:image/png;base64," + data.photo;
+function getByAddInvesmentCode() {
+    var searchbyPolicyNo = document.getElementById("searchbyPolicyNo");
+    var input = {
+        "id": searchbyPolicyNo.value
+    };
 
-             	     var imgElement = document.getElementById("secondpreview");
-             	     imgElement.src = "data:image/png;base64," + data.signature;
-			
-                      document.getElementById("policyDate1").value = data.policyDate;
-                      document.getElementById("mDate").value = data.mDate;
-                      document.getElementById("memberCode").value = data.searchMemberCode;
-                      document.getElementById("applicantName").value = data.memberName;
-                      document.getElementById("mobileNo").value = data.phoneno;
-                      document.getElementById("PolicyAmount").value = data.policyAmount;
-                      document.getElementById("schemeName").value = data.schemeName;
-                      document.getElementById("schemeType").value = data.schemeType;
-                      document.getElementById("mode").value = data.mode;
-                      document.getElementById("maturityAmount").value = data.maturityAmount;
-                      document.getElementById("totalDeposit").value = data.totalDeposit;
-                      document.getElementById("MaturityAmountDue").value = data.amtDue;
-                      document.getElementById("chkisSms").value = data.chkisSms;
-                      document.getElementById("advisorCode").value = data.advisorCode;
-                      document.getElementById("lastInstPaid").value = data.lastInstPaid;
-                      document.getElementById("dueDate").value = data.dueDate;
-                      document.getElementById("latefine").value = data.latefine;
-                      document.getElementById("NoOfInstPaid").value = data.noOfInstPaid;
-                      document.getElementById("paymode").value = data.paymode;
-                      document.getElementById("collectorCode").value = data.collectorCode;
-                      document.getElementById("advisorName").value = data.advisorName;
-                      document.getElementById("remarks").value = data.remarks;
-                    
-                 } ,
-         	    error: function(){
-         	    	alert("Device control failed");
-         	    }
-             });
+    $.ajax({
+        type: "post",
+        contentType: "application/json",
+        data: JSON.stringify(input),
+        url: 'getByAddInvesmentCode',
+        async: false,
+        success: function(data) {
+            document.getElementById("policyDate1").value = data.policyDate;
+            document.getElementById("mDate").value = data.mDate;
+            document.getElementById("memberCode").value = data.searchMemberCode;
+            document.getElementById("applicantName").value = data.memberName;
+            document.getElementById("mobileNo").value = data.phoneno;
+            document.getElementById("PolicyAmount").value = data.policyAmount;
+            document.getElementById("schemeName").value = data.schemeName;
+            document.getElementById("schemeType").value = data.schemeType;
+            document.getElementById("mode").value = data.mode;
+            document.getElementById("maturityAmount").value = data.maturityAmount;
+            document.getElementById("totalDeposit").value = data.totalDeposit;
+            document.getElementById("MaturityAmountDue").value = data.amtDue;
+            document.getElementById("chkisSms").value = data.chkisSms;
+            document.getElementById("advisorCode").value = data.advisorCode;
+            document.getElementById("lastInstPaid").value = data.lastInstPaid;
+            document.getElementById("dueDate").value = data.dueDate;
+            document.getElementById("latefine").value = data.latefine;
+            document.getElementById("NoOfInstPaid").value = data.noOfInstPaid;
+            document.getElementById("paymode").value = data.paymode;
+            document.getElementById("collectorCode").value = data.collectorCode;
+            document.getElementById("advisorName").value = data.advisorName;
+            document.getElementById("remarks").value = data.remarks;
+
+            var imgElement = document.getElementById("preview");
+            imgElement.src = "data:image/png;base64," + data.photo;
+
+            var imgElement = document.getElementById("secondpreview");
+            imgElement.src = "data:image/png;base64," + data.signature;
+        },
+        error: function() {
+            alert("Device control failed");
+        }
+    });
 }
 
 /*Investment Section Daily Renewal Payment Module */

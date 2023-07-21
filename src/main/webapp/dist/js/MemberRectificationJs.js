@@ -93,7 +93,6 @@ function DepositAccNoInDropdown(){
 /* Retrieval Code for Member Rectification */
 function getDataBySearchCode(){
 	const id = document.getElementById("id").value;
-	
 	const obj = {
                      "id": id
               };
@@ -199,6 +198,7 @@ function getAllIDAfterSoftDeleteOperation(){
 		url: 'retrieveDataOfSoftDeleteApi',
 		asynch: false,
 		success: function(data){
+			
 			var appenddata1 = "";
 				for(var i=0; i<data.length; i++){
 					appenddata1 += "<option value='"+data[i].id+"'>"+data[i].id+"</option> ";

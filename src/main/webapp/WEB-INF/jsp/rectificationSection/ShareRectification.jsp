@@ -4,10 +4,8 @@
 	cz-shortcut-listen="true"
 	onload="ShareRectification(); SharePayment(); BranchNameInDropdown(); ShareAllotedFromInDropdown()">
 	<!-- <form method="post" action="http://admin:eqfi%23123@eqfinidhi.eadmin.in/Admin/ShareIssue.aspx?ismodify=true" onsubmit="javascript:return WebForm_OnSubmit();" id="form1"> -->
-
 	<div
 		style="height: auto; min-height: 100%; border-radius: 30px; margin: 15px; background: url(dist/img/back.jpg);">
-
 		<!-- Header Start-->
 		<jsp:include page="../menu.jsp" />
 		<!-- Header End -->
@@ -15,14 +13,11 @@
 		<!-- Aside Menu Start-->
 		<jsp:include page="../asideMenu.jsp" />
 		<!-- Aside Menu end -->
-
-
 		<script type="text/javascript">
 //<![CDATA[
 Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', [], [], [], 90, 'ctl00');
 //]]>
 </script>
-
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper" style="min-height: 1105.75px;">
 			<section class="content-header">
@@ -222,7 +217,6 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', [],
 </textarea>
 										</div>
 									</div>
-
 								</div>
 								<div class="col-md-6"></div>
 							</div>
@@ -243,7 +237,6 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', [],
 								<div class="clearfix margin-bottom-10"></div>
 								<div></div>
 							</div>
-
 						</div>
 					</div>
 				</div>
@@ -256,7 +249,6 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', [],
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<!-- Bootstrap 3.3.7 -->
 	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
 	<!-- InputMask -->
 	<script src="plugins/input-mask/jquery.inputmask.js"></script>
 	<script src="plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
@@ -286,20 +278,13 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', [],
 	<script src="dist/js/demo.js"></script>
 	<!-- Select2 -->
 	<script src="bower_components/select2/dist/js/select2.full.min.js"></script>
-
 	<script src="dist/js/Rectification.js"></script>
 	<script src="dist/js/MemberRectificationJs.js"></script>
-	
    <script type="text/javascript">
-        
         function redirectThePageToShareTransfer(){
-        	
         	window.location.href = "shareIssue";
-			
 		}
   </script>
-	
-
 	<!-- </form> -->
 </body>
 <!-- Dk/Admin/ShareIssue.aspx?ismodify=true EDB D 09:27:14 GMT -->

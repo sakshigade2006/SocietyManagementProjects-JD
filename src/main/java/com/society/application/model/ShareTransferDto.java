@@ -28,6 +28,8 @@ public class ShareTransferDto {
 	private String flag;
 	private String fDate;
 	private String tDate;
+	private String createdBy;
+	private String createdDt;
 	
 	public String getCertificateNo() {
 		return certificateNo;
@@ -142,5 +144,17 @@ public class ShareTransferDto {
 	}
 	public void settDate(String tDate) {
 		this.tDate = tDate;
+	}
+	public String getCreatedBy() {
+		return createdBy;
+	}
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+	public String getCreatedDt() {
+		return createdDt;
+	}
+	public void setCreatedDt(String createdDt) {
+		this.createdDt = createdDt;
 	}
 }

@@ -1,9 +1,11 @@
 package com.society.application.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Transient;
 
 @Entity
@@ -93,8 +95,12 @@ public class AdvisorCollectorDetails {
 	
 	private String tDate;
 	
+	@Lob
+	@Column(name = "photo", length = 1048576)
 	private byte[] photo;
 	
+	@Lob
+	@Column(name = "signiture", length = 1048576)
 	private byte[] signiture;
 	
 	@Transient

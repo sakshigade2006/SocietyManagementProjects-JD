@@ -19,7 +19,6 @@
 					'form1', [], [], [], 90, 'ctl00');
 			//]]>
 		</script>
-
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper" style="min-height: 1105.75px;">
 			<section class="content-header">
@@ -628,7 +627,6 @@
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<!-- Bootstrap 3.3.7 -->
 	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
 	<!-- InputMask -->
 	<script src="plugins/input-mask/jquery.inputmask.js"></script>
 	<script src="plugins/input-mask/jquery.inputmask.date.extensions.js"></script>

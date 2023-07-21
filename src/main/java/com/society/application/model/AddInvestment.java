@@ -81,7 +81,9 @@ public class AddInvestment {
 	private String frontEndPhoto;
 	@Transient
 	private String frontEndSignature;
-
+	private String createdBy;
+	private String createdDt;
+	
 	public String getAppBranch() {
 		return appBranch;
 	}
@@ -489,6 +491,18 @@ public class AddInvestment {
 	}
 	public void setAprovalStatus(String aprovalStatus) {
 		this.aprovalStatus = aprovalStatus;
+	}
+	public String getCreatedBy() {
+		return createdBy;
+	}
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+	public String getCreatedDt() {
+		return createdDt;
+	}
+	public void setCreatedDt(String createdDt) {
+		this.createdDt = createdDt;
 	}
 	
 }

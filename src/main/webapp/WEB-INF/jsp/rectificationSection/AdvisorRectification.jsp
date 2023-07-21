@@ -1,14 +1,12 @@
 <jsp:include page="../header.jsp" />
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <script type="text/javascript">
-
 function calculateAge() {
 	   const dob = new Date(document.getElementById("dob").value); // get DOB from the date input field
 	   const ageId = Math.floor((Date.now() - dob) / (365.25 * 24 * 60 * 60 * 1000)); // calculate age
 	   document.getElementById("age").value = ageId; // set the calculated age in the age input field
 	 }
 </script>
-
 <body class="skin-blue sidebar-mini"
 	onload="getAllIDAfterSoftDeleteOperation(); SelectMemberAfterSoftDelete(); BranchNameInDropdown()"
 	style="height: auto; min-height: 100%; background-color: rgba(36, 105, 92, 0.15);"
@@ -16,10 +14,8 @@ function calculateAge() {
 	<!-- <form method="post" 
 		action="http://admin:eqfi%23123@eqfinidhi.eadmin.in/Admin/AddAdvisor.aspx?IsModification=true"
 		onsubmit="javascript:return WebForm_OnSubmit();" id="form1"> -->
-
 	<div
 		style="height: auto; min-height: 100%; border-radius: 30px; margin: 15px; background: url(dist/img/back.jpg);">
-
 		<!-- Header Start-->
 		<jsp:include page="../menu.jsp" />
 		<!-- Header End -->
@@ -27,14 +23,7 @@ function calculateAge() {
 		<!-- Aside Menu Start-->
 		<jsp:include page="../asideMenu.jsp" />
 		<!-- Aside Menu end -->
-
 		<!-- Left side column. contains the logo and sidebar -->
-		<script type="text/javascript">
-//<![CDATA[
-Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', [], [], [], 90, 'ctl00');
-//]]>
-</script>
-
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper" style="min-height: 1105.75px;">
 			<section class="content-header">
@@ -78,9 +67,7 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', [],
 					</div>
 				</div>
 				<form id="myForm" name="myForm">
-
 					<input id="id133" name="id133" type="hidden">
-
 					<div class="row">
 						<div class="col-md-10">
 							<div class="box box-info">
@@ -125,7 +112,7 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', [],
 												Name <strong style="color: Red">*</strong>
 											</label>
 											<div class="col-sm-8">
-												<input name="memberName" type="text" disabled="disabled"
+												<input name="memberName" type="text" 
 													id="memberName" class="form-control"
 													Placeholder="Enter Member Name" />
 											</div>
@@ -140,14 +127,14 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', [],
 														<i class="fa fa-calendar"></i>
 													</div>
 													<input name="dob" type="date" onchange="calculateAge()"
-														disabled="disabled" id="dob" class="form-control"
+														id="dob" class="form-control"
 														data-inputmask="&#39;alias&#39;: &#39;dd/mm/yyyy&#39;"
 														data-mask="" />
 												</div>
 											</div>
 											<div class="col-sm-3">
 												<input name="age" type="text" maxlength="2"
-													disabled="disabled" id="age" class="form-control"
+													id="age" class="form-control"
 													Placeholder="Enter Age" /> <span
 													id="ContentPlaceHolder1_RequiredFieldValidator12"
 													style="color: Red; font-size: X-Small; font-weight: bold; display: none;">Enter
@@ -157,7 +144,7 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', [],
 										<div class="form-group row">
 											<label class="col-sm-4 control-label">Relative Name</label>
 											<div class="col-sm-8">
-												<input name="relativeName" type="text" disabled="disabled"
+												<input name="relativeName" type="text" 
 													id="relativeName" class="form-control"
 													Placeholder="Enter Relative Name" />
 											</div>
@@ -168,7 +155,7 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', [],
 											<div class="col-sm-8">
 
 												<input name="relativeRelation" type="text"
-													disabled="disabled" id="relativeRelation"
+													id="relativeRelation"
 													Placeholder="Enter Relative Relation" class="form-control" />
 											</div>
 										</div>
@@ -178,7 +165,7 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', [],
 											</label>
 											<div class="col-sm-8">
 												<input name="mobileNo" type="text" maxlength="10"
-													disabled="disabled" id="mobileNo" class="form-control"
+													id="mobileNo" class="form-control"
 													Placeholder="Enter Mobile No" autocomplete="off"
 													onkeypress="return isNumberOnlyKey(this, event);" /> <span
 													id="ContentPlaceHolder1_RequiredFieldValidator8"
@@ -243,7 +230,7 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', [],
 											</label>
 											<div class="col-sm-8">
 												<textarea name="address" rows="2" cols="20"
-													disabled="disabled" id="address" class="form-control"
+													id="address" class="form-control"
 													Placeholder="Enter Addess">
 </textarea>
 												<span id="ContentPlaceHolder1_RequiredFieldValidator3"
@@ -256,7 +243,7 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', [],
 												<strong style="color: Red">*</strong>
 											</label>
 											<div class="col-sm-8">
-												<input name="district" type="text" disabled="disabled"
+												<input name="district" type="text" 
 													id="district" class="form-control"
 													Placeholder="Enter District" /> <span
 													id="ContentPlaceHolder1_RequiredFieldValidator1"
@@ -269,7 +256,7 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', [],
 												<strong style="color: Red">*</strong>
 											</label>
 											<div class="col-sm-8">
-												<input name="state" type="text" disabled="disabled"
+												<input name="state" type="text"
 													Placeholder="Enter State" id="state" class="form-control" />
 												<span id="state"
 													style="color: Red; font-size: X-Small; font-weight: bold; display: none;">Select
@@ -282,7 +269,7 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', [],
 											</label>
 											<div class="col-sm-8">
 												<input name="pinCode" type="text" maxlength="6"
-													disabled="disabled" id="pinCode" class="form-control"
+													id="pinCode" class="form-control"
 													Placeholder="Enter Pincode" /> <span
 													id="ContentPlaceHolder1_RequiredFieldValidator4"
 													style="color: Red; font-size: X-Small; font-weight: bold; display: none;">Enter
@@ -292,7 +279,7 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', [],
 										<div class="form-group row">
 											<label for="txtOccupation" class="col-sm-4 control-label">Occupation</label>
 											<div class="col-sm-8">
-												<input name="occupation" type="text" disabled="disabled"
+												<input name="occupation" type="text" 
 													id="occupation" class="form-control"
 													Placeholder="Enter Occupation" />
 											</div>
@@ -300,7 +287,7 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', [],
 										<div class="form-group row">
 											<label for="txtEducation" class="col-sm-4 control-label">Education</label>
 											<div class="col-sm-8">
-												<input name="education" type="text" disabled="disabled"
+												<input name="education" type="text" 
 													id="education" class="form-control"
 													Placeholder="Enter Education" />
 											</div>
@@ -318,7 +305,8 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', [],
                        	 			<div class="col-md-3">
                             			<div class="form-group">
                                 			<div class="text-center">
-                                    			<img name="preview" id="preview" class="profile-user-img"  style="height:70px;width:115px;" />
+                                    			<img name="preview" id="preview" class="profile-user-img" src="data:image/png;base64,${aadharPhoto}"
+                                    			  style="height:70px;width:115px;" />
                                      			<input type="file"  name="filetag" id="filetag" />
                                 			</div>
                             			</div>
@@ -333,7 +321,8 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', [],
                         			<div class="col-md-3">
                             			<div class="form-group">
                                 			<div class="text-center">
-                                    			<img name="secondpreview" id="secondpreview" class="profile-user-img"  style="height:70px;width:115px;" />
+                                    			<img name="secondpreview" id="secondpreview" class="profile-user-img"  src="data:image/png;base64,${aadharPhoto}"
+                                    			style="height:70px;width:115px;" />
                                      			<input type="file"  name="secondfiletag" id="secondfiletag" />
                                 			</div>
                             			</div>
@@ -389,7 +378,7 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', [],
 										<div class="form-group row">
 											<label class="col-sm-4 control-label">Introducer Name</label>
 											<div class="col-sm-8">
-												<input name="introducerName" type="text" disabled="disabled"
+												<input name="introducerName" type="text" 
 													id="introducerName" class="form-control"
 													Placeholder="Enter Introducer Name" /> <span
 													id="ContentPlaceHolder1_RequiredFieldValidator10"
@@ -401,7 +390,7 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', [],
 											<label class="col-sm-4 control-label">Position <strong
 												style="color: Red">*</strong></label>
 											<div class="col-sm-8">
-												<input name="position" type="text" disabled="disabled"
+												<input name="position" type="text" 
 													Placeholder="Enter Position" id="position"
 													class="form-control" /> <span
 													id="ContentPlaceHolder1_RequiredFieldValidator2"
@@ -504,12 +493,10 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', [],
 			</form>
 		</div>
 		<!-- /.content-wrapper -->
-
 		<div class="control-sidebar-bg"></div>
 	</div>
 	
 <script type="text/javascript">
-        
         function redirectThePageToAdvisorRectification(){
         	window.location.href = "addAdvisor";
 		}
@@ -561,7 +548,6 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', [],
 </script>
 
 <script type="text/javascript">
-
 function calculateAge() {
 	   const dob = new Date(document.getElementById("dob").value); // get DOB from the date input field
 	   const age = Math.floor((Date.now() - dob) / (365.25 * 24 * 60 * 60 * 1000)); // calculate age
@@ -572,11 +558,10 @@ function calculateAge() {
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<!-- Bootstrap 3.3.7 -->
 	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
 	<!-- InputMask -->
-	<script src="plugins/input-mask/jquery.inputmask.js"></script>
+	<!-- <script src="plugins/input-mask/jquery.inputmask.js"></script>
 	<script src="plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
-	<script src="plugins/input-mask/jquery.inputmask.extensions.js"></script>
+	<script src="plugins/input-mask/jquery.inputmask.extensions.js"></script> -->
 	<!-- date-range-picker -->
 	<script src="bower_components/moment/min/moment.min.js"></script>
 	<script
@@ -604,7 +589,6 @@ function calculateAge() {
 	<script src="dist/js/MemberRectificationJs.js"></script>
 	<!-- Select2 -->
 	<script src="bower_components/select2/dist/js/select2.full.min.js"></script>
-	
 	<!-- </form> -->
 </body>
 </html>

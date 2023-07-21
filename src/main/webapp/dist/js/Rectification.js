@@ -11,7 +11,8 @@ function  ForPolicynoDropdown() {
 			
 			 var appenddata1 = "";
                     for (var i = 0; i < data.length; i++) {
-                         appenddata1 += "<option value = '"+data[i].policyno +"'>" +data[i].policyno +" </option>";
+                         //appenddata1 += "<option value = '"+data[i].policyno +"'>" +data[i].policyno +" </option>";
+                         appenddata1 += "<option value='" + data[i].policyno + "'> Policy No. = " + data[i].policyno + "  &   Member Name = " + data[i].memberName + "</option>";
                          //appenddata1 += "<option value='" + data[i].id + "'> ID = " + data[i].id + "  &   Policy No. = " + data[i].policyno + "</option>";
                     }
                     $("#policyno").append(appenddata1);
@@ -817,7 +818,6 @@ function getthevalueinthegiveninputFieldsfofSavingAcoount() {
   });
 }
 
-
 function BranchNameFromAddInvestment(){
 	//alert("hi")
 		$.ajax({
@@ -1018,4 +1018,48 @@ function retrivigFeildsforLoanNameAjax(){
          	    	alert("Device control failed for data retriving on feilds");
          	    }
        });
+}
+
+function BranchNameForAddInvestmentModule(){
+	//alert("hi")
+		$.ajax({
+		type: "get",
+		contentType: "application/json",
+		url: 'getAllBranch',
+		asynch: false,
+		success: function(data) {
+			//alert("helooo")
+			
+			 var appenddata1 = "";
+                    for (var i = 0; i < data.length; i++) {
+						appenddata1 += "<option value ='"+data[i].name +"'>" +data[i].name +"</option>";
+					}
+                    $("#branchName").append(appenddata1);
+		},
+		error: function() {
+			alert("Device control failed");
+		}
+	});
+}
+
+function BranchNameForFlexiDeposit(){
+	//alert("hi")
+		$.ajax({
+		type: "get",
+		contentType: "application/json",
+		url: 'getAllBranch',
+		asynch: false,
+		success: function(data) {
+			//alert("helooo")
+			
+			 var appenddata1 = "";
+                    for (var i = 0; i < data.length; i++) {
+						appenddata1 += "<option value ='"+data[i].name +"'>" +data[i].name +"</option>";
+					}
+                    $("#branchName").append(appenddata1);
+		},
+		error: function() {
+			alert("Device control failed");
+		}
+	});
 }

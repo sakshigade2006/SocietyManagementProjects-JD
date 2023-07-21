@@ -7,6 +7,7 @@ import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -112,13 +113,15 @@ public class InvestmentSectionController {
 			@RequestParam("maturityAmount") String maturityAmount, @RequestParam("mISInterest") String mISInterest,
 			@RequestParam("paymode") String paymode, @RequestParam("remarks") String remarks,
 			@RequestParam("advisorCode") String advisorCode, @RequestParam("advisorName") String advisorName,
-			@RequestParam("chkisSms") String chkisSms, AddInvestment addin) {
+			@RequestParam("chkisSms") String chkisSms, 
+			AddInvestment addin,
+			HttpSession session) {
 		try {
 			addin = new AddInvestment();
-
+			String createdBy = session.getAttribute("ID").toString();
 			byte[] photo = file1.getBytes();
 			byte[] signature = file23.getBytes();
-
+			addin.setCreatedBy(createdBy);
 			addin.setSearchMemberCode(searchMemberCode);
 			addin.setPolicyDate(policyDate);
 			addin.setMemberName(memberName);
@@ -155,8 +158,8 @@ public class InvestmentSectionController {
 			addin.setPhoto(photo);
 			addin.setSignature(signature);
 			addin.setMisMode(misode);
-
 			addInvestmentRepo.save(addin);
+			session.setAttribute("createdBy", createdBy);
 			return new ResponseEntity<>("Data Saved Successfully", HttpStatus.OK);
 		} catch (Exception e) {
 			System.out.println(e);
@@ -249,7 +252,6 @@ public class InvestmentSectionController {
 	@ResponseBody
 	public List<AddInvestment> getByAddInvesmentCode(@RequestBody AddInvestment model) {
 	    List<AddInvestment> list = addInvestmentRepo.findAllByid(model.getId());
-	    
 	    list.forEach(s -> {
 	        // Check if the photo and signature are not null
 	        if (s.getPhoto() != null && s.getSignature() != null) {
@@ -260,7 +262,6 @@ public class InvestmentSectionController {
 	            s.setFrontEndSignature(encodedSignature);
 	        }
 	    });
-	    
 	    return list;
 	}
 
