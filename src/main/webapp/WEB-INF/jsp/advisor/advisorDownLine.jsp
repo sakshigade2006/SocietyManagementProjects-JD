@@ -5,10 +5,8 @@
 	<form method="post"
 		action="http://admin:eqfi%23123@eqfinidhi.eadmin.in/Admin/AdvisorTree.aspx"
 		id="form1">
-		
 		<div
 			style="height: auto; min-height: 100%; border-radius: 30px; margin: 15px; background: url(dist/img/back.jpg);">
-
 			<!-- Header Start-->
 			<jsp:include page="../menu.jsp" />
 			<!-- Header End -->
@@ -18,7 +16,6 @@
 			<!-- Aside Menu end -->
 			<!-- Content Wrapper. Contains page content -->
 			<div class="content-wrapper" style="min-height: 1105.75px;">
-
 				<section class="content-header">
 					<h1 id="ContentPlaceHolder1_IdHeader">Advisor Downline</h1>
 					<ol class="breadcrumb">
@@ -39,9 +36,9 @@
 									<div class="clearfix"></div>
 									<div class="col-md-3">
 										<div class="form-group">
+										<!-- onchange="searchAdvisorDownline();" -->
 											<label>Advisor Code :</label> <input
 												name="advisorSearchbyCode" type="text"
-												onchange="javascript:getByAdvisorCode()"
 												id="advisorSearchbyCode" class="form-control"
 												Placeholder="Enter Advisor Code" autocomplete="off" />
 										</div>
@@ -64,9 +61,10 @@
 										<div class="form-group">
 											<label></label> <a id="ContentPlaceHolder1_btnSearch"
 												class="btn btn-success margin-20"
-												href="javascript:getByAdvisorCode();gettableAdvisor()">
-												<span class="fa fa-search"></span> SEARCH
+												href="javascript:searchAdvisorDownline(); gettableAdvisor()"> <span
+												class="fa fa-search"></span> SEARCH
 											</a>
+											<!-- href="javascript:getByAdvisorCode();gettableAdvisor()" -->
 										</div>
 									</div>
 									<div class="clearfix margin-bottom-10"></div>
@@ -76,15 +74,13 @@
 								style="box-shadow: none; overflow: auto !important;">
 								<div class="box-body">
 									<div class="clearfix margin-bottom-10"></div>
-
-									<a href="#ContentPlaceHolder1_tvChain_SkipLink"><img
+									<!-- <a href="#ContentPlaceHolder1_tvChain_SkipLink"><img
 										alt="Skip Navigation Links."
 										src="../WebResource36b9.gif?d=n6roid9SKBH96J-M01DIwXu8AFTlJ0NKCwSCBAM-p8e2lSHer2vgGuJjw3jVuvLHAQmmzlIaZuZsC-ewAFbHN546Bjo9RqSioCmd2B2TAq01&amp;t=637290976998988531"
-										width="0" height="0" style="border-width: 0px;" /></a>
+										width="0" height="0" style="border-width: 0px;" /></a> -->
 									<div id="ContentPlaceHolder1_tvChain"
 										style="font-size: Medium;"></div>
 									<a id="ContentPlaceHolder1_tvChain_SkipLink"></a>
-
 									<table cellspacing="0" cellpadding="3" rules="all"
 										class="display nowrap table table-hover table-striped table-bordered"
 										border="1" id="ContentPlaceHolder1_gdvData"
@@ -96,12 +92,6 @@
 											<th scope="col">Advisor Code</th>
 											<th scope="col">Advisor Name</th>
 											<th scope="col">Position</th>
-											<th scope="col"></th>
-											<th scope="col"></th>
-											<th scope="col"></th>
-											<th scope="col"></th>
-											<th scope="col"></th>
-											<th scope="col"></th>
 										</tr>
 										<tbody id="tableBodyAdvisor">
 
@@ -116,11 +106,9 @@
 			<!-- /.content-wrapper -->
 			<div class="control-sidebar-bg"></div>
 		</div>
-
 		<script src="bower_components/jquery/dist/jquery.min.js"></script>
 		<!-- Bootstrap 3.3.7 -->
 		<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
 		<!-- InputMask -->
 		<script src="plugins/input-mask/jquery.inputmask.js"></script>
 		<script src="plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
@@ -150,7 +138,7 @@
 		<script src="dist/js/demo.js"></script>
 		<!-- Select2 -->
 		<script src="bower_components/select2/dist/js/select2.full.min.js"></script>
-		
+
 	</form>
 </body>
 </html>

@@ -44,7 +44,6 @@
 														onchange="javascript:fetchBySelectedCode()"
 														class="form-control select2" style="width: 100%;">
 														<option selected="selected" value=""></option>
-
 													</select> <span
 														id="ContentPlaceHolder1_RequiredFieldValidatorCollector"
 														style="color: Red; font-size: X-Small; font-weight: bold; display: none;">Select
@@ -259,7 +258,6 @@
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<!-- Bootstrap 3.3.7 -->
 	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
 	<!-- InputMask -->
 	<script src="plugins/input-mask/jquery.inputmask.js"></script>
 	<script src="plugins/input-mask/jquery.inputmask.date.extensions.js"></script>

@@ -3,6 +3,8 @@ package com.society.application.controler;
 import org.springframework.stereotype.Controller;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -102,9 +104,12 @@ public class CollectorAdvisorController {
 			@RequestParam(name = "smsSend", required = false) String smsSend,
 			@RequestParam(name = "filetag", required = false) MultipartFile file,
 			@RequestParam(name = "secondfiletag", required = false) MultipartFile file1,
-			AdvisorCollectorDetails advisor) {
+			AdvisorCollectorDetails advisor,
+			HttpSession session) {
 		try {
 			// AdvisorCollectorDetails advisor = new AdvisorCollectorDetails();
+			String createdBy = session.getAttribute("ID").toString();
+			advisor.setCreatedBy(createdBy);
 			if (!file.isEmpty() && !file1.isEmpty()) {
 				byte[] image = file.getBytes();
 				byte[] signature = file1.getBytes();
@@ -112,7 +117,6 @@ public class CollectorAdvisorController {
 				advisor.setPhoto(image);
 				advisor.setSigniture(signature);
 			}
-
 			advisor.setJoiningDate(joiningDate);
 			advisor.setSelectMember(selectMember);
 			advisor.setMemberName(memberName);
@@ -141,8 +145,8 @@ public class CollectorAdvisorController {
 			advisor.setAdvisorStatus(advisorStatus);
 			advisor.setSmsSend(smsSend);
 			advisor.setFlag("1");
-
 			advisorCollectorDetailsRepo.save(advisor);
+			session.setAttribute("createdBy", createdBy);
 			return new ResponseEntity<>("Data saved successfully...!!!", HttpStatus.OK);
 		} catch (Exception e) {
 			System.out.println(e);
@@ -170,15 +174,20 @@ public class CollectorAdvisorController {
 			@RequestParam(name = "branchName", required = false) String branchName,
 			@RequestParam(name = "selectPosition", required = false) String selectPosition,
 			@RequestParam(name = "newSenior", required = false) String newSenior,
-			@RequestParam(name = "id", required = false) Integer id) {
+			@RequestParam(name = "id", required = false) Integer id, 
+			HttpSession session,
+			AdvisorCollectorDetails advisor) {
 		try {
 			List<AdvisorCollectorDetails> list = advisorCollectorDetailsRepo.findByid(id);
+			String createdBy = session.getAttribute("ID").toString();
 			list.forEach(s -> {
 				if (branchName != null && selectPosition != null && newSenior != null) {
 					s.setBranchName(branchName);
 					s.setSelectPosition(selectPosition);
 					s.setNewSenior(newSenior);
+					s.setCreatedBy(createdBy);
 					advisorCollectorDetailsRepo.save(s);
+					session.setAttribute("createdBy", createdBy);
 				}
 			});
 			return new ResponseEntity<>("Data Updated  successfully!!!!", HttpStatus.OK);

@@ -10,14 +10,12 @@ function AdvisorTeamCollection()
   document.getElementById("Advisorcode").innerHTML = advisorcode;
   
  $.ajax({
-	
 	 type:"get",
      contentType: "application/json",
      url: 'getAdvisorTeamCollection1',
      data:{Advisorcode: advisorcode, Fromdate :fromdate, Todate :todate},
      asynch: false,
      success: function(data) {  
-	
 	      for (let i = 0; i < data.length; i++)
 	       {
 			 const tableData = data.map(function(value){
@@ -47,7 +45,7 @@ function AdvisorTeamCollection()
 	    	alert("Device control failed");
 	    }
  });
- }
+}
  
 function appendSelectMember() {
 	    $.ajax({
@@ -56,7 +54,6 @@ function appendSelectMember() {
 		url: 'appendSelectMember',
 		asynch: false,
 		success: function (data) {
-
 			var appenddata1 = "";
 			//var jsonData1 = JSON.parse(data1.d);
 			for (var i = 0; i < data.length; i++) {
@@ -122,14 +119,12 @@ function fetchBySelectedMember(){
 }
 
 function selectCodeOfAdvisor() {
-
 	$.ajax({
 		type: "get",
 		contentType: "application/json",
 		url: 'selectCodeOfAdvisor',
 		asynch: false,
 		success: function (data) {
-
 			var appenddata1 = "";
 			//var jsonData1 = JSON.parse(data1.d);
 			for (var i = 0; i < data.length; i++) {
@@ -144,14 +139,12 @@ function selectCodeOfAdvisor() {
 }
 
 function selectCodeOfAdvisoridPosition() {
-
 	$.ajax({
 		type: "get",
 		contentType: "application/json",
 		url: 'selectCodeOfAdvisor',
 		asynch: false,
 		success: function (data) {
-
 			var appenddata2 = "";
 			//var jsonData1 = JSON.parse(data1.d);
 			for (var i = 0; i < data.length; i++) {
@@ -166,14 +159,12 @@ function selectCodeOfAdvisoridPosition() {
 }
 
 function getBranchName() {
-
 	$.ajax({
 		type: "get",
 		contentType: "application/json",
 		url: 'getAllBranch',
 		asynch: false,
 		success: function (data) {
-
 			var appenddata1 = "";
 			//var jsonData1 = JSON.parse(data1.d);
 			for (var i = 0; i < data.length; i++) {
@@ -233,7 +224,6 @@ function selectPosition() {
 		url: 'selectPosition',
 		asynch: false,
 		success: function (data) {
-
 			var appenddata1 = "";
 			//var jsonData1 = JSON.parse(data1.d);
 			for (var i = 0; i < data.length; i++) {

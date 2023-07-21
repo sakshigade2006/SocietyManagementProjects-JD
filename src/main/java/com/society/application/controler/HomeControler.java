@@ -445,6 +445,20 @@ public class HomeControler {
 		List<AdvisorCollectorDetails> listAdvisorCollectorDetails = advisorCollectorDetailsRepo.findByid(id);
 		return listAdvisorCollectorDetails;
 	}
+	
+	@PostMapping("/advisorDownline")
+	@ResponseBody
+	public List<AdvisorCollectorDetails> getAdvisorDownline(@RequestBody AdvisorCollectorDetails advisor) {
+		List<AdvisorCollectorDetails> list = advisorCollectorDetailsRepo.findAllById(advisor.getId());
+		return list;
+	}
+	
+	@PostMapping("/advisorDownlineTable")
+	@ResponseBody
+	public List<AdvisorCollectorDetails> getAdvisorDownlineTable(@RequestBody AdvisorCollectorDetails advisor) {
+	    List<AdvisorCollectorDetails> list = advisorCollectorDetailsRepo.findAllById(advisor.getId());
+	    return list;
+	}
 
 	@GetMapping("/getAllBranch")
 	@ResponseBody

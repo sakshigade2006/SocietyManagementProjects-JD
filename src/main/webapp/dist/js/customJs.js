@@ -14,7 +14,6 @@ function callGetAllMasterData() {
 				option.innerHTML = value.name
 				select.appendChild(option)
 			})
-
 		},
 		error: function() {
 			alert("Device control failed");
@@ -36,7 +35,6 @@ function callGetAllMasterData() {
 				option.innerHTML = value.name
 				selectmaritalStatus.appendChild(option)
 			})
-			
 		},
 		error: function() {
 			alert("Device control failed");
@@ -58,7 +56,6 @@ function callGetAllMasterData() {
 				option.innerHTML = value.name
 				selectState.appendChild(option)
 			})
-
 		},
 		error: function() {
 			alert("Device control failed");
@@ -80,7 +77,6 @@ function callGetAllMasterData() {
 				option.innerHTML = value.name
 				selectBranchName.appendChild(option)
 			})
-
 		},
 		error: function() {
 			alert("Device control failed");
@@ -102,7 +98,6 @@ function callGetAllMasterData() {
 				option.innerHTML = value.name
 				selectnRelation.appendChild(option)
 			})
-
 		},
 		error: function() {
 			alert("Device control failed");
@@ -124,7 +119,6 @@ function callGetAllMasterData() {
 				option.innerHTML = value.name
 				selectPosition.appendChild(option)
 			})
-
 		},
 		error: function() {
 			alert("Device control failed");
@@ -146,7 +140,6 @@ function callGetAllMasterData() {
 				option.innerHTML = value.name
 				nomineeKycType.appendChild(option)
 			})
-
 		},
 		error: function() {
 			alert("Device control failed");
@@ -168,7 +161,6 @@ function callGetAllMasterData() {
 				option.innerHTML = value.name
 				shareAllotedfrm.appendChild(option)
 			})
-
 		},
 		error: function() {
 			alert("Device control failed");
@@ -190,7 +182,6 @@ function callGetAllMasterData() {
 				option.innerHTML = value.name
 				shareAllotedfrm2.appendChild(option)
 			})
-
 		},
 		error: function() {
 			alert("Device control failed");
@@ -212,7 +203,6 @@ function callGetAllMasterData() {
 				option.innerHTML = value.name
 				paymode.appendChild(option)
 			})
-
 		},
 		error: function() {
 			alert("Device control failed");
@@ -234,7 +224,6 @@ function callGetAllMasterData() {
 				option.innerHTML = value.memberName
 				allAdvisor.appendChild(option)
 			})
-
 		},
 		error: function() {
 			alert("Device control failed");
@@ -256,7 +245,6 @@ function callGetAllMasterData() {
 				option.innerHTML = value.branchName
 				memberDataBranch2.appendChild(option)
 			})
-
 		},
 		error: function() {
 			alert("Device control failed");
@@ -278,7 +266,6 @@ function callGetAllMasterData() {
 				option.innerHTML = value.memberName + '-' + value.branchName
 				memberData.appendChild(option)
 			})
-
 		},
 		error: function() {
 			alert("Device control failed");
@@ -300,7 +287,6 @@ function callGetAllMasterData() {
 				option.innerHTML = value.branchName
 				memberDataBranch.appendChild(option)
 			})
-
 		},
 		error: function() {
 			alert("Device control failed");
@@ -350,7 +336,6 @@ function callGetAllMasterData() {
 				option.innerHTML = value.memberName + '-' + value.memberName
 				shareCertificate.appendChild(option)
 			})
-
 		},
 		error: function() {
 			alert("Device control failed");
@@ -360,43 +345,40 @@ function callGetAllMasterData() {
 
 //tableBodyAdvisor
 function gettableAdvisor() {
-	var advisorSearchbyCode = document.getElementById("advisorSearchbyCode");
-	var input = {
-		"id": advisorSearchbyCode.value
-	}
-	$.ajax({
-		type: "post",
-		contentType: "application/json",
-		data: JSON.stringify(input),
-		url: 'getAdvisor',
-		asynch: false,
-		success: function(data) {
-			var array = [];
-			array.push(data);
-			for (let i = 0; i < 1; i++) {
-				//alert(array[i].memberName)
-				const tableAdvisor = array.map(function(value) {
-					return (
-						`<tr>
-                           		<td>${value.id}</td>
-                           		<td>${value.id}</td>
-                                <td>${value.memberName}</td>
-                                <td>${value.position}</td>
-                          </tr>`
-					);
-				}).join('');
-				const tableBodyAdvisor = document.querySelector("#tableBodyAdvisor");
-				tableBodyAdvisor.innerHTML = tableAdvisor;
-			}
-
-		},
-		error: function() {
-			alert("Device control failed");
-		}
-	});
-
+    var advisorSearchbyCode = document.getElementById("advisorSearchbyCode");
+    var input = {
+        "id": advisorSearchbyCode.value
+    };
+    $.ajax({
+        type: "post",
+        contentType: "application/json",
+        data: JSON.stringify(input),
+        url: 'advisorDownlineTable',
+        async: false,
+        success: function (data) {
+            // Ensure data is an array of objects
+            if (Array.isArray(data) && data.length > 0) {
+				var j=1;
+                // Use forEach to iterate over the array of objects
+                data.forEach(function (value, index) {
+                    var tableAdvisor = `<tr>
+                            <td>${j++}</td>
+                            <td>${value.id}</td>
+                            <td>${value.memberName}</td>
+                            <td>${value.position}</td>
+                          </tr>`;
+                    $("#tableBodyAdvisor").append(tableAdvisor);
+                });
+            } else {
+                // Handle no data or invalid response
+                alert("No data found for the provided Advisor Code.");
+            }
+        },
+        error: function () {
+            alert("Failed to fetch Advisor details.");
+        }
+    });
 }
-
 
 function getAllrd() {
 	//alert('hi')
@@ -445,7 +427,6 @@ function getAllfd() {
 				document.getElementById("fDTermType1").innerHTML = data[i].fDTermType;
 				document.getElementById("fDComN1").innerHTML = data[i].fDComN;
 				document.getElementById("fDMinimumAmount1").innerHTML = data[i].fDMinimumAmount;
-
 			}
 		}
 		,
@@ -482,9 +463,6 @@ function getAllmis() {
 	});
 }
 
-
-
-
 function getAlldd() {
 	//alert('hi')
 	$.ajax({
@@ -514,8 +492,6 @@ function getAlldd() {
 		}
 	});
 }
-
-
 
 function searchMemberShareReport() {
 	//alert('hi')
@@ -581,7 +557,6 @@ function getMemberById(ids) {
 			document.getElementById("pinCode").value = data.pinCode;
 			document.getElementById("occupation").value = data.occupation;
 			document.getElementById("education").value = data.education;
-
 		},
 		error: function() {
 			alert("Device control failed");
@@ -603,24 +578,18 @@ function getByAdvisorCode() {
 		success: function(data) {
 			var x = Number(data.id)
 			document.getElementById("position").value = data.position;
-
-
 		},
 		error: function() {
 			alert("Device control failed");
 		}
 	});
-
 }
-
-
 
 function calculateAge() {
 	var dob = document.getElementById("dobMember").value;
 	var currentYear = "2023"; //as of now hard coding value
 	var calculate = (parseInt(currentYear) - parseInt(dob));
 	document.getElementById("memberAge").value = calculate;
-
 }
 
 function printMemberForm(memberFrm) {
@@ -631,31 +600,19 @@ function printMemberForm(memberFrm) {
 	newwin.close();
 }
 
-
-
 function toggleDisabledFields(){
 	document.getElementById("previousShare").disabled = false;
 	document.getElementById("previousShareNo").disabled = false;
 	document.getElementById("faceValue").disabled = false;
 	document.getElementById("sharebalance").disabled = false;
 	document.getElementById("noOfShare").disabled = false;
-
 }
 
-
-
-	
-
 function getByAdvisorColleactorCode() {
-	
 	const obj ={
 		memberName : document.getElementById("collector").value
 	};
-	
 	const myJSON = JSON.stringify(obj);
-
-	
-	
 	$.ajax({
 		type: "post",
 		contentType: "application/json",
@@ -663,9 +620,8 @@ function getByAdvisorColleactorCode() {
 		url: 'getAdvisor',
 		asynch: false,
 		success: function(data) {
-			
 			for (let i = 0; i < data.length; i++)
-	      {
+	        {
 		        document.getElementById("position").value = data[i].position;
 				document.getElementById("branchName").value = data[i].branchName;
 				document.getElementById("seniorCode").value = data[i].seniorCode;
@@ -678,15 +634,37 @@ function getByAdvisorColleactorCode() {
 				document.getElementById("selectPosition").value = data[i].selectPosition;
 				document.getElementById("newSenior").value = data[i].newSenior;
 				document.getElementById("seniorName").value = data[i].seniorName;
-				document.getElementById("seniorPosition1").value = data[i].seniorPosition1;
-	
-				
-	}
-
-
+				document.getElementById("seniorPosition1").value = data[i].seniorPosition1;		
+	  }
 		},
 		error: function() {
 			alert("Device control failed");
 		}
 	});
 }	
+
+function searchAdvisorDownline() {
+    var advisorSearchbyCode = document.getElementById("advisorSearchbyCode");
+    var input = {
+        "id": advisorSearchbyCode.value 
+    };
+    $.ajax({
+        type: "post",
+        contentType: "application/json",
+        data: JSON.stringify(input),
+        url: 'advisorDownline',
+        async: false,
+        success: function (data) {
+            if (data.length > 0) {
+                var advisor = data[0]; // Get the first element from the returned array
+                document.getElementById("advisorName").value = advisor.memberName;
+                document.getElementById("position").value = advisor.position;
+            } else {
+                alert("Advisor not found!");
+            }
+        },
+        error: function () {
+            alert("Failed to fetch advisor details.");
+        }
+    });
+}

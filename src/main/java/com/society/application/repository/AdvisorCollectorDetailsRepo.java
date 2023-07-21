@@ -62,4 +62,8 @@ public interface AdvisorCollectorDetailsRepo extends JpaRepository<AdvisorCollec
 
 	List<AdvisorCollectorDetails> findByJoiningDateBetween(String getfDate, String gettDate);
 
+	//List<AdvisorCollectorDetails> findAllByid(int id);
+
+	List<AdvisorCollectorDetails> findAllById(int id);
+
 }
