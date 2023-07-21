@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -140,8 +141,10 @@ public class AccountSectionController {
 	}
 
 	@PostMapping("accountLegMaster1")
-	public String getAccountLegMaster(@ModelAttribute("accountlegmodelattribute") AccountLegMaster alm, Model model) {
+	public String getAccountLegMaster(@ModelAttribute("accountlegmodelattribute") AccountLegMaster alm, Model model,HttpSession session) {
 		if (alm.getLedgername() != null && alm.getSelectgroup() != null) {
+			String createdBy= (session.getAttribute("ID").toString());
+			alm.setCreatedBy(createdBy);
 			accountLegMasterRepo.save(alm);
 			model.addAttribute("msg", "Record Saved");
 			// System.out.println("Saved");
@@ -294,7 +297,7 @@ public class AccountSectionController {
 	}
 
 	@PostMapping("/paymentEntry")
-	public String savePaymentEntry(HttpServletRequest request, Model model) {
+	public String savePaymentEntry(HttpServletRequest request, Model model,HttpSession session) {
 	    String status = "exception";
 	    String selectBranch = request.getParameter("selectbranch");
 	    String txndate = request.getParameter("txndate");
@@ -315,7 +318,8 @@ public class AccountSectionController {
 	        payentry2.setAmount(amount);
 	        payentry2.setNarration(narration);
 	        payentry2.setReciept(reciept);
-
+	        String createdBy= (session.getAttribute("ID").toString());
+	        payentry2.setCreatedBy(createdBy);
 	        PaymentEntry2Modal payentry = payentryrepo.save(payentry2);
 	        if (payentry != null) {
 	            status = "Data saved successfully";
@@ -346,7 +350,9 @@ public class AccountSectionController {
 	}
 
 	@PostMapping("/contraEntry1")
-	public String getContraEntry(@ModelAttribute("ContramodelAttribute") ContraEntry contraEntry, Model model) {
+	public String getContraEntry(@ModelAttribute("ContramodelAttribute") ContraEntry contraEntry, Model model,HttpSession session) {
+		String createdBy= (session.getAttribute("ID").toString());
+		contraEntry.setCreatedBy(createdBy);
 		contraEntryRepo.save(contraEntry);
 		return "accountSection/ContraEntry";
 	}
@@ -360,7 +366,9 @@ public class AccountSectionController {
 
 	@PostMapping("/mandateDeposit1")
 	public String getMandateDeposit(@ModelAttribute("MandateDepositToBank") MandateDepositToBank mandateDepBank,
-			Model model) {
+			Model model,HttpSession session) {
+		String createdBy= (session.getAttribute("ID").toString());
+		mandateDepBank.setCreatedBy(createdBy);
 		mandateDepositRepo.save(mandateDepBank);
 		return "accountSection/MandateDepositToBank";
 	}
@@ -526,7 +534,7 @@ public class AccountSectionController {
 	}
 	
 	@PostMapping("/addrecievceVoucherdata")
-	public String addMember(HttpServletRequest request, Model model) {
+	public String addMember(HttpServletRequest request, Model model,HttpSession session) {
 	    String status = "error";
 	    String selectBranch = request.getParameter("selectBranch");
 	    String txnDate = request.getParameter("txnDate");
@@ -546,6 +554,8 @@ public class AccountSectionController {
 	    	receive.setSelectLedger(selectLedger);
 	    	receive.setAmount(amount);
 	    	receive.setNarration(narration);
+	    	String createdBy= (session.getAttribute("ID").toString());
+	    	receive.setCreatedBy(createdBy);
 	    	
 	        receiveVoucher obj = accountrepo.save(receive);
 	        if (obj != null) {
@@ -713,7 +723,9 @@ public class AccountSectionController {
 	}
 	
 	@PostMapping("/journalEntry1")
-	public String getJournalEntry1(@ModelAttribute("JournalEntryModelAttribute") JournalEntry journal, Model model) {
+	public String getJournalEntry1(@ModelAttribute("JournalEntryModelAttribute") JournalEntry journal, Model model,HttpSession session) {
+    	String createdBy= (session.getAttribute("ID").toString());
+    	journal.setCreatedBy(createdBy);
 		journalEntryRepo.save(journal);
 		return "accountSection/JournalEntry";
 	}

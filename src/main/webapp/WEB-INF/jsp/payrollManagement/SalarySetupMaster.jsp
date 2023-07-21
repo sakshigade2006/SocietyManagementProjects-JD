@@ -185,7 +185,7 @@
 								</div>
 								<div class="box-footer">
 									<div class="row col-md-12">
-										<button type="button" name="save" value="Save"
+										<button type="submit" name="save" value="Save"
 											onclick="return validateEmployeeSalaryDetails()" id="save"
 											class="btn btn-success pull-right margin-r-5">Save</button>
 									</div>

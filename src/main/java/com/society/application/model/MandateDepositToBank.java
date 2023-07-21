@@ -36,8 +36,22 @@ public class MandateDepositToBank {
  private String maturitydate;
  private String paymentby;
  private String remarks;
+ private String createdBy;
+ private String CreatedDt; 
  
- public int getId() {
+ public String getCreatedBy() {
+	return createdBy;
+}
+public void setCreatedBy(String createdBy) {
+	this.createdBy = createdBy;
+}
+public String getCreatedDt() {
+	return CreatedDt;
+}
+public void setCreatedDt(String createdDt) {
+	CreatedDt = createdDt;
+}
+public int getId() {
 	return id;
 }
 public void setId(int id) {

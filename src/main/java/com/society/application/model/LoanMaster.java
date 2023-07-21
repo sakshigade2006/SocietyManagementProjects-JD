@@ -35,7 +35,6 @@ public class LoanMaster {
 	private String penaltyType;
 	private String penalty;
 	private String createdDate;
-	private String createdBy;
 	private String updatedDate;
 	private String updatedBy;
 	private String loanDate;
@@ -90,7 +89,17 @@ public class LoanMaster {
 	private String totalNetWt;
 	private String totalEligibleAmt;
 	private String vFeesAmt;
+	private String createdBy;
+	private String CreatedDt;
 	
+	public String getCreatedDt() {
+		return CreatedDt;
+	}
+
+	public void setCreatedDt(String createdDt) {
+		CreatedDt = createdDt;
+	}
+
 	public int getId() {
 		return id;
 	}

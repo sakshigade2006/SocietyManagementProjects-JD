@@ -35,7 +35,24 @@ public class SalaryMaster {
 	private String tDate;
 	private String smsCharges;
 	private String serviceCharges;
-	
+	private String createdBy;
+	private String CreatedDt; 
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public String getCreatedDt() {
+		return CreatedDt;
+	}
+
+	public void setCreatedDt(String createdDt) {
+		CreatedDt = createdDt;
+	}
+
 	public String getfDate() {
 		return fDate;
 	}

@@ -92,7 +92,24 @@ public class LoanPlanMaster {
 	private String memberData;
 	private String age;
 	private String planTerm;
+	private String createdBy;
+	public String getCreatedBy() {
+		return createdBy;
+	}
 
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public String getCreatedDt() {
+		return CreatedDt;
+	}
+
+	public void setCreatedDt(String createdDt) {
+		CreatedDt = createdDt;
+	}
+
+	private String CreatedDt;    
 	
 	
 	public String getPlanTerm() {

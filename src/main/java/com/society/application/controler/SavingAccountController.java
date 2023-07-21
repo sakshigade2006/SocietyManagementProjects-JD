@@ -147,10 +147,13 @@ public class SavingAccountController {
 
 	@PostMapping("/saveSavingsAccount")
 	public String saveSavingsAccount(@ModelAttribute("saveSavingsAccount") SavingAccount savingAccount, Model model, HttpSession session) {
-		SavingAccount savingAccountObj = savingAccountRepo.save(savingAccount);
+		SavingAccount savingAccountObj = new SavingAccount();
+		String createdBy= (session.getAttribute("ID").toString());
+		savingAccount.setCreatedBy(createdBy);
 		model.addAttribute("status", "ERROR");
 		if(savingAccountObj!=null) {
 			model.addAttribute("status", "SUCCESS");
+			savingAccountRepo.save(savingAccount);
 		}
 		return "savingsAccount/SavingsPlanMaster";
 	}
@@ -169,7 +172,9 @@ public class SavingAccountController {
 
 	@PostMapping("/saveSavingsAccountApplciation")
 	public String saveSavingsAccountApplciation(@ModelAttribute("saveSavingsAccountApplciation") SavingsAccountApplication savingsAccountApplication, Model model, HttpSession session) {
-		SavingsAccountApplication savingAccountObj = savingsAccountApplicationRepo.save(savingsAccountApplication);
+		SavingsAccountApplication savingAccountObj = new SavingsAccountApplication();
+		String createdBy=session.getAttribute("ID").toString();
+		savingsAccountApplication.setCreatedBy(createdBy);
 		model.addAttribute("status", "ERROR");
 		//List<Member> memberList = memberRepo.findAll();
 		List<ClientMaster> memberList = clientMasterRepo.findAll();
@@ -178,6 +183,7 @@ public class SavingAccountController {
 		model.addAttribute("branchList", branchData);
 		if(savingAccountObj!=null) {
 			model.addAttribute("status", "SUCCESS");
+			savingsAccountApplicationRepo.save(savingsAccountApplication);
 		}
 		return "savingsAccount/AddSaving";
 	}
@@ -346,7 +352,7 @@ public class SavingAccountController {
 			@RequestParam(name = "paymode", required = false) String paymode,
 			@RequestParam(name = "txtTDate", required = false) String txtTDate,
 			@RequestParam(name = "cspName", required = false) String cspName,
-			@RequestParam(name = "accountNo", required = false) String accountNo) {
+			@RequestParam(name = "accountNo", required = false) String accountNo,HttpSession session) {
 		try {
 			// Optional<SavingsAccountApplication> add =
 			// savingsAccountApplicationRepo.findById(id);
@@ -364,12 +370,15 @@ public class SavingAccountController {
 						e.printStackTrace();
 					}
 				}
+				String createdBy=session.getAttribute("ID").toString();
+				s.setCreatedBy(createdBy);
 				s.setTransactionFor(transactionFor);
 				s.setTransactionType(transactionType);
 				s.setRemarks(remarks);
 				s.setTxtTDate(txtTDate);
 				s.setCspName(cspName);
 				s.setAccountNo(accountNo);
+				
 				savingsAccountApplicationRepo.save(s);
 			});
 			return new ResponseEntity<>("Data Updated  successfully!!!!", HttpStatus.OK);

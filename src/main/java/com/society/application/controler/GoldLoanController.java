@@ -6,6 +6,8 @@ import java.util.Optional;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -92,10 +94,12 @@ public class GoldLoanController {
 	}
 
 	@PostMapping("Loan_Plan")
-	public String LoanMaster(@ModelAttribute("loanPlan") LoanMaster loanMaster, Model model) {
+	public String LoanMaster(@ModelAttribute("loanPlan") LoanMaster loanMaster, Model model,HttpSession session) {
 		if (loanMaster.getType() != null && loanMaster.getType().equals("Loan")) {
 			loanMaster.setType(loanMaster.getType());
 		}
+		String createdBy= (session.getAttribute("ID").toString());
+		loanMaster.setCreatedBy(createdBy);
 		LoanMaster loanPlanMasterSavedData = loanMasterRepo.save(loanMaster);
 		if (loanPlanMasterSavedData != null) {
 			model.addAttribute("status", "success");

@@ -69,7 +69,6 @@ public class Loan {
 	private String vFeesAmt;
 	private String advisorName;
 	private String createdDate;
-	private String createdBy;
 	private String updatedDate;
 	private String updatedBy;
 	private String memberData;
@@ -88,6 +87,16 @@ public class Loan {
 	private String closeLoan;
 	private String fDate;
 	private String tDate;
+	private String createdBy;
+	private String CreatedDt;             
+	public String getCreatedDt() {
+		return CreatedDt;
+	}
+
+	public void setCreatedDt(String createdDt) {
+		CreatedDt = createdDt;
+	}
+
 	@Transient
 	private String loanPlanNameView;
 	private String modeRegOrIrr;

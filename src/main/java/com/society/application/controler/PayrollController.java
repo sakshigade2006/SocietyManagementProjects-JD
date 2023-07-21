@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -65,7 +66,9 @@ public class PayrollController {
 
 	@PostMapping("/saveDesignationMasterData")
 	public String saveDesignationMasterData(
-			@ModelAttribute("saveDesignationMasterData") DesignationMaster designationMaster, Model model) {
+			@ModelAttribute("saveDesignationMasterData") DesignationMaster designationMaster, Model model,HttpSession session) {
+		String createdBy= (session.getAttribute("ID").toString());
+		designationMaster.setCreatedBy(createdBy);
 		designationMasterRepo.save(designationMaster);
 		model.addAttribute("status", "success");
 		return "payrollManagement/DesignationMaster";
@@ -84,7 +87,9 @@ public class PayrollController {
 
 	@PostMapping("/saveDepartmentMasterData")
 	public String saveDepartmentMasterData(
-			@ModelAttribute("saveDepartmentMasterData") DepartmentMaster departmentMaster, Model model) {
+			@ModelAttribute("saveDepartmentMasterData") DepartmentMaster departmentMaster, Model model,HttpSession session) {
+		String createdBy= (session.getAttribute("ID").toString());
+		departmentMaster.setCreatedBy(createdBy);
 		departmentMasterRepo.save(departmentMaster);
 		model.addAttribute("status", "success");
 		return "payrollManagement/DepartmentMaster";
@@ -125,7 +130,9 @@ public class PayrollController {
 
 	@PostMapping("/saveSalarySetupMaster")
 	public String saveSalarySetupMaster(@ModelAttribute("saveSalarySetupMaster") SalaryMaster salaryMaster,
-			Model model) {
+			Model model,HttpSession session) {
+		String createdBy= (session.getAttribute("ID").toString());
+		salaryMaster.setCreatedBy(createdBy);
 		salaryMasterRepo.save(salaryMaster);
 		List<SalaryMaster> listSalary = salaryMasterRepo.findAll();
 		model.addAttribute("salaryList", listSalary);
@@ -154,7 +161,7 @@ public class PayrollController {
 	}
 
 	@PostMapping("/saveEmployeeLeaveMaster")
-	public String saveEmployeeLeaveMaster(@ModelAttribute("saveEmployeeLeaveMaster") Employee employee, Model model) {
+	public String saveEmployeeLeaveMaster(@ModelAttribute("saveEmployeeLeaveMaster") Employee employee, Model model,HttpSession session) {
 	    System.err.println(employee);
 	    Optional<Employee> emp = employeeRepo.findById(Integer.parseInt(employee.getEmpCode()));
 
@@ -183,19 +190,23 @@ public class PayrollController {
 	    emp.get().setEl(employee.getEl());
 	    emp.get().setLeaveDate(employee.getLeaveDate());
 	    emp.get().setLeavePurpose(employee.getLeavePurpose());
+	    String createdBy= (session.getAttribute("ID").toString());
+	    emp.get().setCreatedBy(createdBy);
 	    employeeRepo.save(emp.get());
 	    model.addAttribute("status", "success");
 	    return "payrollManagement/LeaveAdjustment";
 	}
 	
 	@PostMapping("/saveEmployeeLeaveMaster123")
-	public String saveEmployeeLeaveMaster123(@ModelAttribute("saveEmployeeLeaveMaster123") Employee employee, Model model) {
+	public String saveEmployeeLeaveMaster123(@ModelAttribute("saveEmployeeLeaveMaster123") Employee employee, Model model,HttpSession session) {
 	    Optional<Employee> empOptional = employeeRepo.findById(employee.getId());
 	    if (empOptional.isPresent()) {
 	        Employee emp = empOptional.get();
 	        emp.setCl(employee.getCl());
 	        emp.setSl(employee.getSl());
 	        emp.setEl(employee.getEl());
+	        String createdBy= (session.getAttribute("ID").toString());
+		    emp.setCreatedBy(createdBy);
 	        employeeRepo.save(emp);
 	        model.addAttribute("status", "success");
 	    } else {
@@ -276,7 +287,9 @@ public class PayrollController {
 	}
 
 	@PostMapping("/saveEmployeeMasterData")
-	public String saveEmployeeMasterData(@ModelAttribute("saveEmployeeMasterData") Employee employee, Model model) {
+	public String saveEmployeeMasterData(@ModelAttribute("saveEmployeeMasterData") Employee employee, Model model,HttpSession session) {
+		String createdBy= (session.getAttribute("ID").toString());
+		employee.setCreatedBy(createdBy);
 		employeeRepo.save(employee);
 		model.addAttribute("status", "success");
 		return "payrollManagement/EmployeeMaster";
@@ -291,18 +304,22 @@ public class PayrollController {
 
 	@PostMapping("/leavesubmit")
 	public String saveEmployeeLeaveMaster(@ModelAttribute("lavesubmit") AttendenceMaster attendenceMaster,
-			Model model) {
+			Model model,HttpSession session) {
+		String createdBy= (session.getAttribute("ID").toString());
+		attendenceMaster.setCreatedBy(createdBy);
 		attendenceMasterRepo.save(attendenceMaster);
 		model.addAttribute("status", "success");
 		return "payrollManagement/HrmAttendance";
 	}
 
 	@PostMapping("/updateSalaryPayment")
-	public String updateSalaryPayment(@ModelAttribute("updateSalaryPayment") SalaryMaster salaryMaster, Model model) {
+	public String updateSalaryPayment(@ModelAttribute("updateSalaryPayment") SalaryMaster salaryMaster, Model model,HttpSession session) {
 		List<SalaryMaster> salaryEmp = salaryMasterRepo.searchByEmpId(salaryMaster.getEmpCode());
 		salaryEmp.get(0).setPayBranch(salaryMaster.getPayBranch());
 		salaryEmp.get(0).setPayDate(salaryMaster.getPayDate());
 		salaryEmp.get(0).setPaymode(salaryMaster.getPaymode());
+		String createdBy= (session.getAttribute("ID").toString());
+		salaryEmp.get(0).setCreatedBy(createdBy);
 		salaryMasterRepo.save(salaryEmp.get(0));
 		model.addAttribute("status", "success");
 		return "payrollManagement/HrmSalaryPayment";

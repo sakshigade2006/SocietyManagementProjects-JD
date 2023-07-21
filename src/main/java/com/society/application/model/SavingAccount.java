@@ -46,6 +46,25 @@ public class SavingAccount {
 	private String cardLimitMonthly;
 	
 	private String cardTotalLimitYearly;
+	
+	private String createdBy;
+	private String CreatedDt;
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public String getCreatedDt() {
+		return CreatedDt;
+	}
+
+	public void setCreatedDt(String createdDt) {
+		CreatedDt = createdDt;
+	}
 
 	public int getId() {
 		return id;
