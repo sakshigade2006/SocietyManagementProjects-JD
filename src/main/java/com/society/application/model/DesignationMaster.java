@@ -12,9 +12,7 @@ public class DesignationMaster {
 	
 	private int id;
 	private String designation;
-	private String createdBy;
-	private String createdDt;
-		public int getId() {
+	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
@@ -25,18 +23,6 @@ public class DesignationMaster {
 	}
 	public void setDesignation(String designation) {
 		this.designation = designation;
-	}
-	public String getCreatedBy() {
-		return createdBy;
-	}
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
-	}
-	public String getCreatedDt() {
-		return createdDt;
-	}
-	public void setCreatedDt(String createdDt) {
-		this.createdDt = createdDt;
 	}
 	
 

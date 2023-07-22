@@ -12,8 +12,7 @@ public class DepartmentMaster {
 	
 	private int id;
 	private String department;
-	private String createdBy;
-	private String createdDt;
+	
 	public int getId() {
 		return id;
 	}
@@ -25,18 +24,6 @@ public class DepartmentMaster {
 	}
 	public void setDepartment(String department) {
 		this.department = department;
-	}
-	public String getCreatedBy() {
-		return createdBy;
-	}
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
-	}
-	public String getCreatedDt() {
-		return createdDt;
-	}
-	public void setCreatedDt(String createdDt) {
-		this.createdDt = createdDt;
 	}
 
 }

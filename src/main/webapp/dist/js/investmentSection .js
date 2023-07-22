@@ -754,39 +754,25 @@ function getByDataBySearchMemberCode(){
 	            for (let i=0;i<data.length;i++) {
 		
 		 document.getElementById("policyDate").value = data[i].policyDate;
+		 document.getElementById("nomineeName").value = data[i].nomineeName;
 		 document.getElementById("memberName").value = data[i].memberName;
 		 document.getElementById("dob").value = data[i].dob;
 		 document.getElementById("age").value = data[i].age;
 		 document.getElementById("relativeName").value = data[i].relativeName;
 		 document.getElementById("phoneno").value = data[i].phoneno;
-         document.getElementById("nomineeName").value = data[i].nomineeName;
+
+		 document.getElementById("nomineeName").value = data[i].nomineeName;
 		 document.getElementById("nomineeAge").value = data[i].nomineeAge;
 		 document.getElementById("nRelation").value = data[i].nRelation;
-         document.getElementById("address").value = data[i].address;
+
+		 document.getElementById("address").value = data[i].address;
 		 document.getElementById("district").value = data[i].district;
 		 document.getElementById("state").value = data[i].state;
-         document.getElementById("pinCode").value = data[i].pinCode;
-		 
-		 document.getElementById("branchName").value = data[i].branchName
+
+		 document.getElementById("pinCode").value = data[i].pinCode;
 		 document.getElementById("modeOfOp").value = data[i].modeOfOp;
-		 document.getElementById("jointCode").value = data[i].jointCode;
-		 document.getElementById("jointName").value = data[i].jointName;
-		 document.getElementById("mDate").value = data[i].mDate;
-		 document.getElementById("schemeType").value = data[i].schemeType;
-		 document.getElementById("schemeName").value = data[i].schemeName;
-		 document.getElementById("term").value = data[i].term;
-	     document.getElementById("schemeMode").value = data[i].schemeMode;
-	     document.getElementById("misMode").value = data[i].misMode;
-	     document.getElementById("policyAmount").value = data[i].policyAmount;
-	     document.getElementById("totalDeposit").value = data[i].totalDeposit;
-	     document.getElementById("maturityAmount").value = data[i].maturityAmount;
-	     document.getElementById("mISInterest").value = data[i].mISInterest;
-	     document.getElementById("paymode").value = data[i].paymode;
-	     document.getElementById("remarks").value = data[i].remarks;
-	     document.getElementById("advisorCode").value = data[i].advisorCode;
-	     document.getElementById("advisorName").value = data[i].advisorName;
          document.getElementById("chkisSms").value = data[i].chkisSms;
-        
+         document.getElementById("remarks").value = data[i].remarks;
           
             var img = document.getElementById('preview');
 			img.src =`upload/`+data[i].photo+``;

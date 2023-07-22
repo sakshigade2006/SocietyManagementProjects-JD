@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -23,7 +22,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.client.UnknownHttpStatusCodeException;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.society.application.model.AddInvestment;
@@ -93,7 +91,6 @@ public class InvestmentSectionController {
 		return list;
 	}
 
-	//Investment Section 
 	@PostMapping("/updateAddInvestment")
 	@ResponseBody
 	public ResponseEntity<String> updateAddInvestment(
@@ -117,9 +114,8 @@ public class InvestmentSectionController {
 			@RequestParam("advisorCode") String advisorCode, @RequestParam("advisorName") String advisorName,
 			@RequestParam("chkisSms") String chkisSms, AddInvestment addin) {
 		try {
-			
 			addin = new AddInvestment();
-           
+
 			byte[] photo = file1.getBytes();
 			byte[] signature = file23.getBytes();
 
@@ -159,7 +155,8 @@ public class InvestmentSectionController {
 			addin.setPhoto(photo);
 			addin.setSignature(signature);
 			addin.setMisMode(misode);
-            addInvestmentRepo.save(addin);
+
+			addInvestmentRepo.save(addin);
 			return new ResponseEntity<>("Data Saved Successfully", HttpStatus.OK);
 		} catch (Exception e) {
 			System.out.println(e);
@@ -170,11 +167,8 @@ public class InvestmentSectionController {
 	/* INVESTMENT SECTION - PLAN MASTER */
 
 	@PostMapping("/submitDailyDeposite")
-	public String submitDailyDeposite(@ModelAttribute("dd") DailyDeposite dailyDeposite, Model model,HttpSession session) {
-		String createdBy =session.getAttribute("ID").toString();
-		dailyDeposite.setCreatedBy(createdBy);
+	public String submitDailyDeposite(@ModelAttribute("dd") DailyDeposite dailyDeposite, Model model) {
 		dailyDepositeRepo.save(dailyDeposite);
-		session.setAttribute("createdBy", createdBy);
 		return "investmentSection/PlanMaster";
 	}
 
@@ -185,29 +179,20 @@ public class InvestmentSectionController {
 	}
 
 	@PostMapping("/submitRecurringDeposit")
-	public String submitRecurringDeposit(@ModelAttribute("rd") RecurringDeposit recurringDeposit, Model model,HttpSession session) {
-		String createdBy = session.getAttribute("ID").toString();
-		recurringDeposit.setCreatedBy(createdBy);
+	public String submitRecurringDeposit(@ModelAttribute("rd") RecurringDeposit recurringDeposit, Model model) {
 		recurringDepositRepo.save(recurringDeposit);
-		session.setAttribute("createdBy", createdBy);
 		return "investmentSection/PlanMaster";
 	}
 
 	@PostMapping("/submitFixedDeposit")
-	public String submitFixedDeposit(@ModelAttribute("fd") FixedDeposit fixedDeposit, Model model,HttpSession session) {
-		String createdBy = session.getAttribute("ID").toString();
-		fixedDeposit.setCreatedBy(createdBy);
+	public String submitFixedDeposit(@ModelAttribute("fd") FixedDeposit fixedDeposit, Model model) {
 		fixedDepositRepo.save(fixedDeposit);
-		session.setAttribute("createdBy", createdBy);
 		return "investmentSection/PlanMaster";
 	}
 
 	@PostMapping("/submitMISDeposit")
-	public String submitMISDeposit(@ModelAttribute("mis") MISDeposit mISDeposit, Model model,HttpSession session) {
-		String createdBy =session.getAttribute("ID").toString();
-		mISDeposit.setCreatedBy(createdBy);
+	public String submitMISDeposit(@ModelAttribute("mis") MISDeposit mISDeposit, Model model) {
 		mISDepositRepo.save(mISDeposit);
-		session.setAttribute("createdBy", createdBy);
 		return "investmentSection/PlanMaster";
 	}
 
@@ -298,12 +283,9 @@ public class InvestmentSectionController {
 			@RequestParam(name = "phoneno", required = false) String phoneno, 
 			@RequestParam(name = "planCode", required = false) String planCode,
 			@RequestParam(name = "balance", required = false) String balance,
-			@RequestParam(name = "id123", required = false) Integer id, HttpSession session , AddInvestment addInvestment ) {
+			@RequestParam(name = "id123", required = false) Integer id) {
 		try {
-			if(id !=null) {
 			List<AddInvestment> add = addInvestmentRepo.findByid(id);
-			String createdBy = session.getAttribute("ID").toString();
-			addInvestment.setCreatedBy(createdBy);
 			add.forEach(s->{
 				if(!(file1==null) && !(file2==null)) {
 					try {
@@ -324,14 +306,9 @@ public class InvestmentSectionController {
 				s.setAmount(amount);
 				s.setPaymode(paymode);
 				addInvestmentRepo.save(s);
-				session.setAttribute("createdBy", createdBy);
 			});
 			return new ResponseEntity<>("Data Updated  successfully!!!!", HttpStatus.OK);
-		} 
-		 else {
-			return new ResponseEntity<>("Id is not provided..!!",HttpStatus.BAD_REQUEST);
-		}
-			}catch (Exception ex) {
+		}catch (Exception ex) {
 			System.out.println(ex);
 			return new ResponseEntity<>("Data Updated Failed !!!!", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
@@ -383,18 +360,13 @@ public class InvestmentSectionController {
 		List<ClientMaster> data1 = clientMasterRepo.findAll();
 		return data1;
 	}
-    
-	//Add Investment
-	//New Investment
+
 	@PostMapping("/fetchDataFromSelectMember")
 	@ResponseBody
 	public List<ClientMaster> fetchDataFromSelectMember(@RequestBody ClientMaster client) {
 		List<ClientMaster> list = clientMasterRepo.findByid(client.getId());
 		return list;
 	}
-	
-	
-	
 
 	/* INVESTMENT SECTION - CERTIFICATE RE-ISSUE */
 
@@ -507,30 +479,20 @@ public class InvestmentSectionController {
 			@RequestParam("advisorName") String advisorName, @RequestParam("remarks") String remarks,
 			@RequestParam(name = "renewalDate", required = false) String renewalDate,
 			@RequestParam(name = "branchName", required = false) String branchName,
-			@RequestParam(name = "searchbyPolicyNo", required = false) Integer searchbyPolicyNo ,HttpSession session,AddInvestment addInvestment) {
-		    
-		   String userId = session.getAttribute("ID").toString();
-		   addInvestment.setCreatedBy(userId);
-		   
-		   int i;
-		  if (!filetag.isEmpty() && !secondfiletag.isEmpty()) {
+			@RequestParam(name = "searchbyPolicyNo", required = false) Integer searchbyPolicyNo) {
+		if (!filetag.isEmpty() && !secondfiletag.isEmpty()) {
 			String fileName = fileStorageService.storeFile(filetag);
 			String fileName2 = fileStorageService.storeFile(secondfiletag);
-			
-			 i = addInvestmentRepo.updateThroughIDRenewalDateBranch(fileName, fileName2, noOfInstPaid, paymode,
-					collectorCode, remarks, renewalDate, branchName, searchbyPolicyNo,userId);
 
-		   } else {
-			 i = addInvestmentRepo.updateThroughIDRenewalDateBranch2(noOfInstPaid, paymode, collectorCode, remarks,
-					renewalDate, branchName, searchbyPolicyNo,userId);
+			int i = addInvestmentRepo.updateThroughIDRenewalDateBranch(fileName, fileName2, noOfInstPaid, paymode,
+					collectorCode, remarks, renewalDate, branchName, searchbyPolicyNo);
+
+		} else {
+			int i = addInvestmentRepo.updateThroughIDRenewalDateBranch2(noOfInstPaid, paymode, collectorCode, remarks,
+					renewalDate, branchName, searchbyPolicyNo);
 		}
-		if(i>0) {
-		session.setAttribute("createdBy", userId);
 		return ResponseEntity.ok("Data Updated Successfully..!!");
-	} else {
-		return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Data Not Update");
 	}
-}
 
 	// Retrieval code by policy no Investment Section Daily Renewal
 	@PostMapping("/getByAddInvesmentCode")

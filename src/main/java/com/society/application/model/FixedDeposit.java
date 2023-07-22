@@ -28,8 +28,6 @@ public class FixedDeposit {
 	private String fmonthto;
 	private String froi;
 	private String fdeduction;
-	private String createdBy;
-	private String createdDt;
 	
 	public String getFplancode() {
 		return fplancode;
@@ -138,18 +136,6 @@ public class FixedDeposit {
 	}
 	public void setFdeduction(String fdeduction) {
 		this.fdeduction = fdeduction;
-	}
-	public String getCreatedBy() {
-		return createdBy;
-	}
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
-	}
-	public String getCreatedDt() {
-		return createdDt;
-	}
-	public void setCreatedDt(String createdDt) {
-		this.createdDt = createdDt;
 	}
 
 }

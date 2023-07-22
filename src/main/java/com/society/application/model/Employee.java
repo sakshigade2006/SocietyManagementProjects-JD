@@ -62,8 +62,6 @@ public class Employee {
 	private String rel;
 	private String leaveDate;
 	private String LeavePurpose;
-	private String createdBy;
-	private String createdDt;
 
 	public String getIdVal() {
 		return idVal;
@@ -464,22 +462,6 @@ public class Employee {
     public void setEl(String el) {
         this.el = el;
     }
-
-	public String getCreatedBy() {
-		return createdBy;
-	}
-
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
-	}
-
-	public String getCreatedDt() {
-		return createdDt;
-	}
-
-	public void setCreatedDt(String createdDt) {
-		this.createdDt = createdDt;
-	}
 
 	@Override
 	public String toString() {

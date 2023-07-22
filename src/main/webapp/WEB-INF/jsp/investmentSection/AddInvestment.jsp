@@ -143,7 +143,7 @@
 											<label for="drpNomineeRelation"
 												class="col-sm-4 control-label">Relation</label>
 											<div class="col-sm-8">
-												<select name="nRelation" id="nRelation"
+												<select name="nomineeRelation" id="nRelation"
 													class="form-control" style="width: 100%;">
 													<option value="">Select</option>
 													<option value="Brother">Brother</option>
@@ -218,7 +218,7 @@
 												Name <strong style="color: Red">*</strong>
 											</label>
 											<div class="col-sm-8">
-												<select name="branchName" id="branchName"
+												<select name="cSPName" id="branchName"
 													class="form-control select2" style="width: 100%;">
 													<option value="">Select</option>
 
@@ -303,7 +303,7 @@
 											<label for="txtSchemeName" class="col-sm-4 control-label">Scheme
 												Term</label>
 											<div class="col-sm-8">
-												<input name="term" type="text" value="" id="term"
+												<input name="term" type="text" value="12" id="term"
 													class="form-control" />
 											</div>
 										</div>
@@ -311,7 +311,7 @@
 											<label class="col-sm-4 control-label">Scheme Mode <strong
 												style="color: Red">*</strong></label>
 											<div class="col-sm-8">
-												<select name="schemeMode" id="schemeMode" class="form-control"
+												<select name="mode" id="mode" class="form-control"
 													style="width: 100%;">
 													<option selected="selected" value="Mly.">Mly.</option>
 												</select>
