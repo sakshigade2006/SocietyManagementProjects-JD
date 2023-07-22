@@ -319,7 +319,7 @@
    	var formData = new FormData($(this)[0]); // create new FormData object from form data
 
    //console.log(formData);
-   alert("hi")
+  // alert("hi")
    $.ajax({
        url: "updateBySelectPolicyNo",
        type: "POST",
