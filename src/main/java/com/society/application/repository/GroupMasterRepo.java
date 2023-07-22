@@ -48,6 +48,9 @@ public interface GroupMasterRepo extends JpaRepository<GroupMaster, Integer> {
 
 	List<GroupMaster> findByplaneName(String planeName);
 
+	@Query("SELECT gm FROM GroupMaster gm WHERE gm.id = :id AND gm.createdBy = :createdBy")
+	List<GroupMaster> findByidAndcreatedBy(@Param("id") int id,@Param("createdBy") String createdBy);
+
 	
 	
 }

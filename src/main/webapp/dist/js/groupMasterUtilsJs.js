@@ -185,6 +185,10 @@ function displayGroupLoanApplicationDetails() {
 			document.getElementById("employee").value = data[i].employee;
 			document.getElementById("cDay").value = data[i].cDay;
 			document.getElementById("cTime").value = data[i].cTime;
+			
+			document.getElementById("ContentPlaceHolder1_txtLoanDate").value = data[i].loanDate;
+			document.getElementById("csp").value = data[i].loanDate;
+			document.getElementById("loanPurpose").value = data[i].loanPurpose;
 	   }
 		},
 		error: function() {
