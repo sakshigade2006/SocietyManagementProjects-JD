@@ -170,8 +170,11 @@ public class InvestmentSectionController {
 	/* INVESTMENT SECTION - PLAN MASTER */
 
 	@PostMapping("/submitDailyDeposite")
-	public String submitDailyDeposite(@ModelAttribute("dd") DailyDeposite dailyDeposite, Model model) {
+	public String submitDailyDeposite(@ModelAttribute("dd") DailyDeposite dailyDeposite, Model model,HttpSession session) {
+		String createdBy =session.getAttribute("ID").toString();
+		dailyDeposite.setCreatedBy(createdBy);
 		dailyDepositeRepo.save(dailyDeposite);
+		session.setAttribute("createdBy", createdBy);
 		return "investmentSection/PlanMaster";
 	}
 
@@ -182,20 +185,29 @@ public class InvestmentSectionController {
 	}
 
 	@PostMapping("/submitRecurringDeposit")
-	public String submitRecurringDeposit(@ModelAttribute("rd") RecurringDeposit recurringDeposit, Model model) {
+	public String submitRecurringDeposit(@ModelAttribute("rd") RecurringDeposit recurringDeposit, Model model,HttpSession session) {
+		String createdBy = session.getAttribute("ID").toString();
+		recurringDeposit.setCreatedBy(createdBy);
 		recurringDepositRepo.save(recurringDeposit);
+		session.setAttribute("createdBy", createdBy);
 		return "investmentSection/PlanMaster";
 	}
 
 	@PostMapping("/submitFixedDeposit")
-	public String submitFixedDeposit(@ModelAttribute("fd") FixedDeposit fixedDeposit, Model model) {
+	public String submitFixedDeposit(@ModelAttribute("fd") FixedDeposit fixedDeposit, Model model,HttpSession session) {
+		String createdBy = session.getAttribute("ID").toString();
+		fixedDeposit.setCreatedBy(createdBy);
 		fixedDepositRepo.save(fixedDeposit);
+		session.setAttribute("createdBy", createdBy);
 		return "investmentSection/PlanMaster";
 	}
 
 	@PostMapping("/submitMISDeposit")
-	public String submitMISDeposit(@ModelAttribute("mis") MISDeposit mISDeposit, Model model) {
+	public String submitMISDeposit(@ModelAttribute("mis") MISDeposit mISDeposit, Model model,HttpSession session) {
+		String createdBy =session.getAttribute("ID").toString();
+		mISDeposit.setCreatedBy(createdBy);
 		mISDepositRepo.save(mISDeposit);
+		session.setAttribute("createdBy", createdBy);
 		return "investmentSection/PlanMaster";
 	}
 
@@ -462,6 +474,7 @@ public class InvestmentSectionController {
 	}
 
 	// Update Code for PolicyNo Investment Section Daily Renewal
+	// Update Code for PolicyNo Investment Section Daily Renewal
 	@PostMapping("/updateDataByPolicyInvestment")
 	@ResponseBody
 	public ResponseEntity<String> updateDataByInvestment(
@@ -480,19 +493,27 @@ public class InvestmentSectionController {
 			@RequestParam("advisorName") String advisorName, @RequestParam("remarks") String remarks,
 			@RequestParam(name = "renewalDate", required = false) String renewalDate,
 			@RequestParam(name = "branchName", required = false) String branchName,
-			@RequestParam(name = "searchbyPolicyNo", required = false) Integer searchbyPolicyNo) {
+			@RequestParam(name = "searchbyPolicyNo", required = false) Integer searchbyPolicyNo, HttpSession session,
+			AddInvestment addInvestment) {
+		String userId = session.getAttribute("ID").toString();
+		addInvestment.setCreatedBy(userId);
+		int i;
 		if (!filetag.isEmpty() && !secondfiletag.isEmpty()) {
 			String fileName = fileStorageService.storeFile(filetag);
 			String fileName2 = fileStorageService.storeFile(secondfiletag);
 
-			int i = addInvestmentRepo.updateThroughIDRenewalDateBranch(fileName, fileName2, noOfInstPaid, paymode,
-					collectorCode, remarks, renewalDate, branchName, searchbyPolicyNo);
-
+			i = addInvestmentRepo.updateThroughIDRenewalDateBranch(fileName, fileName2, noOfInstPaid, paymode,
+					collectorCode, remarks, renewalDate, branchName, searchbyPolicyNo, userId);
 		} else {
-			int i = addInvestmentRepo.updateThroughIDRenewalDateBranch2(noOfInstPaid, paymode, collectorCode, remarks,
-					renewalDate, branchName, searchbyPolicyNo);
+			i = addInvestmentRepo.updateThroughIDRenewalDateBranch2(noOfInstPaid, paymode, collectorCode, remarks,
+					renewalDate, branchName, searchbyPolicyNo, userId);
 		}
-		return ResponseEntity.ok("Data Updated Successfully..!!");
+		if (i > 0) {
+			session.setAttribute("createdBy", userId);
+			return ResponseEntity.ok("Data Updated Successfully..!!");
+		} else {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Data Not Update");
+		}
 	}
 
 	// Retrieval code by policy no Investment Section Daily Renewal

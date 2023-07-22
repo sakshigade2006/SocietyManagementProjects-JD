@@ -381,7 +381,7 @@
 								<div class="col-md-3">
 									<div class="form-group">
 										<div class="text-center">
-											<img id="preview" class="profile-user-img"
+											<img id="preview" class="profile-user-img" src="data:image/png;base64,${aadharPhoto}"
 												style="height: 70px; width: 110px;" /> <input type="file"
 												name="filetag" id="filetag" />
 										</div>
@@ -397,7 +397,7 @@
 								<div class="col-md-3">
 									<div class="form-group">
 										<div class="text-center">
-											<img id="secondpreview" class="profile-user-img"
+											<img id="secondpreview" class="profile-user-img" src="data:image/png;base64,${aadharPhoto}"
 												style="height: 70px; width: 115px;" /> <input type="file"
 												name="secondfiletag" id="secondfiletag" />
 										</div>

@@ -82,17 +82,17 @@ public interface AddInvestmentRepo extends JpaRepository<AddInvestment, Integer>
 	
 	@Modifying
 	@Transactional
-	@Query("UPDATE AddInvestment SET photo = :fileName, signature = :fileName2, noOfInstPaid = :noOfInstPaid, paymode = :paymode, collectorCode = :collectorCode, remarks = :remarks WHERE  id = :searchbyPolicyNo or renewalDate = :renewalDate or branchName = :branchName  ")
+	@Query("UPDATE AddInvestment SET photo = :fileName, signature = :fileName2, noOfInstPaid = :noOfInstPaid, paymode = :paymode, collectorCode = :collectorCode, remarks = :remarks WHERE  (id = :searchbyPolicyNo OR renewalDate = :renewalDate OR branchName = :branchName) AND createdBy=:userId")
 	public int updateThroughIDRenewalDateBranch(@Param("fileName") String fileName,@Param("fileName2") String fileName2,@Param("noOfInstPaid") String noOfInstPaid,
 			@Param("paymode") String paymode,@Param("collectorCode") String collectorCode,@Param("remarks") String remarks,@Param("renewalDate") String renewalDate, 
-			@Param("branchName") String branchName,@Param("searchbyPolicyNo") Integer searchbyPolicyNo);
+			@Param("branchName") String branchName,@Param("searchbyPolicyNo") Integer searchbyPolicyNo,@Param("userId") String userId);
 
 	@Modifying
 	@Transactional
-	@Query("UPDATE AddInvestment SET noOfInstPaid = :noOfInstPaid, paymode = :paymode, collectorCode = :collectorCode, remarks = :remarks WHERE id = :searchbyPolicyNo or renewalDate = :renewalDate or branchName = :branchName ")
+	@Query("UPDATE AddInvestment SET noOfInstPaid = :noOfInstPaid, paymode = :paymode, collectorCode = :collectorCode, remarks = :remarks WHERE (id = :searchbyPolicyNo OR renewalDate = :renewalDate OR branchName = :branchName) AND createdBy=:userId ")
 	public int updateThroughIDRenewalDateBranch2(@Param("noOfInstPaid") String noOfInstPaid, @Param("paymode") String paymode,@Param("collectorCode") String collectorCode,
-	@Param("remarks") String remarks, @Param("renewalDate") String renewalDate, @Param("branchName") String branchName, @Param("searchbyPolicyNo") Integer searchbyPolicyNo);
-
+			@Param("remarks") String remarks, @Param("renewalDate") String renewalDate, @Param("branchName") String branchName, @Param("searchbyPolicyNo") Integer searchbyPolicyNo,@Param("userId") String userId);
+	
 	public List<AddInvestment> findByrenewalDate(String date);
 	
 	//for Rectification of Modules cspname

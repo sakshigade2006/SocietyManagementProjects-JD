@@ -27,6 +27,8 @@ public class MISDeposit {
 	private String mISmonthfrom;
 	private String mISmonthto;
 	private String mISdeduction;
+	private String createdBy;
+	private String createdDt;
 	
 	public int getId() {
 		return id;
@@ -129,5 +131,17 @@ public class MISDeposit {
 	public void setMisplancode(String misplancode) {
 	    this.misplancode = misplancode;
 	}
-
+	public String getCreatedBy() {
+		return createdBy;
+	}
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+	public String getCreatedDt() {
+		return createdDt;
+	}
+	public void setCreatedDt(String createdDt) {
+		this.createdDt = createdDt;
+	}
+	
 }

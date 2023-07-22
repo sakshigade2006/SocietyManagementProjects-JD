@@ -30,6 +30,8 @@ public class DailyDeposite {
 	private String dinstto;
 	private String droi;
 	private String ddeduction;
+	private String createdBy;
+	private String createdDt;
 
 	public int getId() {
 		return id;
@@ -156,6 +158,18 @@ public class DailyDeposite {
 	}
 	public void setDdeduction(String ddeduction) {
 		this.ddeduction = ddeduction;
+	}
+	public String getCreatedBy() {
+		return createdBy;
+	}
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+	public String getCreatedDt() {
+		return createdDt;
+	}
+	public void setCreatedDt(String createdDt) {
+		this.createdDt = createdDt;
 	}
 	@Override
 	public String toString() {

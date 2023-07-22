@@ -736,15 +736,12 @@ function getDataByInvestmentReciept() {
 
 //Add Investment
 function getByDataBySearchMemberCode(){
-	
 	var id= document.getElementById("id").value;
- var input = {
+ 	var input = {
 	 "id":id
 	 };
-	 
 	 const myJson = JSON.stringify(input);
-
- $.ajax({
+     $.ajax({
                  type:"POST",
                  contentType: "application/json",
                  data: myJson,
@@ -774,12 +771,12 @@ function getByDataBySearchMemberCode(){
 		 document.getElementById("modeOfOp").value = data[i].modeOfOp;
          document.getElementById("chkisSms").value = data[i].chkisSms;
          document.getElementById("remarks").value = data[i].remarks;
-          
-            var img = document.getElementById('preview');
-			img.src =`upload/`+data[i].photo+``;
-
-			var img2 = document.getElementById('secondpreview');
-			img2.src =`upload/`+data[i].signature+``;	
+         
+			var imgElement = document.getElementById("preview");
+			imgElement.src ="data:image/png;base64,"+data[i].photo;
+			    
+			var imgElement = document.getElementById("secondpreview");
+			imgElement.src ="data:image/png;base64,"+data[i].signature;
         }
        } ,
          	    error: function(){
