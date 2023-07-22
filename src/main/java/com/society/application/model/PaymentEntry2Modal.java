@@ -21,7 +21,20 @@ private String narration;
 private String selectBranchSearch;
 private String fDate;
 private String todate;
-
+private String createdBy;
+private String CreatedDt;  
+public String getCreatedBy() {
+	return createdBy;
+}
+public void setCreatedBy(String createdBy) {
+	this.createdBy = createdBy;
+}
+public String getCreatedDt() {
+	return CreatedDt;
+}
+public void setCreatedDt(String createdDt) {
+	CreatedDt = createdDt;
+}
 public String getTodate() {
 	return todate;
 }

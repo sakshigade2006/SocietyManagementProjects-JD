@@ -14,7 +14,20 @@ public class AccountLegMaster {
 	private int id;
 	private String ledgername;
 	private String selectgroup;
-	
+	private String createdBy;
+	private String CreatedDt;       
+	public String getCreatedBy() {
+		return createdBy;
+	}
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+	public String getCreatedDt() {
+		return CreatedDt;
+	}
+	public void setCreatedDt(String createdDt) {
+		CreatedDt = createdDt;
+	}
 	public String getLedgername() {
 		return ledgername;
 	}

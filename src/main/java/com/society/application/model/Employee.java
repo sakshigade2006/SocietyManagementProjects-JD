@@ -62,6 +62,24 @@ public class Employee {
 	private String rel;
 	private String leaveDate;
 	private String LeavePurpose;
+	private String createdBy;
+	private String CreatedDt; 
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public String getCreatedDt() {
+		return CreatedDt;
+	}
+
+	public void setCreatedDt(String createdDt) {
+		CreatedDt = createdDt;
+	}
 
 	public String getIdVal() {
 		return idVal;
