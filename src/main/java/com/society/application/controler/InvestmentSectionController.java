@@ -296,9 +296,11 @@ public class InvestmentSectionController {
 			@RequestParam(name = "phoneno", required = false) String phoneno, 
 			@RequestParam(name = "planCode", required = false) String planCode,
 			@RequestParam(name = "balance", required = false) String balance,
-			@RequestParam(name = "id123", required = false) Integer id) {
+			@RequestParam(name = "id123", required = false) Integer id,
+			HttpSession session) {
 		try {
 			List<AddInvestment> add = addInvestmentRepo.findByid(id);
+			String createdBy = session.getAttribute("ID").toString();
 			add.forEach(s->{
 				if(!(file1==null) && !(file2==null)) {
 					try {
@@ -318,7 +320,9 @@ public class InvestmentSectionController {
 				s.setTransactionType(transactionType);
 				s.setAmount(amount);
 				s.setPaymode(paymode);
+				s.setCreatedBy(createdBy);
 				addInvestmentRepo.save(s);
+				session.setAttribute("createdBy", createdBy);
 			});
 			return new ResponseEntity<>("Data Updated  successfully!!!!", HttpStatus.OK);
 		}catch (Exception ex) {

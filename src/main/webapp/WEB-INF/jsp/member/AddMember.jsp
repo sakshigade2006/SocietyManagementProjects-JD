@@ -30,7 +30,7 @@ function check()
 <body class="skin-blue sidebar-mini"
 	style="height: auto; min-height: 100%; background-color: rgba(36, 105, 92, 0.15);"
 	cz-shortcut-listen="true"
-	onload="AddMemberAjax(); RelativeRelationDropdown(); NomineeRelationDropdown(); shareAllFromList(); branchNameList(); CasteDataFetchinDropDown(); CategoryDataFetchinDropDown(); getDropDownSharealloateFrom(); GetBranchNameInTheDropDown();">
+	onload="AddMemberAjax(); RelativeRelationDropdown(); NomineeRelationDropdown(); shareAllFromList(); CasteDataFetchinDropDown(); CategoryDataFetchinDropDown(); getDropDownSharealloateFrom(); GetBranchNameInTheDropDown(); branchNameList()">
 
 	<script type="text/javascript">
       function calculateAge() {
@@ -927,7 +927,7 @@ function check()
 	});
 	}
     
-    function branchNameList(){
+    /* function branchNameList(){
     	const selectBranchName = document.getElementById("branchName1");
     	$.ajax({
     		type: "get",
@@ -947,7 +947,7 @@ function check()
     			alert("Device control failed");
     		}
     	});
-    }
+    } */
     </script>
 
 	<script>

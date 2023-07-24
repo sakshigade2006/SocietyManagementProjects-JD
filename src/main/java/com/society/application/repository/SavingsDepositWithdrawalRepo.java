@@ -19,8 +19,8 @@ public interface SavingsDepositWithdrawalRepo extends JpaRepository<SavingsDepos
 
 	@Modifying
 	@Transactional
-	@Query("UPDATE SavingsDepositWith SET flag=:flag WHERE accountNo=:accountNo")
-	int updateThroughIDInDeleteSavingsTransaction(@Param("flag") String flag, @Param("accountNo") String accountNo);
+	@Query("UPDATE SavingsDepositWith SET flag=:flag WHERE accountNo=:accountNo AND createdBy=:userId ")
+	int updateThroughIDInDeleteSavingsTransaction(@Param("flag") String flag, @Param("accountNo") String accountNo, @Param("userId") String userId);
 	// int updateThroughIDInDeleteSavingsTransaction(@Param("flag") String
 	// flag,@Param("id") int id);
 

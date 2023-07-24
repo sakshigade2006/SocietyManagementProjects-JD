@@ -5,7 +5,7 @@ function getMemberApproval() {
         fDate: document.getElementById("fDate").value,
         tDate: document.getElementById("tDate").value,
     };
-	//console.log("Input:", input);
+	console.log("Input:", input);
     const myJson = JSON.stringify(input);
 
     $.ajax({

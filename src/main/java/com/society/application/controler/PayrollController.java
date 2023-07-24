@@ -405,8 +405,6 @@ public class PayrollController {
 	    return holidays;
 	}
 	
-	
-	
 	@PostMapping("/getEmpByCode")
 	@ResponseBody
 	public List<Employee> getEmpByCode(@RequestBody Employee id) {

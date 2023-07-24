@@ -67,6 +67,10 @@ public class SavingsDepositWith {
 	private String interestDue;
 	
 	private String netAmount;
+	
+	private String createdBy;
+	
+	private String createdDt;
 
 	public String getFlag() {
 		return flag;
@@ -290,6 +294,22 @@ public class SavingsDepositWith {
 
 	public void setNetAmount(String netAmount) {
 		this.netAmount = netAmount;
+	}
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public String getCreatedDt() {
+		return createdDt;
+	}
+
+	public void setCreatedDt(String createdDt) {
+		this.createdDt = createdDt;
 	}
 	
 }

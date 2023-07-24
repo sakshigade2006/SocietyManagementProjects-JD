@@ -30,7 +30,7 @@
 			</section>
 
 			<form id="fileUploadForm">
-			   <input type="hidden" name="id123" id="id123">
+				<input type="hidden" name="id123" id="id123">
 				<section class="content">
 					<div id="ContentPlaceHolder1_idSearch" class="row">
 						<div class="col-md-12">
@@ -46,9 +46,10 @@
 													LoanID <strong style="color: Red">*</strong>
 												</label>
 												<div class="col-sm-8">
-													<select name="id" id="id" class="form-control select2" onchange="RetrieveLoanMasterId();"
-														style="width: 100%;">
-														<option selected="selected" value="">--SELECT LOAN ID--</option> 
+													<select name="id" id="id" class="form-control select2"
+														onchange="RetrieveLoanMasterId();" style="width: 100%;">
+														<option selected="selected" value="">--SELECT
+															LOAN ID--</option>
 													</select>
 												</div>
 											</div>
@@ -91,7 +92,8 @@
 												<select name="memberName" id="memberName"
 													onchange="retrieveUsingMemberName()"
 													class="form-control select2" style="width: 100%;">
-													<option selected="selected" value="">--SELECT MEMBER--</option>
+													<option selected="selected" value="">--SELECT
+														MEMBER--</option>
 												</select> <span id="memberNameMsg"
 													style="color: Red; font-size: X-Small; font-weight: bold; display: none;">Select
 													Member Code</span>
@@ -193,8 +195,8 @@
 											<div class="col-sm-8">
 												<select name="branchName" id="branchName"
 													class="form-control" style="width: 100%;">
-													<option value="" selected="selected">--Select Branch
-														Name--</option>
+													<option value="" selected="selected">--Select
+														Branch Name--</option>
 												</select>
 											</div>
 										</div>
@@ -207,8 +209,8 @@
 													<select name="loanPlanName"
 														onchange="retrieveUsingLoanPlanName();" id="loanPlanName"
 														class="form-control" style="width: 100%;">
-														<option value="" selected="selected">--Select Loan
-															Plan Name--</option>
+														<option value="" selected="selected">--Select
+															Loan Plan Name--</option>
 													</select>
 												</div>
 											</div>
@@ -218,7 +220,8 @@
 												</label>
 												<div class="col-sm-8">
 													<input name="loanType" type="text" readonly="readonly"
-														id="loanType" class="form-control" PlaceHolder="Enter Loan Type" />
+														id="loanType" class="form-control"
+														PlaceHolder="Enter Loan Type" />
 												</div>
 											</div>
 											<div class="form-group row">
@@ -226,7 +229,7 @@
 													Term <strong style="color: Red">*</strong>
 												</label>
 												<div class="col-sm-8">
-													<select name="planTerm" onchange=" " id="planTerm" 
+													<select name="planTerm" onchange=" " id="planTerm"
 														class="form-control" style="width: 100%;">
 														<option>--Select Plan Term--</option>
 													</select>
@@ -356,7 +359,8 @@
 												<div class="col-sm-8">
 													<select name="karat" onchange="getAllkarat();" id="karat"
 														class="form-control" style="width: 100%;">
-														<option selected="selected" value="">--Select Karta--</option>
+														<option selected="selected" value="">--Select
+															Karta--</option>
 													</select>
 												</div>
 											</div>
@@ -366,14 +370,16 @@
 												<div class="col-sm-4">
 													<select name="itemType" onchange="" id="itemType"
 														class="form-control" style="width: 100%;">
-														<option selected="selected" value="">--Select Item Type--</option>
+														<option selected="selected" value="">--Select
+															Item Type--</option>
 														<option value="Gold">Gold</option>
 														<option value="Silver">Silver</option>
 													</select>
 												</div>
 												<div class="col-sm-4">
-													<input name="todayRate" type="text" value="" placeholder="Enter"
-														readonly="readonly" id="todayRate" class="form-control" />
+													<input name="todayRate" type="text" value=""
+														placeholder="Enter" readonly="readonly" id="todayRate"
+														class="form-control" />
 												</div>
 											</div>
 											<div class="form-group row">
@@ -382,7 +388,8 @@
 												<div class="col-sm-8">
 													<select name="itemName" id="itemName" class="form-control"
 														style="width: 100%;">
-														<option selected="selected" value="">--Select Item Name--</option>
+														<option selected="selected" value="">--Select
+															Item Name--</option>
 													</select>
 												</div>
 											</div>
@@ -393,7 +400,8 @@
 												<div class="col-sm-8">
 													<select name="lockerLoc" id="lockerLoc"
 														class="form-control" style="width: 100%;">
-														<option selected="selected" value="">--Select Locker Location--</option>
+														<option selected="selected" value="">--Select
+															Locker Location--</option>
 													</select>
 												</div>
 											</div>
@@ -404,7 +412,8 @@
 												<div class="col-sm-8">
 													<select name="purity" onchange="" id="purity"
 														class="form-control" style="width: 100%;">
-														<option selected="selected" value="">--Select Purity--</option>
+														<option selected="selected" value="">--Select
+															Purity--</option>
 													</select>
 												</div>
 											</div>
@@ -447,7 +456,8 @@
 													style="color: Red">*</strong></label>
 												<div class="col-sm-8">
 													<input name="netWt" type="text" readonly="readonly"
-														id="netWt" class="form-control" onpaste="return false" placeholder="Enter Net. Wt."
+														id="netWt" class="form-control" onpaste="return false"
+														placeholder="Enter Net. Wt."
 														onkeypress="return isNumberKey(this, event);"
 														autocomplete="off" />
 												</div>
@@ -456,9 +466,10 @@
 												<label class="col-sm-4 control-label">Market
 													Valuation</label>
 												<div class="col-sm-8">
-													<input name="marketValuation" type="text" placeholder="Enter Market Valuation"
-														readonly="readonly" id="marketValuation"
-														class="form-control" onpaste="return false"
+													<input name="marketValuation" type="text"
+														placeholder="Enter Market Valuation" readonly="readonly"
+														id="marketValuation" class="form-control"
+														onpaste="return false"
 														onkeypress="return isNumberKey(this, event);"
 														autocomplete="off" />
 												</div>
@@ -467,9 +478,9 @@
 												<label class="col-sm-4 control-label">Eligible Loan<strong
 													style="color: Red">*</strong></label>
 												<div class="col-sm-4">
-													<input name="eligibleLoan" type="text" readonly="readonly" placeholder="Enter Eligible Loan"
-														id="eligibleLoan" class="form-control"
-														onpaste="return false"
+													<input name="eligibleLoan" type="text" readonly="readonly"
+														placeholder="Enter Eligible Loan" id="eligibleLoan"
+														class="form-control" onpaste="return false"
 														onkeypress="return isNumberKey(this, event);"
 														autocomplete="off" />
 												</div>
@@ -486,29 +497,30 @@
 									<div class="box-body">
 										<div class="col-md-3">
 											<div class="form-group">
-												<label>Net Qty.</label> <input name="netQty" type="text" placeholder="Enter"
-													readonly="readonly" id="netQty" class="form-control" />
-											</div>
-										</div>
-										<div class="col-md-3">
-											<div class="form-group">
-												<label>Total Item Wt.</label> <input name="totItemWt" placeholder="Enter"
-													type="text" readonly="readonly" id="totItemWt"
+												<label>Net Qty.</label> <input name="netQty" type="text"
+													placeholder="Enter" readonly="readonly" id="netQty"
 													class="form-control" />
 											</div>
 										</div>
 										<div class="col-md-3">
 											<div class="form-group">
-												<label>Total Net Wt.</label> <input name="totalNetWt" placeholder="Enter"
-													type="text" readonly="readonly" id="totalNetWt"
-													class="form-control" />
+												<label>Total Item Wt.</label> <input name="totItemWt"
+													placeholder="Enter" type="text" readonly="readonly"
+													id="totItemWt" class="form-control" />
 											</div>
 										</div>
 										<div class="col-md-3">
 											<div class="form-group">
-												<label>Eligible Loan</label> <input name="totalEligibleAmt" placeholder="Enter"
-													type="text" readonly="readonly" id="totalEligibleAmt"
-													class="form-control" />
+												<label>Total Net Wt.</label> <input name="totalNetWt"
+													placeholder="Enter" type="text" readonly="readonly"
+													id="totalNetWt" class="form-control" />
+											</div>
+										</div>
+										<div class="col-md-3">
+											<div class="form-group">
+												<label>Eligible Loan</label> <input name="totalEligibleAmt"
+													placeholder="Enter" type="text" readonly="readonly"
+													id="totalEligibleAmt" class="form-control" />
 											</div>
 										</div>
 									</div>
@@ -563,8 +575,9 @@
 												<label for="txtMembersRelativesNameRelationGu"
 													class="col-sm-4 control-label">Guarantor Name </label>
 												<div class="col-sm-8">
-													<input name="guarantorName" type="text" readonly="readonly" placeholder="Enter Guarantor Name"
-														id="guarantorName" class="form-control" />
+													<input name="guarantorName" type="text" readonly="readonly"
+														placeholder="Enter Guarantor Name" id="guarantorName"
+														class="form-control" />
 												</div>
 											</div>
 											<div class="form-group row">
@@ -694,8 +707,9 @@
 													Fee<strong style="color: Red">*</strong>
 												</label>
 												<div class="col-sm-8">
-													<input name="processingFee" type="text" readonly="readonly" placeholder="Enter Processing Fee"
-														id="processingFee" class="form-control" />
+													<input name="processingFee" type="text" readonly="readonly"
+														placeholder="Enter Processing Fee" id="processingFee"
+														class="form-control" />
 												</div>
 											</div>
 											<div class="form-group row">
@@ -703,8 +717,9 @@
 													Amt<strong style="color: Red">*</strong>
 												</label>
 												<div class="col-sm-8">
-													<input name="legalAmt" type="text" readonly="readonly" placeholder="Enter Legal Amt"
-														id="legalAmt" class="form-control" />
+													<input name="legalAmt" type="text" readonly="readonly"
+														placeholder="Enter Legal Amt" id="legalAmt"
+														class="form-control" />
 												</div>
 											</div>
 										</div>
@@ -730,8 +745,8 @@
 												<label for="txtGST" class="col-sm-4 control-label">GST<strong
 													style="color: Red">*</strong></label>
 												<div class="col-sm-8">
-													<input name="gst" type="text" readonly="readonly" id="gst" placeholder="Enter GST"
-														class="form-control" />
+													<input name="gst" type="text" readonly="readonly" id="gst"
+														placeholder="Enter GST" class="form-control" />
 												</div>
 											</div>
 											<div class="form-group row">
@@ -739,8 +754,9 @@
 													Amt<strong style="color: Red">*</strong>
 												</label>
 												<div class="col-sm-8">
-													<input name="insuranceAmt" type="text" readonly="readonly" placeholder="Enter Insurance Amt"
-														id="insuranceAmt" class="form-control" />
+													<input name="insuranceAmt" type="text" readonly="readonly"
+														placeholder="Enter Insurance Amt" id="insuranceAmt"
+														class="form-control" />
 												</div>
 											</div>
 											<div class="form-group row">
@@ -748,8 +764,8 @@
 													Fees<strong style="color: Red">*</strong>
 												</label>
 												<div class="col-sm-8">
-													<input name="vFeesAmt" type="text" id="vFeesAmt" placeholder="Enter Valuation Fees"
-														class="form-control" />
+													<input name="vFeesAmt" type="text" id="vFeesAmt"
+														placeholder="Enter Valuation Fees" class="form-control" />
 												</div>
 											</div>
 										</div>
@@ -774,11 +790,14 @@
 									<div class="row col-md-12">
 										<input type="button" name="btnDelete" value="Delete"
 											id="btnDelete" onclick="softDeleteIntegrations();"
-											class="btn btn-danger pull-right" />
-										<input type="submit" name="ctl00$ContentPlaceHolder1$btnNew" value="New" onclick="redirectThePageToGoldLoan();"
-										id="ContentPlaceHolder1_btnNew" class="btn btn-info pull-right margin-r-5" /> 
-										<input type="button" name="updatebtnGold" value="Update"
-											id="updatebtnGold" class="btn btn-success pull-right margin-r-5" />
+											class="btn btn-danger pull-right" /> <input type="submit"
+											name="ctl00$ContentPlaceHolder1$btnNew" value="New"
+											onclick="redirectThePageToGoldLoan();"
+											id="ContentPlaceHolder1_btnNew"
+											class="btn btn-info pull-right margin-r-5" /> <input
+											type="button" name="updatebtnGold" value="Update"
+											id="updatebtnGold"
+											class="btn btn-success pull-right margin-r-5" />
 									</div>
 								</div>
 							</div>
@@ -789,51 +808,50 @@
 		</div>
 		<div class="control-sidebar-bg"></div>
 	</div>
-	
-<script>
-	$(document).ready(function() {
-    $('#updatebtnGold').click(function() {
-        if ($("#id123").val() == "") {
-            alert("Select the particular loan Id");
-            return;
-        }
 
-        var form = $('#fileUploadForm')[0];
-        var data = new FormData(form);
-        $.ajax({
-            url: 'updateCodeUsingLoanIds',
-            type: 'POST',
-            enctype: 'multipart/form-data',
-            data: data,
-            processData: false,
-            contentType: false,
-            cache: false,
-            success: function(response) {
-                if (response === 'DATA UPDATED SUCCESSFULLY') {
-                    alert(response);
-                    window.location.href = "getGoldLoanRectification";
-                } else {
-                    alert('Failed to update data: ' + response);
-                }
-                console.log(response);
-            },
-            error: function(xhr, status, error) {
-                console.log(xhr.responseText);
-            }
-        });
-    });
-});
-</script>
-	
-<script type="text/javascript">
-        
-        function redirectThePageToGoldLoan(){
-        	
-        	window.location.href = "goldLoanApplication";
-			
+	<script>
+		$(document).ready(function() {
+			$('#updatebtnGold').click(function() {
+				if ($("#id123").val() == "") {
+					alert("Select the particular loan Id");
+					return;
+				}
+
+				var form = $('#fileUploadForm')[0];
+				var data = new FormData(form);
+				$.ajax({
+					url : 'updateCodeUsingLoanIds',
+					type : 'POST',
+					enctype : 'multipart/form-data',
+					data : data,
+					processData : false,
+					contentType : false,
+					cache : false,
+					success : function(response) {
+						if (response === 'DATA UPDATED SUCCESSFULLY') {
+							alert(response);
+							window.location.href = "getGoldLoanRectification";
+						} else {
+							alert('Failed to update data: ' + response);
+						}
+						console.log(response);
+					},
+					error : function(xhr, status, error) {
+						console.log(xhr.responseText);
+					}
+				});
+			});
+		});
+	</script>
+
+	<script type="text/javascript">
+		function redirectThePageToGoldLoan() {
+
+			window.location.href = "goldLoanApplication";
+
 		}
-</script>
-    
+	</script>
+
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<!-- Bootstrap 3.3.7 -->
 	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -870,70 +888,67 @@
 	<script src="dist/js/rectificationSection.js"></script>
 
 	<script>
+		var fileTag = document.getElementById("filetag"), // this is for file 
+		photo = document.getElementById("photo"), //this is for preview
+		preview = document.getElementById("preview"), signature = document
+				.getElementById("signature"), imgGold = document
+				.getElementById("imgGold"), goldImg = document
+				.getElementById("goldImg");
 
-      var fileTag = document.getElementById("filetag"), // this is for file 
-          photo = document.getElementById("photo"),     //this is for preview
-          preview = document.getElementById("preview"),
-          signature = document.getElementById("signature"),
-          imgGold = document.getElementById("imgGold"),
-          goldImg = document.getElementById("goldImg");
-          
-      fileTag.addEventListener("change", function() {  // this is for file
-        changeImage(this);
-      });
-      
-      preview.addEventListener("change", function() {
-          changeImage2(this);
-        });
-      
-      imgGold.addEventListener("change", function() {
-          changeImage3(this);
-        });
-      
-      
-      function changeImage(input) {                  // this is for preview
-        var reader;
+		fileTag.addEventListener("change", function() { // this is for file
+			changeImage(this);
+		});
 
-        if (input.files && input.files[0]) {
-          reader = new FileReader();
+		preview.addEventListener("change", function() {
+			changeImage2(this);
+		});
 
-          reader.onload = function(e) {
-        	  photo.setAttribute('src', e.target.result);
-          }
+		imgGold.addEventListener("change", function() {
+			changeImage3(this);
+		});
 
-          reader.readAsDataURL(input.files[0]);
-        }
-      }
-      
-      function changeImage2(input) {
-          var reader;
+		function changeImage(input) { // this is for preview
+			var reader;
 
-          if (input.files && input.files[0]) {
-            reader = new FileReader();
+			if (input.files && input.files[0]) {
+				reader = new FileReader();
 
-            reader.onload = function(e) {
-            	signature.setAttribute('src', e.target.result);
-            }
+				reader.onload = function(e) {
+					photo.setAttribute('src', e.target.result);
+				}
 
-            reader.readAsDataURL(input.files[0]);
-          }
-        }
-      
-      function changeImage3(input) {
-          var reader;
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
 
-          if (input.files && input.files[0]) {
-            reader = new FileReader();
+		function changeImage2(input) {
+			var reader;
 
-            reader.onload = function(e) {
-            	goldImg.setAttribute('src', e.target.result);
-            }
+			if (input.files && input.files[0]) {
+				reader = new FileReader();
 
-            reader.readAsDataURL(input.files[0]);
-          }
-        }
-            
-      </script>
+				reader.onload = function(e) {
+					signature.setAttribute('src', e.target.result);
+				}
+
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
+
+		function changeImage3(input) {
+			var reader;
+
+			if (input.files && input.files[0]) {
+				reader = new FileReader();
+
+				reader.onload = function(e) {
+					goldImg.setAttribute('src', e.target.result);
+				}
+
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
+	</script>
 
 	<!-- Select2 -->
 	<script src="bower_components/select2/dist/js/select2.full.min.js"></script>
