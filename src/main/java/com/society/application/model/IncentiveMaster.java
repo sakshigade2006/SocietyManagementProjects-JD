@@ -18,6 +18,8 @@ public class IncentiveMaster {
 	private String branchName;
 	private String remark;
 	private String flag;
+	private String createdBy;
+	private String createdDt;
 
 	public String getMonth() {
 		return month;
@@ -90,4 +92,21 @@ public class IncentiveMaster {
 	public void setFlag(String flag) {
 		this.flag = flag;
 	}
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public String getCreatedDt() {
+		return createdDt;
+	}
+
+	public void setCreatedDt(String createdDt) {
+		this.createdDt = createdDt;
+	}
+	
 }

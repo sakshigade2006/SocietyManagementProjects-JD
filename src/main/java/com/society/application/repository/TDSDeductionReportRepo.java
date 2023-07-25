@@ -16,5 +16,7 @@ public interface TDSDeductionReportRepo  extends JpaRepository<AdvisorCollection
 	public List<AdvisorCollectionReportModel> findBymonth(@Param("mnth") int mnth);
 	
 	public 	List<AdvisorCollectionReportModel> findByadvisorCode(String advisorcode);
+
+	public List<AdvisorCollectionReportModel> findBymonth(String month);
 	
 }
