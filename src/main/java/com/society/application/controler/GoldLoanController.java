@@ -77,11 +77,12 @@ public class GoldLoanController {
 	}
 
 	@PostMapping("/saveLoanMaster")
-	public String loanMaster(@ModelAttribute("saveGoldLoanMaster") LoanMaster loanMaster, Model model) {
+	public String loanMaster(@ModelAttribute("saveGoldLoanMaster") LoanMaster loanMaster, Model model,HttpSession session) {
 		if (loanMaster.getType() != null && loanMaster.getType().equals("Gold")) {
 			loanMaster.setType(loanMaster.getType());
 		}
-		loanMaster.setCreatedBy("");
+		String createdBy=session.getAttribute("ID").toString();
+		loanMaster.setCreatedBy(createdBy);
 		loanMaster.setCreatedDate(new Date().toString());
 		loanMaster.setUpdatedBy("");
 		loanMaster.setUpdatedDate(new Date().toString());
@@ -189,7 +190,9 @@ public class GoldLoanController {
 
 	// PurityMasterRepo
 	@PostMapping("/savePurityMaster")
-	public String savePurityMasterRepo(@ModelAttribute("savePurityMaster") PurityMaster purityMaster, Model model) {
+	public String savePurityMasterRepo(@ModelAttribute("savePurityMaster") PurityMaster purityMaster, Model model,HttpSession session) {
+		String createdBy=session.getAttribute("ID").toString();
+		purityMaster.setCreatedBy(createdBy);
 		PurityMaster getAllRates = purityMasterRepo.save(purityMaster);
 		return "Gold_Loan/goldLoanMaster";
 	}
@@ -243,12 +246,14 @@ public class GoldLoanController {
 	}
 
 	@PostMapping("/saveLoanGoldPayment")
-	public String saveLoanGoldPayment(@ModelAttribute("loanGoldApplication") Loan loan, Model model) {
+	public String saveLoanGoldPayment(@ModelAttribute("loanGoldApplication") Loan loan, Model model,HttpSession session) {
+		String createdBy=session.getAttribute("ID").toString();
+		loan.setCreatedBy(createdBy);
 		loan.setType("Gold");
-		loan.setCreatedBy("");
 		loan.setCreatedDate(new Date().toString());
 		loan.setUpdatedBy("");
 		loan.setUpdatedDate(new Date().toString());
+		
 		Loan loanSaved = loanRepo.save(loan);
 		//List<Loan> loanList = loanRepo.searchGoldLoan();
 		//model.addAttribute("loanList", loanList);
@@ -272,9 +277,10 @@ public class GoldLoanController {
 
 	// updateGoldLoanApproval
 	@PostMapping("/updateGoldLoanApproval")
-	public String updateGoldLoanApproval(@ModelAttribute("loanGoldApplication") Loan loan, Model model) {
+	public String updateGoldLoanApproval(@ModelAttribute("loanGoldApplication") Loan loan, Model model,HttpSession session) {
+		String createdBy=session.getAttribute("ID").toString();
 		loan.setType("Gold");
-		loan.setCreatedBy("");
+		loan.setCreatedBy(createdBy);
 		loan.setCreatedDate(new Date().toString());
 		loan.setUpdatedBy("");
 		loan.setUpdatedDate(new Date().toString());
@@ -516,9 +522,11 @@ public class GoldLoanController {
 	}
 
 	@PostMapping("/closeLoanRegularEMIRepayment")
-	public String closeLoanRegularEMIRepayment(@ModelAttribute("updateLoan") Loan loan, Model model) {
+	public String closeLoanRegularEMIRepayment(@ModelAttribute("updateLoan") Loan loan, Model model,HttpSession session) {
 		Optional<Loan> getLoan = loanRepo.findById(loan.getId());
 		if (getLoan.get() != null) {
+			String createdBy=session.getAttribute("ID").toString();
+			loan.setCreatedBy(createdBy);
 			// few fields are no tthere so not saving close status
 			loanRepo.save(loan);
 		}

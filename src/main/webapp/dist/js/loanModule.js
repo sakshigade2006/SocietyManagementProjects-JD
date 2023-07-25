@@ -20,9 +20,9 @@ function getListOfLoanId() {
 }
 
 function getByLoanId(type) {
-	var searchLoanId = document.getElementById("searchLoanId1");
+	var searchLoanId = document.getElementById("searchLoanId1").value;
 	var input = {
-		"id": searchLoanId.value
+		"id": searchLoanId
 	};
 
 	fetch('getByLoanAppId', {
