@@ -57,7 +57,7 @@ public class GroupMasterApplication {
 	private byte[] signature;
 	private String approvalStatus;
 	private String approvalDate;
-	
+	private String createdDt;
 	
 	public String getApprovalStatus() {
 		return approvalStatus;
@@ -328,6 +328,12 @@ public class GroupMasterApplication {
 	}
 	public void setFlag(String flag) {
 		this.flag = flag;
+	}
+	public String getCreatedDt() {
+		return createdDt;
+	}
+	public void setCreatedDt(String createdDt) {
+		this.createdDt = createdDt;
 	}
 	@Override
 	public String toString() {

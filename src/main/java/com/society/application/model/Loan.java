@@ -88,15 +88,7 @@ public class Loan {
 	private String fDate;
 	private String tDate;
 	private String createdBy;
-	private String CreatedDt;             
-	public String getCreatedDt() {
-		return CreatedDt;
-	}
-
-	public void setCreatedDt(String createdDt) {
-		CreatedDt = createdDt;
-	}
-
+	private String CreatedDt;   
 	@Transient
 	private String loanPlanNameView;
 	private String modeRegOrIrr;
@@ -739,6 +731,14 @@ public class Loan {
 
 	public void settDate(String tDate) {
 		this.tDate = tDate;
+	}
+	
+	public String getCreatedDt() {
+		return CreatedDt;
+	}
+
+	public void setCreatedDt(String createdDt) {
+		CreatedDt = createdDt;
 	}
 
 	@Override

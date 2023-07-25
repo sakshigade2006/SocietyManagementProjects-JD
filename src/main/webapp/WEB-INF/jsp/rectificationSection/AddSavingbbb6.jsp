@@ -1,6 +1,8 @@
 <jsp:include page="../header.jsp" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<body onload="getTheValueInTheDropDown(); retrieveCodeAfterSoftDeleteSearchMemberCode()" class="skin-blue sidebar-mini"
+<body
+	onload="getTheValueInTheDropDown(); retrieveCodeAfterSoftDeleteSearchMemberCode()"
+	class="skin-blue sidebar-mini"
 	style="height: auto; min-height: 100%; background-color: rgba(36, 105, 92, 0.15);"
 	cz-shortcut-listen="true">
 	<div
@@ -52,7 +54,8 @@
 														onchange="getthevalueinthegiveninputFieldsfofSavingAcoount()"
 														name="accountNo" id="accountNo"
 														class="form-control select2" style="width: 100%;">
-														<option selected="selected" value="">-- Select Account No. --</option>
+														<option selected="selected" value="">-- Select
+															Account No. --</option>
 													</select>
 												</div>
 											</div>
@@ -92,7 +95,8 @@
 											<div class="col-sm-7">
 												<select name="searchMemberCode" id="searchMemberCode"
 													class="form-control" style="width: 100%;">
-													<option selected="selected" value="">--Select Member--</option>
+													<option selected="selected" value="">--Select
+														Member--</option>
 												</select> <span
 													id="ContentPlaceHolder1_RequiredFieldValidatorddlMemberCode"
 													style="color: Red; font-size: X-Small; font-weight: bold; display: none;">Select
@@ -162,16 +166,16 @@
 											<label for="txtNomineeName" class="col-sm-5 control-label">Nominee
 												Name</label>
 											<div class="col-sm-7">
-												<input name="nomineeName" type="text" id="nomineeName" placeholder="Enter Nominee Name"
-													class="form-control" />
+												<input name="nomineeName" type="text" id="nomineeName"
+													placeholder="Enter Nominee Name" class="form-control" />
 											</div>
 										</div>
 										<div class="form-group row">
 											<label for="txtNomineeName" class="col-sm-5 control-label">Nominee
 												Age</label>
 											<div class="col-sm-7">
-												<input name="nage" type="text" maxlength="2" id="nage" placeholder="Enter Nominee Age"
-													class="form-control" />
+												<input name="nage" type="text" maxlength="2" id="nage"
+													placeholder="Enter Nominee Age" class="form-control" />
 											</div>
 										</div>
 										<div class="form-group row">
@@ -180,7 +184,7 @@
 											<div class="col-sm-7">
 												<select name="nRelation" id="nRelation" class="form-control"
 													style="width: 100%;">
-														<option>--Select Nominee Relation--</option>
+													<option>--Select Nominee Relation--</option>
 												</select>
 											</div>
 										</div>
@@ -218,8 +222,8 @@
 												Name <strong style="color: Red">*</strong>
 											</label>
 											<div class="col-sm-7">
-												<select name="cSPName" id="cSPName"
-													class="form-control" style="width: 100%;">
+												<select name="cSPName" id="cSPName" class="form-control"
+													style="width: 100%;">
 													<option>--Select Branch Name--</option>
 												</select>
 											</div>
@@ -230,9 +234,9 @@
 												<strong style="color: Red">*</strong>
 											</label>
 											<div class="col-sm-7">
-												<input name="state" type="text" readonly="readonly" placeholder="Enter State"
-													id="state" class="form-control" /> <span
-													id="ContentPlaceHolder1_RequiredFieldValidator11"
+												<input name="state" type="text" readonly="readonly"
+													placeholder="Enter State" id="state" class="form-control" />
+												<span id="ContentPlaceHolder1_RequiredFieldValidator11"
 													style="color: Red; font-size: X-Small; font-weight: bold; display: none;">Select
 													State</span>
 											</div>
@@ -268,16 +272,17 @@
 											<label for="txtJointMemberName"
 												class="col-sm-5 control-label">Joint/Survivor Code</label>
 											<div class="col-sm-7">
-												<input name="jointCode" type="text" id="jointCode" placeholder="Enter Survivor code"
-													class="form-control" />
+												<input name="jointCode" type="text" id="jointCode"
+													placeholder="Enter Survivor code" class="form-control" />
 											</div>
 										</div>
 										<div class="form-group row">
 											<label for="txtJointMemberName"
 												class="col-sm-5 control-label">Joint/Survivor Name</label>
 											<div class="col-sm-7">
-												<input name="jointName" type="text" readonly="readonly" placeholder="Enter Survivor Nmae"
-													id="jointName" class="form-control" />
+												<input name="jointName" type="text" readonly="readonly"
+													placeholder="Enter Survivor Nmae" id="jointName"
+													class="form-control" />
 											</div>
 										</div>
 										<div class="form-group row">
@@ -311,8 +316,9 @@
 												<strong style="color: Red">*</strong>
 											</label>
 											<div class="col-sm-7">
-												<input name="openingAmount" type="text" placeholder="Enter Opening Amount"
-													id="openingAmount" class="form-control" /> <span
+												<input name="openingAmount" type="text"
+													placeholder="Enter Opening Amount" id="openingAmount"
+													class="form-control" /> <span
 													id="ContentPlaceHolder1_RequiredFieldValidatorOpeningAmount"
 													style="color: Red; font-size: X-Small; font-weight: bold; display: none;">Enter
 													Opening Amount</span>
@@ -346,8 +352,8 @@
 											<label for="txtOpeningFees" class="col-sm-5 control-label">Opening
 												Fees (if any)</label>
 											<div class="col-sm-7">
-												<input name="opFees" type="text" id="opFees" placeholder="Enter Opening Fees"
-													class="form-control"
+												<input name="opFees" type="text" id="opFees"
+													placeholder="Enter Opening Fees" class="form-control"
 													onkeypress="return isNumberOnlyKey(this, event);" />
 											</div>
 										</div>
@@ -443,8 +449,8 @@
 										<div class="form-group">
 											<div class="text-center">
 												<img id="imageApplicant" class="profile-user-img"
-													style="height: 70px; width: 115px;" /> <input type="file" name="filetag"
-													id="filetag" />
+													style="height: 70px; width: 115px;" /> <input type="file"
+													name="filetag" id="filetag" />
 											</div>
 										</div>
 									</div>
@@ -652,7 +658,7 @@
 			});
 		});
 	</script>
-	
+
 	<script>
 		$(function() {
 			//Initialize Select2 Elements
@@ -947,7 +953,7 @@
 		}
 		//]]>
 	</script>
+	
 	</form>
 </body>
-
 </html>

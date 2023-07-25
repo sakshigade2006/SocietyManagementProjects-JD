@@ -20,7 +20,7 @@
 		<!-- Aside Menu end -->
 
 		<!-- Left side column. contains the logo and sidebar -->
-		
+
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper" style="min-height: 1105.75px;">
 			<section class="content-header">
@@ -51,8 +51,8 @@
 													LoanID <strong style="color: Red">*</strong>
 												</label>
 												<div class="col-sm-8">
-													<select name="id" id="id" class="form-control select2" onchange="RetrieveLoanMasterId();"
-														style="width: 100%;">
+													<select name="id" id="id" class="form-control select2"
+														onchange="RetrieveLoanMasterId();" style="width: 100%;">
 														<option>Select Loan ID</option>
 													</select>
 												</div>
@@ -326,39 +326,40 @@
 							</div>
 						</div>
 						<div class="col-md-2">
-						<div class="box box-success">
-							<div class="box-header with-border">
-								<h3 class="box-title">Photo</h3>
+							<div class="box box-success">
+								<div class="box-header with-border">
+									<h3 class="box-title">Photo</h3>
+								</div>
+								<div class="box-body">
+									<div class="col-md-3">
+										<div class="form-group">
+											<div class="text-center">
+												<img name="preview" id="preview" class="profile-user-img"
+													style="height: 70px; width: 115px;" /> <input type="file"
+													name="filetag" id="filetag" />
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
-							<div class="box-body">
-								<div class="col-md-3">
-									<div class="form-group">
-										<div class="text-center">
-											<img name="preview" id="preview" class="profile-user-img"
-												style="height: 70px; width: 115px;" /> <input type="file"
-												name="filetag" id="filetag" />
+							<div class="box box-success">
+								<div class="box-header with-border">
+									<h3 class="box-title">Signature</h3>
+								</div>
+								<div class="box-body">
+									<div class="col-md-3">
+										<div class="form-group">
+											<div class="text-center">
+												<img name="secondpreview" id="secondpreview"
+													class="profile-user-img"
+													style="height: 70px; width: 115px;" /> <input type="file"
+													name="secondfiletag" id="secondfiletag" />
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="box box-success">
-							<div class="box-header with-border">
-								<h3 class="box-title">Signature</h3>
-							</div>
-							<div class="box-body">
-								<div class="col-md-3">
-									<div class="form-group">
-										<div class="text-center">
-											<img name="secondpreview" id="secondpreview"
-												class="profile-user-img" style="height: 70px; width: 115px;" />
-											<input type="file" name="secondfiletag" id="secondfiletag" />
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
 					</div>
 					<div id="ContentPlaceHolder1_upnlLAD"></div>
 					<div class="row">
@@ -603,12 +604,13 @@
 											name="ctl00$ContentPlaceHolder1$btnDelete" value="Delete"
 											onclick="softDeleteForSelectByLoanID();"
 											id="ContentPlaceHolder1_btnDelete"
-											class="btn btn-danger pull-right" />
-										<input type="submit" name="ctl00$ContentPlaceHolder1$btnNew" value="New" 
-											id="ContentPlaceHolder1_btnNew" 
-											onclick="redirectThePageToLoan();" class="btn btn-info pull-right margin-r-5" /> 
-										<input type="button" name="updatebtn" value="Update"
-											id="updatebtn" class="btn btn-success pull-right margin-r-5" />
+											class="btn btn-danger pull-right" /> <input type="submit"
+											name="ctl00$ContentPlaceHolder1$btnNew" value="New"
+											id="ContentPlaceHolder1_btnNew"
+											onclick="redirectThePageToLoan();"
+											class="btn btn-info pull-right margin-r-5" /> <input
+											type="button" name="updatebtn" value="Update" id="updatebtn"
+											class="btn btn-success pull-right margin-r-5" />
 									</div>
 								</div>
 							</div>
@@ -620,7 +622,7 @@
 		<!-- /.content-wrapper -->
 		<div class="control-sidebar-bg"></div>
 	</div>
-	
+
 	<script>
 		$(document).ready(function() {
 			$('#updatebtn').click(function() {
@@ -741,7 +743,7 @@
 	<script src="dist/js/rectificationSection.js"></script>
 	<!-- Select2 -->
 	<script src="bower_components/select2/dist/js/select2.full.min.js"></script>
-	
+
 	<!-- </form> -->
 </body>
 

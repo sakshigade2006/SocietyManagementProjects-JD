@@ -49,8 +49,8 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', [],
 												<div class="input-group-addon">
 													<i class="fa fa-calendar"></i>
 												</div>
-												<input name="txnDate" type="date" 
-													id="txnDate" class="form-control"
+												<input name="txnDate" type="date" id="txnDate"
+													class="form-control"
 													data-inputmask="&#39;alias&#39;: &#39;dd/mm/yyyy&#39;"
 													data-mask="" />
 											</div>
@@ -62,7 +62,8 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', [],
 										<div class="col-sm-8">
 											<select name="branchName" id="branchName"
 												class="form-control" style="width: 100%;">
-												<option value="" selected="selected">Select Branch Name</option>
+												<option value="" selected="selected">Select Branch
+													Name</option>
 											</select> <span
 												id="ContentPlaceHolder1_RequiredFieldValidatorddlBranchName"
 												style="color: Red; font-size: X-Small; font-weight: bold; display: none;">Select
@@ -150,8 +151,9 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', [],
 										<label class="col-sm-4 control-label">Ava.Balance <strong
 											style="color: Red">*</strong></label>
 										<div class="col-sm-8">
-											<input name="avaBalance" type="text" readonly="readonly" placeholder="Enter Ava. Balance"
-												id="avaBalance" class="form-control" />
+											<input name="avaBalance" type="text" readonly="readonly"
+												placeholder="Enter Ava. Balance" id="avaBalance"
+												class="form-control" />
 										</div>
 									</div>
 									<div class="form-group row">
@@ -177,8 +179,8 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', [],
 											Type<strong style="color: Red">*</strong>
 										</label>
 										<div class="col-sm-8">
-											<select name="txnType" id="txnType"
-												class="form-control" style="width: 100%;">
+											<select name="txnType" id="txnType" class="form-control"
+												style="width: 100%;">
 												<option value="" selected="selected">--Select--</option>
 												<option value="Deposit">Deposit</option>
 												<option value="Withdrawal">Withdrawal</option>
@@ -228,56 +230,56 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', [],
 					</div>
 
 					<div class="col-md-2">
-							<div class="box box-success">
-								<div class="box-header with-border">
-									<h3 class="box-title">Photo</h3>
-								</div>
-								<div class="box-body">
-									<div class="col-md-3">
-										<div class="form-group">
-											<div class="text-center">
-												<img id="imageApplicant" class="profile-user-img"
-													style="height: 70px; width: 115px;" /> <input type="file" name="filetag"
-													id="filetag" />
-											</div>
+						<div class="box box-success">
+							<div class="box-header with-border">
+								<h3 class="box-title">Photo</h3>
+							</div>
+							<div class="box-body">
+								<div class="col-md-3">
+									<div class="form-group">
+										<div class="text-center">
+											<img id="imageApplicant" class="profile-user-img"
+												style="height: 70px; width: 115px;" /> <input type="file"
+												name="filetag" id="filetag" />
 										</div>
 									</div>
 								</div>
 							</div>
-							<div class="box box-success">
-								<div class="box-header with-border">
-									<h3 class="box-title">Signature</h3>
-								</div>
-								<div class="box-body">
-									<div class="col-md-3">
-										<div class="form-group">
-											<div class="text-center">
-												<img id="imageSignature" class="profile-user-img"
-													style="height: 70px; width: 115px;" /> <input type="file"
-													name="secondfiletag" id="secondfiletag" />
-											</div>
+						</div>
+						<div class="box box-success">
+							<div class="box-header with-border">
+								<h3 class="box-title">Signature</h3>
+							</div>
+							<div class="box-body">
+								<div class="col-md-3">
+									<div class="form-group">
+										<div class="text-center">
+											<img id="imageSignature" class="profile-user-img"
+												style="height: 70px; width: 115px;" /> <input type="file"
+												name="secondfiletag" id="secondfiletag" />
 										</div>
 									</div>
 								</div>
 							</div>
-							<div class="box box-success">
-								<div class="box-header with-border">
-									<h3 class="box-title">Joint Photo</h3>
-								</div>
-								<div class="box-body">
-									<div class="col-md-3">
-										<div class="form-group">
-											<div class="text-center">
-												<img id="imgJointPhoto" class="profile-user-img"
-													style="height: 70px; width: 115px;" /> <input type="file"
-													name="thirdfiletag" id="thirdfiletag" />
-											</div>
+						</div>
+						<div class="box box-success">
+							<div class="box-header with-border">
+								<h3 class="box-title">Joint Photo</h3>
+							</div>
+							<div class="box-body">
+								<div class="col-md-3">
+									<div class="form-group">
+										<div class="text-center">
+											<img id="imgJointPhoto" class="profile-user-img"
+												style="height: 70px; width: 115px;" /> <input type="file"
+												name="thirdfiletag" id="thirdfiletag" />
 										</div>
 									</div>
 								</div>
 							</div>
-						</div>				
+						</div>
 					</div>
+				</div>
 			</section>
 		</div>
 		<!-- /.content-wrapper -->

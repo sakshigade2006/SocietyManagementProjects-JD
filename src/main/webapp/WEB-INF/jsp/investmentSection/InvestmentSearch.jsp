@@ -1,6 +1,7 @@
 <jsp:include page="../header.jsp" />
+<!-- onload="getAllPolicyNumber1();investmentSearchFunction()" -->
 <body class="skin-blue sidebar-mini"
-	onload="getAllPolicyNumber1();investmentSearchFunction()"
+	onload="getAllPolicyNumber1(); GetBranchNameInTheDropDown();"
 	style="height: auto; min-height: 100%; background-color: rgba(36, 105, 92, 0.15);"
 	cz-shortcut-listen="true">
 	<!-- <form method="post" action="investmentSearch" id="form1" modelAttribute="user"> -->
@@ -197,6 +198,7 @@
 	<script src="dist/js/demo.js"></script>
 	<script src="dist/js/InvestmentSearchJs.js"></script>
 	<script src="dist/js/investmentSection .js"></script>
+	<script src="dist/js/GetAllBranch.js"></script>
 	<!-- Select2 -->
 	<script src="bower_components/select2/dist/js/select2.full.min.js"></script>
 	

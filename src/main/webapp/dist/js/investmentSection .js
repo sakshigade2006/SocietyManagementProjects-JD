@@ -772,8 +772,8 @@ function getByDataBySearchMemberCode(){
          document.getElementById("chkisSms").value = data[i].chkisSms;
          document.getElementById("remarks").value = data[i].remarks;
          
-			var imgElement = document.getElementById("preview");
-			imgElement.src ="data:image/png;base64,"+data[i].photo;
+		 var imgElement = document.getElementById("preview");
+         imgElement.src = "data:image/png;base64," + data[i].photo;
 			    
 			var imgElement = document.getElementById("secondpreview");
 			imgElement.src ="data:image/png;base64,"+data[i].signature;

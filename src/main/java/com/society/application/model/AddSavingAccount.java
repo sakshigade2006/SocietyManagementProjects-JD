@@ -45,6 +45,8 @@ public class AddSavingAccount {
 	private String accountNo;
 	private String flag;
 	private String age;
+	private String createdBy;
+	private String createdDt;
 	
 	public String getFlag() {
 		return flag;
@@ -255,6 +257,18 @@ public class AddSavingAccount {
 	}
 	public void setAge(String age) {
 		this.age = age;
+	}
+	public String getCreatedBy() {
+		return createdBy;
+	}
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+	public String getCreatedDt() {
+		return createdDt;
+	}
+	public void setCreatedDt(String createdDt) {
+		this.createdDt = createdDt;
 	}
 	
 }

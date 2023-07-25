@@ -165,12 +165,11 @@ function SharePayment() {
 
 function softDeleteSavingsTransaction(){
 	var accountNo = document.getElementById("accountNo").value;
-	
 	var input = {
                      "accountNo": accountNo
         }
     var myJSOn = JSON.stringify(input);
-           
+        
     if(!accountNo){
 	alert("Plz Select Code!!!!!!!")
     }else{

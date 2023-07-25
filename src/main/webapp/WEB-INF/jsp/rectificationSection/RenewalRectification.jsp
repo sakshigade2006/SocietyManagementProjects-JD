@@ -17,10 +17,14 @@
 
 		<!-- Left side column. contains the logo and sidebar -->
 		<script type="text/javascript">
-//<![CDATA[
-Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', ['tctl00$ContentPlaceHolder1$UpPopup','ContentPlaceHolder1_UpPopup','tctl00$ContentPlaceHolder1$uppnl','ContentPlaceHolder1_uppnl'], [], [], 90, 'ctl00');
-//]]>
-</script>
+			//<![CDATA[
+			Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1',
+					'form1', [ 'tctl00$ContentPlaceHolder1$UpPopup',
+							'ContentPlaceHolder1_UpPopup',
+							'tctl00$ContentPlaceHolder1$uppnl',
+							'ContentPlaceHolder1_uppnl' ], [], [], 90, 'ctl00');
+			//]]>
+		</script>
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper" style="min-height: 1105.75px;">
 			<section class="content-header">
@@ -49,7 +53,8 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', ['t
 												onchange="javascript:getByAddInvesmentCode()"
 												id="searchbyPolicyNo" class="form-control select2"
 												style="width: 100%;">
-												<option selected="selected" value="">--SELECT POLICY NO.--</option>
+												<option selected="selected" value="">--SELECT
+													POLICY NO.--</option>
 											</select> <span
 												id="ContentPlaceHolder1_RequiredFieldValidatorPolicyNoName"
 												style="color: Red; font-size: X-Small; font-weight: bold; display: none;">Select
@@ -315,7 +320,8 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', ['t
 										<div class="col-sm-7">
 											<select name="paymode" id="paymode" class="form-control"
 												style="width: 100%;">
-												<option selected="selected" value="">--Select Paymode--</option>
+												<option selected="selected" value="">--Select
+													Paymode--</option>
 												<option value="Cash">Cash</option>
 												<option value="Cheque">Cheque</option>
 												<option value="Online">Online</option>
@@ -443,7 +449,7 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', ['t
 		<!-- /.content-wrapper -->
 		<div class="control-sidebar-bg"></div>
 	</div>
-	
+
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<!-- Bootstrap 3.3.7 -->
 	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>

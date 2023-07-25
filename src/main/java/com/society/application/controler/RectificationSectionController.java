@@ -201,9 +201,12 @@ public class RectificationSectionController {
 
 	@PostMapping("/deleteSelectByLoanID")
 	@ResponseBody
-	public ResponseEntity<String> getDeleteSelectByLoanID(@RequestBody LoanMaster model) {
+	public ResponseEntity<String> getDeleteSelectByLoanID(@RequestBody LoanMaster model, HttpSession session) {
 		String flag = "0";
-		int i = loanmasterrepo.updateThroughIdInDeleteLoanApplication(flag, model.getId());
+		String userId = session.getAttribute("ID").toString();
+		model.setCreatedBy(userId);
+		int i = loanmasterrepo.updateThroughIdInDeleteLoanApplication(flag, model.getId(), userId);
+		session.setAttribute("userId", userId);
 		return ResponseEntity.ok("Deleted Successfully...!!!");
 	}
 
@@ -274,9 +277,11 @@ public class RectificationSectionController {
 			@RequestParam(name = "advisorName",required = false) String advisorName,
 			@RequestParam(name = "filetag",required = false) MultipartFile file1,
 			@RequestParam(name = "secondfiletag",required = false) MultipartFile file2,
-			@RequestParam(name = "id123",required = false) Integer id)  {
+			@RequestParam(name = "id123",required = false) Integer id,
+			HttpSession session)  {
 		try {
 		List<LoanMaster> client = loanmasterrepo.findByid(id);
+		String createdBy = session.getAttribute("ID").toString();
 			 client.forEach(s->{
 				 if(!(file1==null) && !(file2==null)) {
 					 try {
@@ -327,7 +332,9 @@ public class RectificationSectionController {
 				    s.setInsuranceAmt(insuranceAmt);
 				    s.setAdvisorName(advisorName);
 					s.setFlag("1");
+					s.setCreatedBy(createdBy);
 					loanmasterrepo.save(s);
+					session.setAttribute("createdBy", createdBy);
 				});
 	        return new ResponseEntity<>("Data Updated  successfully!!!!", HttpStatus.OK);
 		}catch(Exception ex) {;
@@ -697,9 +704,11 @@ public class RectificationSectionController {
 	// dropdown for Payment
 	@PostMapping("/DeleteSavingsTransactionDelete")
 	@ResponseBody
-	public ResponseEntity<String> DeleteSavingsTransactionDelete(@RequestBody SavingsDepositWith model) {
+	public ResponseEntity<String> DeleteSavingsTransactionDelete(@RequestBody SavingsDepositWith model, HttpSession session) {
 		String flag = "0";
-		int i = savingsDepositWithdrawalRepo.updateThroughIDInDeleteSavingsTransaction(flag, model.getAccountNo());
+		String userId = session.getAttribute("ID").toString();
+		model.setCreatedBy(userId);
+		int i = savingsDepositWithdrawalRepo.updateThroughIDInDeleteSavingsTransaction(flag, model.getAccountNo(), userId);
 		return ResponseEntity.ok("Soft Deleted Successfully...");
 	}
 
@@ -1004,8 +1013,10 @@ public class RectificationSectionController {
 			@RequestParam(name = "chkdebitcard", required = false) String chkdebitcard,
 			@RequestParam(name = "filetag", required = false) MultipartFile filetag,
 			@RequestParam(name = "secondfiletag", required = false) MultipartFile secondfiletag,
-			@RequestParam(name = "thirdfiletag", required = false) MultipartFile thirdfiletag) {
-
+			@RequestParam(name = "thirdfiletag", required = false) MultipartFile thirdfiletag,
+			HttpSession session, AddSavingAccount saving) {
+		String userId = session.getAttribute("ID").toString();
+		saving.setCreatedBy(userId);
 		if (!filetag.isEmpty() || !secondfiletag.isEmpty() || !thirdfiletag.isEmpty()) {
 
 			String fileName1 = null;
@@ -1027,12 +1038,12 @@ public class RectificationSectionController {
 	        int i = addSavingAccountRepo.updateTheAddSavingAcoount(accountNo, searchMemberCode, opDate, memberName, dOB,
 	                relativeName, phoneno, nomineeName, nage, nRelation, address, district, cSPName, state, pin,
 	                modeOfOp, jointCode, jointName, jointRelation, sBPlan, openingAmount, advisorCode, advisorName,
-	                opFees, paymode, remarks, chkisactive, chkisSms, chkdebitcard, fileName1, fileName2, fileName3, "1");
+	                opFees, paymode, remarks, chkisactive, chkisSms, chkdebitcard, fileName1, fileName2, fileName3, "1", userId);
 			} else {
 				int i = addSavingAccountRepo.updateTheAddSavingAcoountWithoutFile(accountNo, searchMemberCode, opDate,
 	                memberName, dOB, relativeName, phoneno, nomineeName, nage, nRelation, address, district, cSPName,
 	                state, pin, modeOfOp, jointCode, jointName, jointRelation, sBPlan, openingAmount, advisorCode,
-	                advisorName, opFees, paymode, remarks, chkisactive, chkisSms, chkdebitcard, "1");
+	                advisorName, opFees, paymode, remarks, chkisactive, chkisSms, chkdebitcard, "1", userId);
 		}
 		return ResponseEntity.ok("Data Updated Successfully..!!");
 	}
@@ -1205,10 +1216,12 @@ public class RectificationSectionController {
 	 @RequestParam(name = "insuranceAmt", required = false) String insuranceAmt,
 	 @RequestParam(name = "vFeesAmt", required = false) String vFeesAmt,
 	 @RequestParam(name = "advisorName", required = false) String advisorName,
-	 @RequestParam(name = "id123",required = false) Integer id
+	 @RequestParam(name = "id123",required = false) Integer id,
+	 HttpSession session
 	 ){
 		try {
 			List<LoanMaster> loan = loanmasterrepo.findByid(id);
+			String createdBy = session.getAttribute("ID").toString();
 			loan.forEach(s->{
 				if(!(file1==null) && !(file2==null) && !(file3==null)) {
 					try {
@@ -1277,7 +1290,9 @@ public class RectificationSectionController {
 					s.setAdvisorName(advisorName);
 					s.setvFeesAmt(vFeesAmt);
 					s.setFlag("1");
+					s.setCreatedBy(createdBy);
 					loanmasterrepo.save(s);
+					session.setAttribute("createdBy", createdBy);
 				}
 			});
 			return new ResponseEntity<>("DATA UPDATED SUCCESSFULLY", HttpStatus.OK);
@@ -1290,9 +1305,12 @@ public class RectificationSectionController {
 	// Soft Delete Operation of GoldLoanRectification
 	@PostMapping("/softDeleteByLoanId")
 	@ResponseBody
-	public ResponseEntity<String> softDeleteByLoanId(@RequestBody LoanMaster loanMaster){
+	public ResponseEntity<String> softDeleteByLoanId(@RequestBody LoanMaster loanMaster, HttpSession session){
 		String flag = "0";
-		int i = loanmasterrepo.updateGoldLoanThroughid(flag,loanMaster.getId());
+		String userId = session.getAttribute("ID").toString();
+		loanMaster.setCreatedBy(userId);
+		int i = loanmasterrepo.updateGoldLoanThroughid(flag,loanMaster.getId(),userId);
+		session.setAttribute("userId", userId);
 		return ResponseEntity.ok("Data Deleted Successfully..!!");
 	}
 	
@@ -1360,9 +1378,11 @@ public class RectificationSectionController {
 				@RequestParam(name ="advisorName", required = false)String advisorName,
 				@RequestParam(name = "filetag",required = false) MultipartFile file1,
 				@RequestParam(name = "secondfiletag",required = false) MultipartFile file2,
-				@RequestParam(name = "id123",required = false) Integer id)  {
+				@RequestParam(name = "id123",required = false) Integer id,
+				HttpSession session)  {
 					try{
 						List<GroupMasterApplication> group = groupMasterApplicationRepo.findByid(id);
+						String createdBy = session.getAttribute("ID").toString();
 						group.forEach(s->{
 							if(!(file1==null) && !(file2==null)) {
 								try {
@@ -1400,7 +1420,9 @@ public class RectificationSectionController {
 							s.setInsuranceAmt(insuranceAmt);
 							s.setAdvisorName(advisorName);
 							s.setFlag("1");
+							s.setCreatedBy(createdBy);
 							groupMasterApplicationRepo.save(s);
+							session.setAttribute("createdBy", createdBy);
 						});
 						return new ResponseEntity<>("Data Updated  successfully!!!!", HttpStatus.OK);
 					}catch(Exception ex) {
@@ -1411,9 +1433,12 @@ public class RectificationSectionController {
 	
 	@PostMapping("/deleteGroupMasterApplicationById")
 	@ResponseBody
-	public ResponseEntity<String> deleteGroupMasterApplicationById(@RequestBody GroupMasterApplication model) {
+	public ResponseEntity<String> deleteGroupMasterApplicationById(@RequestBody GroupMasterApplication model, HttpSession session) {
 			String flag = "0";
-			int i = groupMasterApplicationRepo.updateGroupMasterApplicationThroughid(flag, model.getId());
+			String userId = session.getAttribute("ID").toString();
+			model.setCreatedBy(userId);
+			int i = groupMasterApplicationRepo.updateGroupMasterApplicationThroughid(flag, model.getId(),userId);
+			session.setAttribute("userId", userId);
 			return ResponseEntity.ok("Deleted Successfully..!!");
 	}
 	

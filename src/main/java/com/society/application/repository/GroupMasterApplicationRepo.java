@@ -18,9 +18,9 @@ public interface GroupMasterApplicationRepo extends JpaRepository<GroupMasterApp
 	
 	@Modifying
 	@Transactional
-	@Query("UPDATE GroupMasterApplication SET flag =:flag WHERE id=:id")
-	int updateGroupMasterApplicationThroughid(@Param("flag") String flag, @Param("id") int id);
+	@Query("UPDATE GroupMasterApplication SET flag =:flag WHERE id=:id AND createdBy=:userId")
+	int updateGroupMasterApplicationThroughid(@Param("flag") String flag, @Param("id") int id, @Param("userId") String userId);
 
 	public List<GroupMasterApplication> findByflag(String flag);
-	
+
 }

@@ -19,8 +19,8 @@ public interface LoanMasterRepo  extends JpaRepository<LoanMaster, Integer>{
 
 	@Modifying
 	@Transactional
-	@Query("UPDATE LoanMaster SET flag =:flag WHERE id =:id")
-	public int updateThroughIdInDeleteLoanApplication(@Param("flag") String flag, @Param("id") int id);
+	@Query("UPDATE LoanMaster SET flag =:flag WHERE id =:id AND createdBy=:userId")
+	public int updateThroughIdInDeleteLoanApplication(@Param("flag") String flag, @Param("id") int id,@Param("userId") String userId);
 
 	public List<LoanMaster> findByid(Integer id);
 	
@@ -48,7 +48,7 @@ public interface LoanMasterRepo  extends JpaRepository<LoanMaster, Integer>{
 
 	@Modifying
 	@Transactional
-	@Query("UPDATE LoanMaster SET flag =:flag WHERE id =:id ")
-	public int updateGoldLoanThroughid(@Param("flag") String flag,@Param("id")  int id);
-
+	@Query("UPDATE LoanMaster SET flag =:flag WHERE id =:id AND createdBy=:userId")
+	public int updateGoldLoanThroughid(@Param("flag") String flag,@Param("id")  int id,@Param("userId") String userId);
+	
 }
