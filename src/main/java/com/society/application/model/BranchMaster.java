@@ -22,6 +22,8 @@ public class BranchMaster {
     private String fdate;
     private String tdate;
     private String amount;
+    private String createdBy;
+	private String createdDt;
     
 	public String getOpening_date() {
 		return openingDate;
@@ -125,6 +127,22 @@ public class BranchMaster {
 
 	public void setAmount(String amount) {
 		this.amount = amount;
+	}
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public String getCreatedDt() {
+		return createdDt;
+	}
+
+	public void setCreatedDt(String createdDt) {
+		this.createdDt = createdDt;
 	}
    
 }

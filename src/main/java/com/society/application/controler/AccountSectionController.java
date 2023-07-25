@@ -243,14 +243,15 @@ public class AccountSectionController {
 	
 	@GetMapping("/branchCashTransferUpdate")
 	@ResponseBody
-	public String updateBranchCashTransfer(HttpServletRequest request) {
+	public String updateBranchCashTransfer(HttpServletRequest request, HttpSession session, BranchMaster branch) {
+		String userId = session.getAttribute("ID").toString();
 	    String transferDate = request.getParameter("TransferDate");
 	    String fromBranch = request.getParameter("FromBranch");
 	    String toBranch = request.getParameter("ToBranch");
 	    String amount = request.getParameter("Amount");
-
-	    branchmasterrepo.updateByFromBranchAndToBranch(amount, transferDate, fromBranch, toBranch);
-
+	    branch.setCreatedBy(userId);
+	    branchmasterrepo.updateByFromBranchAndToBranch(amount, transferDate, fromBranch, toBranch, userId);
+	    session.setAttribute("userId", userId);
 	    return "Data updated successfully";
 	}
 

@@ -195,7 +195,8 @@ public class SavingAccountController {
 		// SavingsAccountApplication savingAccountObj =
 		// savingsAccountApplicationRepo.save(savingsAccountApplication);
 		model.addAttribute("status", "ERROR");
-		List<Member> memberList = memberRepo.findAll();
+		//List<Member> memberList = memberRepo.findAll();
+		List<ClientMaster> memberList = clientMasterRepo.findAll();
 		model.addAttribute("memberList", memberList);
 		List<BranchMaster> branchData = branchMasterRepo.findAll();
 		model.addAttribute("branchList", branchData);
@@ -213,7 +214,8 @@ public class SavingAccountController {
 		// SavingsAccountApplication savingAccountObj =
 		// savingsAccountApplicationRepo.save(savingsAccountApplication);
 		model.addAttribute("status", "ERROR");
-		List<Member> memberList = memberRepo.findAll();
+		//List<Member> memberList = memberRepo.findAll();
+		List<ClientMaster> memberList = clientMasterRepo.findAll();
 		model.addAttribute("memberList", memberList);
 		List<BranchMaster> branchData = branchMasterRepo.findAll();
 		model.addAttribute("branchList", branchData);
@@ -378,7 +380,6 @@ public class SavingAccountController {
 				s.setTxtTDate(txtTDate);
 				s.setCspName(cspName);
 				s.setAccountNo(accountNo);
-				
 				savingsAccountApplicationRepo.save(s);
 			});
 			return new ResponseEntity<>("Data Updated  successfully!!!!", HttpStatus.OK);

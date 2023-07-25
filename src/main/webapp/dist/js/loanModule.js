@@ -25,7 +25,7 @@ function getByLoanId(type) {
 		"id": searchLoanId.value
 	};
 
-	fetch('getByLoanAppId', {
+	fetch('/getByLoanAppId', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json'
@@ -40,6 +40,7 @@ function getByLoanId(type) {
 			}
 		})
 		.then(function(data) {
+			try{
 			if (data.id != null) {
 				document.getElementById("id").value = data.id;
 			}
@@ -181,19 +182,30 @@ function getByLoanId(type) {
 				document.getElementById("advisorName").value = data.advisorName;
 
 			}
-			if (data.approvalDate != null && type!='payment') {
+			/*if (data.approvalDate != null && type!='payment') {
 				document.getElementById("approvalDate").value = data.approvalDate;
 
 			}
 			if (data.approvalStatus != null&& type!='payment') {
 				document.getElementById("approvalStatus").value = data.approvalStatus;
 
-			}
+			}*/
+			if (type !== 'payment') {
+                if (data.approvalDate != null) {
+                    document.getElementById("approvalDate").value = data.approvalDate;
+                }
+
+                if (data.approvalStatus != null) {
+                    document.getElementById("approvalStatus").value = data.approvalStatus;
+                }
+            }
+        } catch (error) {
+            console.error(error);
+        }
 		})
 		.catch(function(error) {
 			alert(error.message);
 		});
-
 }
 
 function getByLoanIdRegularEmiRepayment() {
