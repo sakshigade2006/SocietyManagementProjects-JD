@@ -100,9 +100,50 @@ public class GroupMaster {
 	private String totalEligibleAmt;
 	private String vFeesAmt;
 	private String planeName;
-	
+	private String paymode;
+	private String remarks;
+	private String payDate;
+	private String paymentStatus;
+	private String ddlcharges;
+	private String cspName;
 	
 
+	public String getPaymode() {
+		return paymode;
+	}
+	public void setPaymode(String paymode) {
+		this.paymode = paymode;
+	}
+	public String getRemarks() {
+		return remarks;
+	}
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
+	}
+	public String getPayDate() {
+		return payDate;
+	}
+	public void setPayDate(String payDate) {
+		this.payDate = payDate;
+	}
+	public String getPaymentStatus() {
+		return paymentStatus;
+	}
+	public void setPaymentStatus(String paymentStatus) {
+		this.paymentStatus = paymentStatus;
+	}
+	public String getDdlcharges() {
+		return ddlcharges;
+	}
+	public void setDdlcharges(String ddlcharges) {
+		this.ddlcharges = ddlcharges;
+	}
+	public String getCspName() {
+		return cspName;
+	}
+	public void setCspName(String cspName) {
+		this.cspName = cspName;
+	}
 	public String getPlaneName() {
 		return planeName;
 	}

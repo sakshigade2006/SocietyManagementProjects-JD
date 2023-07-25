@@ -6,9 +6,9 @@
 	class="skin-blue sidebar-mini"
 	style="height: auto; min-height: 100%; background-color: rgba(36, 105, 92, 0.15);"
 	cz-shortcut-listen="true">
-	<form method="post" action="?Type=Payment"
-		onsubmit="javascript:return WebForm_OnSubmit();" id="form1"
-		enctype="multipart/form-data">
+	<form method="post" action="GroupPayment" modelAttribute="GroupPayment"
+		 id="form1"
+		>
 		<div
 			style="height: auto; min-height: 100%; border-radius: 30px; margin: 15px; background: url(dist/img/back.jpg);">
 			<!-- Header Start-->
@@ -18,29 +18,7 @@
 			<!-- Aside Menu Start-->
 			<jsp:include page="../asideMenu.jsp" />
 			<!-- Aside Menu end -->
-			<script type="text/javascript">
-				//<![CDATA[
-				Sys.WebForms.PageRequestManager._initialize(
-						'ctl00$ScriptManager1', 'form1', [
-								'tctl00$ContentPlaceHolder1$updtpnl',
-								'ContentPlaceHolder1_updtpnl',
-								'tctl00$ContentPlaceHolder1$uppnlGold',
-								'ContentPlaceHolder1_uppnlGold',
-								'tctl00$ContentPlaceHolder1$upguardian',
-								'ContentPlaceHolder1_upguardian',
-								'tctl00$ContentPlaceHolder1$upcoap',
-								'ContentPlaceHolder1_upcoap',
-								'tctl00$ContentPlaceHolder1$uppnlde',
-								'ContentPlaceHolder1_uppnlde',
-								'tctl00$ContentPlaceHolder1$uppnkad',
-								'ContentPlaceHolder1_uppnkad',
-								'tctl00$ContentPlaceHolder1$upduc',
-								'ContentPlaceHolder1_upduc',
-								'tctl00$ContentPlaceHolder1$uppnladname',
-								'ContentPlaceHolder1_uppnladname' ], [], [],
-						90, 'ctl00');
-				//]]>
-			</script>
+			
 			<!-- Content Wrapper. Contains page content -->
 			<div class="content-wrapper" style="min-height: 1105.75px;">
 				<section class="content-header">
@@ -206,8 +184,8 @@
 												Code <strong style="color: Red">*</strong>
 											</label>
 											<div class="col-sm-8">
-												<input name="pin" type="text" maxlength="6"
-													readonly="readonly" id="pin" class="form-control"
+												<input name="pinCode" type="text" maxlength="6"
+													readonly="readonly" id="pinCode" class="form-control"
 													Placeholder="Enter Pincode" /> <span id="pinMsg"
 													style="color: Red; font-size: X-Small; font-weight: bold; display: none;">Enter
 													PIN</span>
@@ -496,8 +474,8 @@
 														<label for="drpPaymentBy" class="col-sm-4 control-label">Chrg.
 															Deduct by Cash</label>
 														<div class="col-sm-8">
-															<select name="ctl00$ContentPlaceHolder1$ddlcharges"
-																id="ContentPlaceHolder1_ddlcharges" class="form-control"
+															<select name="ddlcharges"
+																id="ddlcharges" class="form-control"
 																style="width: 100%;">
 																<option selected="selected" value="YES">YES</option>
 																<option value="NO">NO</option>
@@ -513,9 +491,9 @@
 																<div class="input-group-addon">
 																	<i class="fa fa-calendar"></i>
 																</div>
-																<input name="ctl00$ContentPlaceHolder1$txtPayDate"
+																<input name="payDate"
 																	type="date" value="01/08/2022"
-																	id="ContentPlaceHolder1_txtPayDate"
+																	id="payDate"
 																	class="form-control"
 																	data-inputmask="&#39;alias&#39;: &#39;dd/mm/yyyy&#39;"
 																	data-mask="" />
@@ -526,9 +504,9 @@
 														<label for="txtProcessingFee"
 															class="col-sm-4 control-label">Payment Status</label>
 														<div class="col-sm-8">
-															<input name="ctl00$ContentPlaceHolder1$txtPaymentStatus"
+															<input name="paymentStatus"
 																type="text" readonly="readonly"
-																id="ContentPlaceHolder1_txtPaymentStatus"
+																id="paymentStatus"
 																class="form-control" style="font-weight: bold;" />
 														</div>
 													</div>
@@ -537,8 +515,8 @@
 															By <strong style="color: Red">*</strong>
 														</label>
 														<div class="col-sm-8">
-															<select name="ctl00$ContentPlaceHolder1$ddlPaymode"
-																id="ContentPlaceHolder1_ddlPaymode" class="form-control"
+															<select name="paymode"
+																id="paymode" class="form-control"
 																style="width: 100%;">
 																<option selected="selected" value="Cash">Cash</option>
 																<option value="Cheque">Cheque</option>
@@ -553,15 +531,21 @@
 													<div class="form-group row">
 														<label class="col-sm-4 control-label">Pay Remarks</label>
 														<div class="col-sm-8">
-															<input name="ctl00$ContentPlaceHolder1$txtRemarks"
-																type="text" id="ContentPlaceHolder1_txtRemarks"
+															<input name="remarks"
+																type="text" id="remarks"
 																class="form-control" />
 														</div>
 													</div>
 												</div>
 											</div>
 											<div class="box-footer">
-												<div class="row col-md-12"></div>
+												<div class="row col-md-12">
+												<button type="submit"
+																		name="ctl00$ContentPlaceHolder1$btnSave"
+																		 id="button"
+																		class="btn btn-success pull-right margin-r-5">Payment
+																	</button>
+												</div>
 											</div>
 										</div>
 									</div>

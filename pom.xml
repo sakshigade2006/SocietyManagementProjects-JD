@@ -16,13 +16,7 @@
 	<properties>
 		<java.version>1.8</java.version>
 		
-		<!-- Liquibase settings -->
-			<liquibase.url>jdbc:mysql://103.14.99.198:3306/DBMigrations?serverTimezone=UTC</liquibase.url>
-			<liquibase.driver>com.mysql.cj.jdbc.Driver</liquibase.driver>
-			<liquibase.username>root</liquibase.username>
-			<liquibase.password>9QT2{gZvm[Gx~b</liquibase.password>
-			<liquibase.changeLogFile>db/changelog/db.changelog-master.xml</liquibase.changeLogFile>
-			<liquibase.promptOnNonLocalDatabase>false</liquibase.promptOnNonLocalDatabase>
+	
 		
 	</properties>
 	<dependencies>
@@ -43,10 +37,7 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<dependency>
-  			<groupId>org.liquibase</groupId>
-  			<artifactId>liquibase-core</artifactId>
-		</dependency>
+		
 
    		<dependency>
         	<groupId>org.springframework.boot</groupId>
