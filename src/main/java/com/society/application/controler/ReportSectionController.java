@@ -713,10 +713,10 @@ public class ReportSectionController {
 	public List<AdvisorCollectionReportModel> getTDSDeductionReport1(@ModelAttribute AdvisorCollectionReportModel model,
 			HttpServletRequest request) {
 		String month = request.getParameter("Month");
-		int mnth = Integer.parseInt(month);
+		//int mnth = Integer.parseInt(month);
 		String advisorcode = request.getParameter("Advisorcode");
 
-		List<AdvisorCollectionReportModel> list1 = tdsDeductionReportRepo.findBymonth(mnth);
+		List<AdvisorCollectionReportModel> list1 = tdsDeductionReportRepo.findBymonth(month);
 		List<AdvisorCollectionReportModel> list2 = tdsDeductionReportRepo.findByadvisorCode(advisorcode);
 
 		if (!list1.isEmpty()) {

@@ -4,6 +4,7 @@ import java.io.Console;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -86,43 +87,54 @@ public class MaturitySectionController {
 
 	/* MATURITY MASTER - 1. Daily Deposit */
 	@PostMapping("/maturityMaster1")
-	public String postMaturityMaster1(@ModelAttribute("dailyDeposite") DailyDeposite dailyDeposite, HttpServletRequest request) {
+	public String postMaturityMaster1(@ModelAttribute("dailyDeposite") DailyDeposite dailyDeposite, HttpServletRequest request ,HttpSession session) {
+		String createdBy =session.getAttribute("ID").toString();
+		dailyDeposite.setCreatedBy(createdBy);
 	    if (dailyDeposite.getDplancode() != null && dailyDeposite.getDinstfrom() != null && dailyDeposite.getDinstto() != null
 	            && dailyDeposite.getDroi() != null && dailyDeposite.getDdeduction() != null) {
 	        dailydepositerepo.save(dailyDeposite);
 	    } else {
 	       
 	    }
+	    session.setAttribute("createdBy", createdBy);
 	    return "maturitySection/MaturityMaster";
 	}
 
 	/* MATURITY MASTER - 2. Recurring Deposit */
 	@PostMapping("/maturityMaster2")
-	public String getmaturityMaster2(@ModelAttribute("RecurringDeposite") RecurringDeposit recurringdep, HttpServletRequest request) {
+	public String getmaturityMaster2(@ModelAttribute("RecurringDeposite") RecurringDeposit recurringdep, HttpServletRequest request,HttpSession session) {
+		String createdBy = session.getAttribute("ID").toString();
+		recurringdep.setCreatedBy(createdBy);
 		if(recurringdep.getRplancode() != null && recurringdep.getRinstfrom() != null && recurringdep.getRinstto() != null
 				&& recurringdep.getRroi() != null && recurringdep.getRdeduction() != null) {
 			recurringdepositrepo.save(recurringdep);
 		}else {
 			
 		}
+		session.setAttribute("createdBy", createdBy);
 		return "maturitySection/MaturityMaster";
 	}
 
 	/* MATURITY MASTER - 3. Fixed Deposit */
 	@PostMapping("/maturityMaster3")
-	public String getmaturityMaster3(@ModelAttribute("FixedDeposite") FixedDeposit fixeddep, HttpServletRequest request) {
+	public String getmaturityMaster3(@ModelAttribute("FixedDeposite") FixedDeposit fixeddep, HttpServletRequest request, HttpSession session) {
+		String createdBy = session.getAttribute("ID").toString();
+		fixeddep.setCreatedBy(createdBy);
 		if(fixeddep.getFplancode() != null && fixeddep.getFmonthfrom() != null && fixeddep.getFmonthto() != null
 				&& fixeddep.getFroi() != null && fixeddep.getFdeduction() != null) {
 			fixeddepositrepo.save(fixeddep);
 		}else {
 			
 		}
+		session.setAttribute("createdBy", createdBy);
 		return "maturitySection/MaturityMaster";
 	}
 
 	/* MATURITY MASTER - 4. MIS Deposit */
 	@PostMapping("/maturityMaster4")
-	public String postMaturityMaster4(@ModelAttribute("MISDeposite") MISDeposit misdep, HttpServletRequest request) {
+	public String postMaturityMaster4(@ModelAttribute("MISDeposite") MISDeposit misdep, HttpServletRequest request ,HttpSession session) {
+		String createdBy = session.getAttribute("ID").toString();
+		misdep.setCreatedBy(createdBy);
 	    if (misdep.getMisplancode() != null && misdep.getmISmonthfrom() != null && misdep.getmISmonthto() != null
 	            && misdep.getmISROI() != null && misdep.getmISdeduction() != null) {
 	        misepositrepo.save(misdep);
@@ -131,6 +143,7 @@ public class MaturitySectionController {
 	    } else {
 	    	 System.out.println("error");
 	    }
+	    session.setAttribute("createdBy", createdBy);
 	    return "maturitySection/MaturityMaster";
 	}
 

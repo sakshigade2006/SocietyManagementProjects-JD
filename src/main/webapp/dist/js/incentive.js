@@ -5,7 +5,8 @@ function searchIncentiveDetailsPrints() {
 		code: document.getElementById("code").value,
 	}
 	const myJson = JSON.stringify(input);
-	//alert(myJson)
+	//alert(myJson)fetchyear
+	
 	$.ajax({
 		type: "POST",
 		contentType: "application/json",

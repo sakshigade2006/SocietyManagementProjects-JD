@@ -39,7 +39,7 @@
 									<div class="form-group">
 										<label>Month</label> <select name="month" id="month"
 											class="form-control" style="width: 100%;">
-											<option value="0">Month</option>
+											<option value="0">Select</option>
 											<option value="01">Jan</option>
 											<option value="02">Feb</option>
 											<option value="03">Mar</option>
