@@ -87,10 +87,11 @@
 														<div class="input-group-addon">
 															<i class="fa fa-calendar"></i>
 														</div>
-														<input name="loanDate" type="text" value="01/08/2022"
-															id="ContentPlaceHolder1_txtLoanDate" class="form-control"
-															data-inputmask="&#39;alias&#39;: &#39;dd/mm/yyyy&#39;"
-															data-mask="" />
+															<input name="loanDate" type="date"
+																	value="01/08/2022" id="ContentPlaceHolder1_txtLoanDate"
+																	class="form-control"
+																	data-inputmask="&#39;alias&#39;: &#39;dd/mm/yyyy&#39;"
+																	data-mask=""/>
 													</div>
 													<span id="loanDateMsg"
 														style="color: Red; font-size: X-Small; font-weight: bold; display: none;">Enter
